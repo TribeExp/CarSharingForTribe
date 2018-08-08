@@ -1,7 +1,7 @@
 package com.basakdm.excartest.service;
 
-import com.basakdm.excartest.dao.UserRepository;
-import com.basakdm.excartest.dto.UserTest;
+import com.basakdm.excartest.dao.UserRepositoryDAO;
+import com.basakdm.excartest.entity.UsersEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,20 +12,15 @@ import java.util.Optional;
 public class UserTestServiceImpl implements UserTestService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserRepositoryDAO userRepositoryDAO;
 
     @Override
-    public List<UserTest> findAll() {
-        return userRepository.findAll();
+    public List<UsersEntity> findAll() {
+        return userRepositoryDAO.findAll();
     }
 
     @Override
-    public List<UserTest> findByName(String name) {
-        return userRepository.findByName(name);
-    }
-
-    @Override
-    public Optional<UserTest> findById(Long id) {
-        return userRepository.findById(id);
+    public Optional<UsersEntity> findById(Long id) {
+        return userRepositoryDAO.findById(id);
     }
 }

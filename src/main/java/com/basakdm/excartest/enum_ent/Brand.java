@@ -1,6 +1,6 @@
 package com.basakdm.excartest.enum_ent;
 
-public enum _Brand {
+public enum Brand {
 
     VOLKSWAGEN,
     JEEP,

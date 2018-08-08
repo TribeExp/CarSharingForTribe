@@ -1,6 +1,6 @@
 package com.basakdm.excartest;
 
-import com.basakdm.excartest.utils._ConnectMySQL;
+import com.basakdm.excartest.utils.ConnectMySQL;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,6 +9,6 @@ public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-        new _ConnectMySQL().firstQueries();
+        new ConnectMySQL().firstQueries();
     }
 }

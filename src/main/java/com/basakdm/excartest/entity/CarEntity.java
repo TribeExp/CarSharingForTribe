@@ -1,6 +1,6 @@
 package com.basakdm.excartest.entity;
 
-import com.basakdm.excartest.enum_ent._Transmission;
+import com.basakdm.excartest.enum_ent.Transmission;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +11,7 @@ import java.sql.Date;
 @Setter
 @Entity
 @Table(name = "cars")
-public class _CarEntity {
+public class CarEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +38,7 @@ public class _CarEntity {
     private String drive_gear;
     @Column(name = "transmission")
     @Enumerated(EnumType.STRING)
-    private _Transmission transmissionType;
+    private Transmission transmissionType;
     @Column
     private String type_engine;
     @Column
@@ -57,11 +57,15 @@ public class _CarEntity {
     private Date calendar_of_free;
     @ManyToOne
     @JoinColumn(name = "user_id_boss")
-    private _UsersEntity user_id_boss;
+    private UsersEntity user_id_boss;
     @ManyToOne
     @JoinColumn(name = "user_id_user")
-    private _UsersEntity user_id_user;
+    private UsersEntity user_id_user;
     @Column
     private boolean free;
+    @Column
+    private boolean isActivated;
+    @Column
+    private boolean causeOfRejected;
 
 }

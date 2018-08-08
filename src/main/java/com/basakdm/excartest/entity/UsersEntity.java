@@ -10,7 +10,7 @@ import java.sql.Date;
 @Setter
 @Entity
 @Table(name = "user")
-public class _UsersEntity {
+public class UsersEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -79,5 +79,5 @@ public class _UsersEntity {
 
    /* @Column(name = "transmission")
     @Enumerated(EnumType.STRING)
-    private _Transmission transmissionType;*/
+    private Transmission transmissionType;*/
 

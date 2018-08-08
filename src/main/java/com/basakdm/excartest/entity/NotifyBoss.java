@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "notify_boss")
-public class _NotifyBoss {
+public class NotifyBoss {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

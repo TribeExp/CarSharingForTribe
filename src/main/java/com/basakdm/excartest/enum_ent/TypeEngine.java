@@ -1,6 +1,6 @@
 package com.basakdm.excartest.enum_ent;
 
-public enum _TypeEngine {
+public enum TypeEngine {
 
     ICE,
     ELECTRIC_MONITOR;

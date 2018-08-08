@@ -1,16 +1,6 @@
 package com.basakdm.excartest.controller;
 
-import com.basakdm.excartest.dao.CarRepositoryDAO;
-import com.basakdm.excartest.dao.UserRepository;
-import com.basakdm.excartest.dto.CarDTO;
-import com.basakdm.excartest.dto.UserTest;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/car")

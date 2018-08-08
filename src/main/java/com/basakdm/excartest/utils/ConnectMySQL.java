@@ -1,6 +1,6 @@
 package com.basakdm.excartest.utils;
 
-public class _ConnectMySQL extends _RequestControl {
+public class ConnectMySQL extends RequestControl {
 
     /**
      * A class is a way to create a connection to the database, through the parent class

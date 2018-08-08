@@ -1,6 +1,6 @@
 package com.basakdm.excartest.enum_ent;
 
-public enum _TypeFuel {
+public enum TypeFuel {
 
     BENZINE,
     DIESEL,

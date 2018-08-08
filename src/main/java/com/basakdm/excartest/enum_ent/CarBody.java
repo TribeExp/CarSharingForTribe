@@ -1,6 +1,6 @@
 package com.basakdm.excartest.enum_ent;
 
-public enum _CarBody {
+public enum CarBody {
 
     SEDAN,
     WAGON,
