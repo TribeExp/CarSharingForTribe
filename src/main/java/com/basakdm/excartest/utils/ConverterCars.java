@@ -3,7 +3,7 @@ package com.basakdm.excartest.utils;
 import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.entity.CarEntity;
 
-public class EntityMapperUtills {
+public class ConverterCars {
 
     public static CarDTO mapCar(CarEntity carEntity) {
         CarDTO carDto = new CarDTO();

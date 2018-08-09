@@ -1,10 +1,7 @@
 package com.basakdm.excartest.dto;
 
-import com.basakdm.excartest.enum_ent.car_enum.Transmission;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.persistence.Column;
 
 @Getter
 @Setter
