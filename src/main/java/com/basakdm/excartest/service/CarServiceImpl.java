@@ -1,9 +1,23 @@
 package com.basakdm.excartest.service;
 
+import com.basakdm.excartest.dao.CarRepositoryDAO;
+import com.basakdm.excartest.entity.CarEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CarServiceImpl implements CarService {
+
+    @Autowired
+    private CarRepositoryDAO carRepositoryDAO;
+
+    @Override
+    public List<CarEntity> findAll() {
+        return carRepositoryDAO.findAll();
+    }
+
 /*
     @Autowired
     private CarRepositoryDAO carRepository;
@@ -25,7 +39,6 @@ public class CarServiceImpl implements CarService {
     public CarDTO createCar(CarDTO carDto) {
         return null;
     }
-
 */
 
 }

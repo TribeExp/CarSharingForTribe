@@ -62,10 +62,10 @@ public class CarEntity {
     @JoinColumn(name = "user_id_user")
     private UsersEntity user_id_user;
     @Column
-    private boolean free;
+    private String isFree;
     @Column
-    private boolean isActivated;
+    private String isActivated;
     @Column
-    private boolean causeOfRejected;
+    private String causeOfRejected;
 
 }

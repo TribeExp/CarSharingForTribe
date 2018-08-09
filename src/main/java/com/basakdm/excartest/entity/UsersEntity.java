@@ -54,7 +54,7 @@ public class UsersEntity {
     @Column
     private long phone_num;
     @Column
-    private boolean notify;
+    private Boolean notify;
     @Column
     private long id_car;
     @Column
