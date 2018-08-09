@@ -31,4 +31,9 @@ public class UserController {
     public ResponseEntity<UserDTO> findCarById(@PathVariable @Positive Long userId){
         return userService.findById(userId).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+    @GetMapping(value = "/createUser")
+    public UserDTO createUser(UserDTO userDTO){
+        return userService.createUser(userDTO);
+    }
 }

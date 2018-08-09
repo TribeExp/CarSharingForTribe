@@ -1,8 +1,12 @@
 package com.basakdm.excartest.service.service_impl;
 
 import com.basakdm.excartest.dao.UserRepositoryDAO;
+import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.dto.UserDTO;
+import com.basakdm.excartest.entity.CarEntity;
+import com.basakdm.excartest.entity.UsersEntity;
 import com.basakdm.excartest.service.UserService;
+import com.basakdm.excartest.utils.ConverterCars;
 import com.basakdm.excartest.utils.ConverterUsers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,5 +29,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<UserDTO> findById(Long id) {
         return userRepositoryDAO.findById(id).map(ConverterUsers::mapUser);
+    }
+
+    @Override
+    public UserDTO createUser(UserDTO userDTO) {
+        UsersEntity createdUserEntity = userRepositoryDAO.saveAndFlush(ConverterUsers.mapUser(userDTO));
+        return ConverterUsers.mapUser(createdUserEntity);
     }
 }

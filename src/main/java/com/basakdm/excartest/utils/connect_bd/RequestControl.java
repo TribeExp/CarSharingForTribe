@@ -1,4 +1,4 @@
-package com.basakdm.excartest.utils;
+package com.basakdm.excartest.utils.connect_bd;
 
 import javax.persistence.Column;
 import java.sql.*;

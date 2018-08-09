@@ -26,4 +26,11 @@ public interface UserService {
      * @return Optional with user, if user was founded. Empty optional in opposite case
      */
     Optional<UserDTO> findById(Long id);
+
+    /**
+     * Create user.
+     * @param userDTO user params for create a new user
+     * @return Created user with id.
+     */
+    UserDTO createUser(UserDTO userDTO);
 }

@@ -2,6 +2,7 @@ package com.basakdm.excartest.service.service_impl;
 
 import com.basakdm.excartest.dao.CarRepositoryDAO;
 import com.basakdm.excartest.dto.CarDTO;
+import com.basakdm.excartest.entity.CarEntity;
 import com.basakdm.excartest.service.CarService;
 import com.basakdm.excartest.utils.ConverterCars;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +28,10 @@ public class CarServiceImpl implements CarService {
         return carRepositoryDAO.findById(id).map(ConverterCars::mapCar);
     }
 
-/*
-
-
     @Override
     public CarDTO createCar(CarDTO carDto) {
-        return null;
+        CarEntity createdCarEntity = carRepositoryDAO.saveAndFlush(ConverterCars.mapCar(carDto));
+        return ConverterCars.mapCar(createdCarEntity);
     }
-*/
 
 }

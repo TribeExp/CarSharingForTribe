@@ -10,4 +10,5 @@ import java.util.Collection;
 @Repository
 public interface CarRepositoryDAO extends JpaRepository<CarEntity, Long> {
 
+    Collection<CarEntity> saveAndFlush(CarDTO carDTO);
 }

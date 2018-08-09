@@ -17,12 +17,6 @@ public interface CarService  {
      */
     Collection<CarDTO> findAll();
 
-
-
-    //List<CarDTO> findByName(String name);
-
-
-
     /**
      * Find car by id
      *
@@ -31,13 +25,12 @@ public interface CarService  {
      */
     Optional<CarDTO> getCarById(Long id);
 
-
-
-
     /**
      * Create car.
      * @param carDto car params for create a new car
      * @return Created car with id.
      */
-    //CarDTO createCar(CarDTO carDto);
+    CarDTO createCar(CarDTO carDto);
+
+    //List<CarDTO> findByName(String name);
 }
