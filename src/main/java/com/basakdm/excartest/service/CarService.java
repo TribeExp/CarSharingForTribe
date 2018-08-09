@@ -1,10 +1,10 @@
 package com.basakdm.excartest.service;
 
 
-import com.basakdm.excartest.entity.CarEntity;
+import com.basakdm.excartest.dto.CarDTO;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Collection;
 
 @Service
 public interface CarService  {
@@ -14,7 +14,7 @@ public interface CarService  {
      *
      * @return collection of cars
      */
-    List<CarEntity> findAll();
+    Collection<CarDTO> findAll();
 
     /*List<CarDTO> findByName(String name);
 

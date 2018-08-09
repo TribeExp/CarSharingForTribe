@@ -7,6 +7,8 @@ public class EntityMapperUtills {
 
     public static CarDTO mapCar(CarEntity carEntity) {
         CarDTO carDto = new CarDTO();
+        carDto.setBrand(carEntity.getBrand());
+        carDto.setId(carEntity.getId());
         return carDto;
     }
 

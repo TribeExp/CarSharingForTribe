@@ -1,16 +1,14 @@
 package com.basakdm.excartest.controller;
 
-import com.basakdm.excartest.dao.CarRepositoryDAO;
+import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.entity.CarEntity;
-import com.basakdm.excartest.entity.UsersEntity;
 import com.basakdm.excartest.service.CarService;
-import com.basakdm.excartest.service.CarServiceImpl;
-import com.basakdm.excartest.service.UserTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -39,7 +37,7 @@ public class CarController {
 
 
     @GetMapping("/all")
-    public List<CarEntity> findAll(){
+    public Collection<CarDTO> findAll(){
         return carServiceImpl.findAll();
     }
 

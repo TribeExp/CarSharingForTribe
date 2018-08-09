@@ -1,6 +1,6 @@
 package com.basakdm.excartest.dto;
 
-import com.basakdm.excartest.enum_ent.Transmission;
+import com.basakdm.excartest.enum_ent.car_enum.Transmission;
 import lombok.Getter;
 import lombok.Setter;
 
