@@ -1,6 +1,6 @@
 package com.basakdm.excartest.entity;
 
-import com.basakdm.excartest.enum_ent.car_enum.Transmission;
+import com.basakdm.excartest.enum_ent.car_enum.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,46 +15,46 @@ public class CarEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column
     private String brand;
     @Column
     private String model;
     @Column
-    private long year;
+    private Long year;
     @Column
-    private String state_num;
+    private String stateNum;
     @Column
-    private long mileage;
+    private Long mileage;
     @Column
-    private int seats;
+    private Integer seats;
     @Column
     private String location;
     @Column
     private String photo;
     @Column
-    private String car_body;
+    private CarBody carBody;
     @Column
-    private String drive_gear;
+    private DriveGear driveGear;
     @Column(name = "transmission")
     @Enumerated(EnumType.STRING)
     private Transmission transmissionType;
     @Column
-    private String type_engine;
+    private TypeEngine typeEngine;
     @Column
-    private String fuels;
+    private TypeFuel fuels;
     @Column
-    private int fuel_consumption;
+    private Integer fuelConsumption;
     @Column
-    private String short_description;
+    private String shortDescription;
     @Column
     private String insurance;
     @Column
     private String text;
     @Column
-    private long price_lease;
+    private Long priceLease;
     @Column
-    private Date calendar_of_free;
+    private Date calendarOfFree;
     @ManyToOne
     @JoinColumn(name = "user_id_boss")
     private UsersEntity user_id_boss;

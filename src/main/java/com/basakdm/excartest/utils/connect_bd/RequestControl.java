@@ -29,17 +29,17 @@ public abstract class RequestControl {
     public void firstQueries() {
 
         // Filling the table 'user' with test data
-        setDataUser(statement);
+        //setDataUser(statement);
 
         // Filling the table 'car' with test data
-        setDataCars(statement);
+        //setDataCars(statement);
     }
 
 
     /**
      * Filling the table 'user' with test data
      */
-    protected void setDataUser(Statement statement) {
+   /* protected void setDataUser(Statement statement) {
         try {
             statement.executeUpdate(
                     "INSERT INTO user(" +
@@ -50,6 +50,7 @@ public abstract class RequestControl {
                             "phone_num, notify, id_car, price, price_add, fin_price, " +
                             "time_for_drive, cause_add_price, type_user) " +
                             "VALUES (" +
+
                             "'Карпович','Дмитрий','Иванович','qwerty8'," +
                             "'mail@hotmail.com', 'KH', 789456, 'РОВД', '2008/10/23', " +
                             "'2008/10/23', 'Гродно', 'QT', 12345678, 'Гаи', " +
@@ -60,7 +61,7 @@ public abstract class RequestControl {
             System.out.println("Заполнение User = Провал");
             e.printStackTrace();
         }
-    }
+    }*/
 
 
     /**

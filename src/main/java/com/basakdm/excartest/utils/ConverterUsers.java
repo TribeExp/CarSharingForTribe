@@ -8,8 +8,8 @@ public class ConverterUsers {
 
         public static UserDTO mapUser(UsersEntity usersEntity) {
             UserDTO userDTO = new UserDTO();
-            userDTO.setFirst_name(usersEntity.getFirst_name());
-            userDTO.setLast_name(usersEntity.getLast_name());
+            userDTO.setFirstName(usersEntity.getFirstName());
+            userDTO.setLastName(usersEntity.getLastName());
             return userDTO;
         }
 

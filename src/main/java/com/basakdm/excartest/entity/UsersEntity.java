@@ -1,6 +1,8 @@
 package com.basakdm.excartest.entity;
 
+import com.basakdm.excartest.enum_ent.TypeOfNotify;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -14,61 +16,63 @@ public class UsersEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column
-    private String last_name;
+    private String lastName;
     @Column
-    private String first_name;
+    private String firstName;
     @Column
-    private String middle_name;
+    private String middleName;
     @Column
     private String password;
     @Column
     private String mail;
     @Column
-    private String series_passport;
+    private String seriesPassport;
     @Column
-    private long number_seria;
+    private Long numberSeria;
     @Column
-    private String who_get_pasport;
+    private String whoGetPasport;
     @Column
-    private Date when_get_passport;
+    private Date whenGetPassport;
     @Column
-    private Date birth_date;
+    private Date birthDate;
     @Column
-    private String birth_place;
+    private String birthPlace;
     @Column
-    private String serial_drive_doc;
+    private String serialDriveDoc;
     @Column
-    private long num_drive_doc;
+    private Long numDriveDoc;
     @Column
-    private String who_get_drive_doc;
+    private String whoGetDriveDoc;
     @Column
-    private Date when_get_drive_doc;
+    private Date whenGetDriveDoc;
     @Column
-    private Date expirty_date;
+    private Date expirtyDate;
     @Column
-    private String category_drive_doc;
+    private String categoryDriveDoc;
     @Column
     private String photo;
     @Column
-    private long phone_num;
+    private Long phoneNum;
     @Column
     private Boolean notify;
     @Column
-    private long id_car;
+    private Long idCar;
     @Column
-    private long price;
+    private Long price;
     @Column
-    private long price_add;
+    private Long priceAdd;
     @Column
-    private long fin_price;
+    private Long finPrice;
     @Column
-    private Date time_for_drive;
+    private Date timeForDrive;
     @Column
-    private String cause_add_price;
+    private String causeAddPrice;
     @Column
-    private String type_user;
+    private String typeUser;
+    @Column
+    private TypeOfNotify typeOfNotify;
 
 
     // TODO: Enums for ALLLLLLLLLLLLLLL
