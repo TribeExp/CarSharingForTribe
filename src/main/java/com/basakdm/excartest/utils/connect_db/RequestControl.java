@@ -1,16 +1,14 @@
 package com.basakdm.excartest.utils.connect_db;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.sql.*;
 
 public abstract class RequestControl {
 
     protected Connection connection;
     protected Statement statement;
-    protected String username = "pdhyozs0rhqutiam";
-    protected String password = "civ6wjr1uwue4jf7";
-    protected String connectionUrl = "mysql://pdhyozs0rhqutiam:civ6wjr1uwue4jf7@uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/czf6r6gtkiv1r8og";
+    protected String username = "root";
+    protected String password = "22256";
+    protected String connectionUrl = "jdbc:mysql://localhost:3336/car_sharing?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
 
     RequestControl() {
         try {
@@ -28,71 +26,6 @@ public abstract class RequestControl {
 
 
     public void firstQueries() {
-        try{
-            statement.executeUpdate("INSERT INTO `car_sharing`.`user`" +
-                    "(`id`," +
-                    "`birth_date`," +
-                    "`birth_place`," +
-                    "`category_drive_doc`," +
-                    "`cause_add_price`," +
-                    "`expirty_date`," +
-                    "`fin_price`," +
-                    "`first_name`," +
-                    "`id_car`," +
-                    "`last_name`," +
-                    "`mail`," +
-                    "`middle_name`," +
-                    "`notify`," +
-                    "`num_drive_doc`," +
-                    "`number_seria`," +
-                    "`password`," +
-                    "`phone_num`," +
-                    "`photo`," +
-                    "`price`," +
-                    "`price_add`," +
-                    "`serial_drive_doc`," +
-                    "`series_passport`," +
-                    "`time_for_drive`," +
-                    "`type_of_notify`," +
-                    "`type_user`," +
-                    "`when_get_drive_doc`," +
-                    "`when_get_passport`," +
-                    "`who_get_drive_doc`," +
-                    "`who_get_pasport`)" +
-                    "VALUES" +
-                    "(null," +
-                    "null," +
-                    "'minsc'," +
-                    "'b'," +
-                    "1," +
-                    "null," +
-                    "null," +
-                    "'Basak'," +
-                    "null," +
-                    "null," +
-                    "'xxxccc@mail.com'," +
-                    "'Dmitry'," +
-                    "null," +
-                    "123131231," +
-                    "543534," +
-                    "12345," +
-                    "8029777777," +
-                    "null," +
-                    "null," +
-                    "null," +
-                    "1323," +
-                    "null," +
-                    "null," +
-                    "null," +
-                    "'ADMIN'," +
-                    "null," +
-                    "null," +
-                    "null," +
-                    "null);");
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-
         // Filling the table 'user' with test data
         //setDataUser(statement);
 

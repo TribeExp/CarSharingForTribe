@@ -39,7 +39,6 @@ public class ConverterCars {
         return carDto;
     }
 
-    //TODO: make it in future
     public static CarEntity mapCar(CarDTO carDto) {
         CarEntity carEntity;
         Optional<CarEntity> carEntityOptional = carService.findById(carDto.getId());
