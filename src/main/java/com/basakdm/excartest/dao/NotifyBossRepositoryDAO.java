@@ -1,4 +1,7 @@
 package com.basakdm.excartest.dao;
 
-public interface NotifyBossRepositoryDAO {
+import com.basakdm.excartest.entity.NotifyBoss;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface NotifyBossRepositoryDAO extends JpaRepository<NotifyBoss, Long> {
 }
