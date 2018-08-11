@@ -29,4 +29,9 @@ public class NotifyBossServiceImpl implements NotifyBossService {
     public NotifyBoss create(NotifyBoss notifyBoss) {
         return notifyBossRepositoryDAO.saveAndFlush(notifyBoss);
     }
+
+    @Override
+    public void delete(long id) {
+        notifyBossRepositoryDAO.deleteById(id);
+    }
 }

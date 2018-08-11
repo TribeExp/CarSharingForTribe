@@ -42,4 +42,9 @@ public class NotifyUserController {
         return ConvertNotifyUser.mapNotifyUser(notifyUserService.create(notifyUser));
     }
 
+    @GetMapping(value = "/delete/{id}")
+    public void delete(@PathVariable @Positive Long id){
+        notifyUserService.delete(id);
+    }
+
 }

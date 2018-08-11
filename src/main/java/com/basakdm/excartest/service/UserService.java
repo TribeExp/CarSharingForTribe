@@ -31,4 +31,6 @@ public interface UserService {
      * @return Created user with id.
      */
     UserEntity createUser(UserEntity userEntity);
+
+    void delete(long id);
 }

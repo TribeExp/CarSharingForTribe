@@ -39,5 +39,10 @@ public class NotifyBossController {
         return ConvertNotifyBoss.mapNotifyBoss(notifyBossService.create(notifyBoss));
     }
 
+    @GetMapping(value = "/delete/{id}")
+    public void delete(@PathVariable @Positive Long id){
+        notifyBossService.delete(id);
+    }
+
 }
 

@@ -33,6 +33,11 @@ public class UserServiceImpl implements UserService {
         return userRepositoryDAO.saveAndFlush(userEntity);
     }
 
+    @Override
+    public void delete(long id) {
+        userRepositoryDAO.deleteById(id);
+    }
+
 
 
     /*@Modifying(clearAutomatically = true)

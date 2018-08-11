@@ -7,10 +7,7 @@ import com.basakdm.excartest.service.CarService;
 import com.basakdm.excartest.utils.ConverterCars;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
 import java.util.Collection;
@@ -44,5 +41,14 @@ public class CarController {
         return ConverterCars.mapCar(carServiceImpl.createCar(carEntity));
     }
 
+    @GetMapping(value = "/delete/{carId}")
+    public void delete(@PathVariable @Positive Long carId){
+        carServiceImpl.delete(carId);
+    }
+
+    /*@GetMapping(value = "/editCar")
+    public CarEntity editCar(CarEntity carEntity){
+        return carServiceImpl.editCar(carEntity);
+    }*/
 
 }

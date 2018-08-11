@@ -39,4 +39,9 @@ public class NotifyAdminController {
         return ConvertNotifyAdmin.mapNotifyAdmin(notifyAdminService.create(notifyAdmin));
     }
 
+    @GetMapping(value = "/delete/{id}")
+    public void delete(@PathVariable @Positive Long id){
+        notifyAdminService.delete(id);
+    }
+
 }

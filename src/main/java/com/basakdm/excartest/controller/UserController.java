@@ -41,4 +41,9 @@ public class UserController {
     public UserEntity createUser(UserEntity userEntity){
         return userService.createUser(userEntity);
     }
+
+    @GetMapping(value = "/delete/{id}")
+    public void delete(@PathVariable @Positive Long id){
+        userService.delete(id);
+    }
 }

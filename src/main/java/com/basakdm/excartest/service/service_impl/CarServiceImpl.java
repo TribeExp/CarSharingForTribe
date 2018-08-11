@@ -30,4 +30,18 @@ public class CarServiceImpl implements CarService {
         return carRepositoryDAO.saveAndFlush(carEntity);
     }
 
+    @Override
+    public void delete(long id) {
+        carRepositoryDAO.deleteById(id);
+    }
+
+    /*@Override
+    public CarEntity editCar(Long id) {
+        Optional<CarEntity> carEntity = carRepositoryDAO.findById(id);
+        return carRepositoryDAO.save(carEntity);
+    }*/
+
+
+
+
 }

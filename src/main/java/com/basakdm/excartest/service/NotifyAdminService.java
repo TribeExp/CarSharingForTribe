@@ -12,4 +12,5 @@ public interface NotifyAdminService {
     Collection<NotifyAdmin> findAll();
     Optional<NotifyAdmin> findById(Long id);
     NotifyAdmin create(NotifyAdmin notifyAdmin);
+    void delete(long id);
 }

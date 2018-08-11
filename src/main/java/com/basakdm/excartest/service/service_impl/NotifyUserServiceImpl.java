@@ -29,6 +29,11 @@ public class NotifyUserServiceImpl implements NotifyUserService {
     public NotifyUser create(NotifyUser notifyUser) {
         return notifyUserRepositoryDAO.saveAndFlush(notifyUser);
     }
+
+    @Override
+    public void delete(long id) {
+        notifyUserRepositoryDAO.deleteById(id);
+    }
 }
 
 

@@ -12,4 +12,5 @@ public interface NotifyBossService {
     Collection<NotifyBoss> findAll();
     Optional<NotifyBoss> findById(Long id);
     NotifyBoss create(NotifyBoss notifyBoss);
+    void delete(long id);
 }

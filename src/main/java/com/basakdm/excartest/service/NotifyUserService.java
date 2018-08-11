@@ -13,4 +13,6 @@ public interface NotifyUserService {
     Collection<NotifyUser> findAll();
     Optional<NotifyUser> findById(Long id);
     NotifyUser create(NotifyUser notifyUser);
+    void delete(long id);
+
 }
