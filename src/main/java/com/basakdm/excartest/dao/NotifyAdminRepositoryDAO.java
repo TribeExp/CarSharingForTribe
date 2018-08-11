@@ -1,4 +1,4 @@
 package com.basakdm.excartest.dao;
 
-public class NotifyAdminRepositoryDAO {
+public interface NotifyAdminRepositoryDAO {
 }
