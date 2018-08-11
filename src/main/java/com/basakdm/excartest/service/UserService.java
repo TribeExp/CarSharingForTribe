@@ -1,12 +1,10 @@
 package com.basakdm.excartest.service;
 
-import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.dto.UserDTO;
-import com.basakdm.excartest.entity.UsersEntity;
+import com.basakdm.excartest.entity.UserEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,7 +15,7 @@ public interface UserService {
      *
      * @return collection of users
      */
-    Collection<UserDTO> findAll();
+    Collection<UserEntity> findAll();
 
     /**
      * Find car by id
@@ -25,12 +23,12 @@ public interface UserService {
      * @param id user unique identifier
      * @return Optional with user, if user was founded. Empty optional in opposite case
      */
-    Optional<UserDTO> findById(Long id);
+    Optional<UserEntity> findById(Long id);
 
     /**
      * Create user.
-     * @param userDTO user params for create a new user
+     * @param userEntity user params for create a new user
      * @return Created user with id.
      */
-    UserDTO createUser(UserDTO userDTO);
+    UserEntity createUser(UserEntity userEntity);
 }

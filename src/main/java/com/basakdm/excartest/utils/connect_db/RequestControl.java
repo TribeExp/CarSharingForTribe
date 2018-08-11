@@ -1,6 +1,5 @@
-package com.basakdm.excartest.utils.connect_bd;
+package com.basakdm.excartest.utils.connect_db;
 
-import javax.persistence.Column;
 import java.sql.*;
 
 public abstract class RequestControl {
@@ -8,8 +7,8 @@ public abstract class RequestControl {
     protected Connection connection;
     protected Statement statement;
     protected String username = "root";
-    protected String password = "Karpovich9";
-    protected String connectionUrl = "jdbc:mysql://localhost:3306/car_sharing?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
+    protected String password = "22256";
+    protected String connectionUrl = "jdbc:mysql://localhost:3336/car_sharing?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
 
     RequestControl() {
         try {
@@ -27,7 +26,6 @@ public abstract class RequestControl {
 
 
     public void firstQueries() {
-
         // Filling the table 'user' with test data
         //setDataUser(statement);
 
@@ -74,14 +72,14 @@ public abstract class RequestControl {
                             "`car_sharing`.`cars` (" +
                             "`brand`, `model`, `year`, `state_num`, `mileage`, `seats`, " +
                             "`location`, `photo`, `transmission`, `car_body`, `drive_gear`, `type_engine`, `fuels`, `fuel_consumption`, " +
-                            "`short_description`, `insurance`, `text`, `price_lease`, `calendar_of_free`, `user_id_boss`, `user_id_user`, `is_free`," +
+                            "`short_description`, `insurance`, `optional_accessories`, `text`, `price_lease`, `calendar_of_free`, `user_id_boss`, `user_id_user`, `is_free`," +
                             "`is_activated`, `cause_of_rejected`) " +
                             "VALUES (" +
 
 
                             "'BMW', '320 (e46)', '2001', '5431 ВН-4', '180000', '5', " +
-                            "'г. Гродно, ул. Домбровского', 'www.photo.ru', 'MANUAL','Sedan', 'rear-wheel-drive', 'ICE', '', '8', " +
-                            "'Кондиционер, кожаный салон', 'БелГосСтрах', 'Авто на ходу. Все исправно', '60', '2008/10/23', '1', '1', 'qwer'," +
+                            "'г. Гродно, ул. Домбровского', 'www.photo.ru', 'MANUAL', 'SEDAN', 'REAL_WHEEL_DRIVE', 'ICE', 'GAS', '8', " +
+                            "'Кондиционер, кожаный салон', 'БелГосСтрах', 'Зарядка', 'Авто на ходу. Все исправно', '60', '2008/10/23', '1', '1', 'qwer'," +
                             "'q', 'w')");
         } catch (SQLException e) {
             System.out.println("Заполнение Cars = Провал");

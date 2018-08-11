@@ -2,7 +2,6 @@ package com.basakdm.excartest.entity;
 
 import com.basakdm.excartest.enum_ent.TypeOfNotify;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -12,7 +11,7 @@ import java.sql.Date;
 @Setter
 @Entity
 @Table(name = "user")
-public class UsersEntity {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -72,6 +71,7 @@ public class UsersEntity {
     @Column
     private String typeUser;
     @Column
+    @Enumerated(EnumType.STRING)
     private TypeOfNotify typeOfNotify;
 
 

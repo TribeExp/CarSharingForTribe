@@ -1,16 +1,13 @@
 package com.basakdm.excartest.service.service_impl;
 
 import com.basakdm.excartest.dao.CarRepositoryDAO;
-import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.entity.CarEntity;
 import com.basakdm.excartest.service.CarService;
-import com.basakdm.excartest.utils.ConverterCars;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class CarServiceImpl implements CarService {
@@ -19,19 +16,19 @@ public class CarServiceImpl implements CarService {
     private CarRepositoryDAO carRepositoryDAO;
 
     @Override
-    public List<CarDTO> findAll() {
-        return carRepositoryDAO.findAll().stream().map(ConverterCars::mapCar).collect(Collectors.toList());
+    public List<CarEntity> findAll() {
+        return carRepositoryDAO.findAll();
     }
 
     @Override
-    public Optional<CarDTO> getCarById(Long id) {
-        return carRepositoryDAO.findById(id).map(ConverterCars::mapCar);
+    public Optional<CarEntity> findById(Long id) {
+        return carRepositoryDAO.findById(id);
     }
 
+
     @Override
-    public CarDTO createCar(CarDTO carDto) {
-        CarEntity createdCarEntity = carRepositoryDAO.saveAndFlush(ConverterCars.mapCar(carDto));
-        return ConverterCars.mapCar(createdCarEntity);
+    public CarEntity createCar(CarEntity carEntity) {
+        return carRepositoryDAO.saveAndFlush(carEntity);
     }
 
 }

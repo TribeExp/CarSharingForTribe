@@ -1,4 +1,4 @@
-package com.basakdm.excartest.utils.connect_bd;
+package com.basakdm.excartest.utils.connect_db;
 
 public class ConnectMySQL extends RequestControl {
 

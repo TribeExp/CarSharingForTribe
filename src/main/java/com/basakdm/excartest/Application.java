@@ -1,6 +1,6 @@
 package com.basakdm.excartest;
 
-import com.basakdm.excartest.utils.connect_bd.ConnectMySQL;
+import com.basakdm.excartest.utils.connect_db.ConnectMySQL;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

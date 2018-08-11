@@ -33,34 +33,40 @@ public class CarEntity {
     @Column
     private String photo;
     @Column
+    @Enumerated(EnumType.STRING)
     private CarBody carBody;
     @Column
+    @Enumerated(EnumType.STRING)
     private DriveGear driveGear;
     @Column(name = "transmission")
     @Enumerated(EnumType.STRING)
     private Transmission transmissionType;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type_engine")
+    private TypeEngine engineType;
+    @Column(name = "fuels")
+    @Enumerated(EnumType.STRING)
+    private TypeFuel fuelType;
     @Column
-    private TypeEngine typeEngine;
-    @Column
-    private TypeFuel fuels;
-    @Column
-    private Integer fuelConsumption;
-    @Column
-    private String shortDescription;
+    private Double fuelConsumption;
+    @Column(name = "short_description")
+    private String conditionInformation;
     @Column
     private String insurance;
     @Column
-    private String text;
+    private String optionalAccessories;
+    @Column(name = "text")
+    private String adText;
     @Column
     private Long priceLease;
     @Column
     private Date calendarOfFree;
     @ManyToOne
     @JoinColumn(name = "user_id_boss")
-    private UsersEntity user_id_boss;
+    private UserEntity user_id_boss;
     @ManyToOne
     @JoinColumn(name = "user_id_user")
-    private UsersEntity user_id_user;
+    private UserEntity user_id_user;
     @Column
     private String isFree;
     @Column

@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CarDTO {
+public class BCarDTO {
 
     private Long id;
     private String brand;
