@@ -10,4 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface CarRepositoryDAO extends JpaRepository<CarEntity, Long> {
+
 }

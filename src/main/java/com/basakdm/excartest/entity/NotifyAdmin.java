@@ -13,9 +13,9 @@ public class NotifyAdmin {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
+    @Column
+    private Long id_user_plea;
     @Column
     private String text_notify;
-    @Column
-    private long id_user_plea;
 }

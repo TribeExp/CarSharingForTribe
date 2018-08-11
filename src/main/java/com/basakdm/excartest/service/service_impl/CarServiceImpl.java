@@ -25,7 +25,6 @@ public class CarServiceImpl implements CarService {
         return carRepositoryDAO.findById(id);
     }
 
-
     @Override
     public CarEntity createCar(CarEntity carEntity) {
         return carRepositoryDAO.saveAndFlush(carEntity);
