@@ -1,4 +1,7 @@
 package com.basakdm.excartest.dao;
 
-public class NotifyUserRepositoryDAO {
+import com.basakdm.excartest.entity.NotifyUser;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface NotifyUserRepositoryDAO extends JpaRepository<NotifyUser, Long> {
 }

@@ -1,10 +1,7 @@
 package com.basakdm.excartest.utils;
 
-import com.basakdm.excartest.dto.NotifyAdminDTO;
 import com.basakdm.excartest.dto.NotifyBossDTO;
-import com.basakdm.excartest.entity.NotifyAdmin;
 import com.basakdm.excartest.entity.NotifyBoss;
-import com.basakdm.excartest.service.NotifyAdminService;
 import com.basakdm.excartest.service.NotifyBossService;
 import org.springframework.beans.factory.annotation.Autowired;
 
