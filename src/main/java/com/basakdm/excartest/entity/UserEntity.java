@@ -1,11 +1,13 @@
 package com.basakdm.excartest.entity;
 
+import com.basakdm.excartest.enum_ent.Roles;
 import com.basakdm.excartest.enum_ent.TypeOfNotify;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -68,20 +70,43 @@ public class UserEntity {
     private Date timeForDrive;
     @Column
     private String causeAddPrice;
+    @ElementCollection(targetClass = Roles.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
+    private Set<Roles> role;
     @Column
-    private String typeUser;
+    private Boolean active; //add!!!!!!!!!!!!!!!!!!!!!!!!
     @Column
     @Enumerated(EnumType.STRING)
     private TypeOfNotify typeOfNotify;
 
+    public String getPassword() {
+        return password;
+    }
 
-    // TODO: Enums for ALLLLLLLLLLLLLLL
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public Set<Roles> getRole() {
+        return role;
+    }
+
+    public void setRole(Set<Roles> role) {
+        this.role = role;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
 }
-
-
-
-
-   /* @Column(name = "transmission")
-    @Enumerated(EnumType.STRING)
-    private Transmission transmissionType;*/
 

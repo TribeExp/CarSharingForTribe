@@ -1,16 +1,16 @@
 package com.basakdm.excartest.service.service_impl;
 
 import com.basakdm.excartest.dao.UserRepositoryDAO;
-import com.basakdm.excartest.dto.UserDTO;
 import com.basakdm.excartest.entity.UserEntity;
+import com.basakdm.excartest.enum_ent.Roles;
 import com.basakdm.excartest.service.UserService;
-import com.basakdm.excartest.utils.ConverterUsers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -29,13 +29,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Optional<UserEntity> findByMail(String email) {
+        return userRepositoryDAO.findByMail(email);
+    }
+
+    @Override
     public UserEntity createUser(UserEntity userEntity) {
+        //userEntity.setPassword(bCryptPasswordEncoder.encode(userEntity.getPassword()));
+
+        userEntity.setActive(true);
+        userEntity.setRole(Collections.singleton(Roles.USER));
+
         return userRepositoryDAO.saveAndFlush(userEntity);
     }
 
-
-
-    /*@Modifying(clearAutomatically = true)
-    @Query("UPDATE user u SET .address = :address WHERE c.id = :companyId")
-    int updateAddress(@Param("companyId") int companyId, @Param("address") String address);*/
 }

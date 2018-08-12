@@ -18,12 +18,14 @@ public interface UserService {
     Collection<UserEntity> findAll();
 
     /**
-     * Find car by id
+     * Find user by id
      *
      * @param id user unique identifier
      * @return Optional with user, if user was founded. Empty optional in opposite case
      */
     Optional<UserEntity> findById(Long id);
+
+    Optional<UserEntity> findByMail(String email);
 
     /**
      * Create user.
