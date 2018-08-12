@@ -3,13 +3,12 @@ package com.basakdm.excartest.controller;
 import com.basakdm.excartest.dto.UserDTO;
 import com.basakdm.excartest.entity.UserEntity;
 import com.basakdm.excartest.service.UserService;
+import com.basakdm.excartest.utils.ConverterCars;
 import com.basakdm.excartest.utils.ConverterUsers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
 import java.util.Collection;
@@ -36,12 +35,13 @@ public class UserController {
                 .map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping(value = "/createUser")
-    public UserEntity createUser(UserEntity userEntity){
-        return userService.createUser(userEntity);
+    @PostMapping("/createUser")
+    public ResponseEntity<?> createUser(@RequestBody UserEntity userEntity){
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(userService.createUser(userEntity));
     }
 
-    @GetMapping(value = "/delete/{id}")
+    @DeleteMapping ("/delete/{id}")
     public void delete(@PathVariable @Positive Long id){
         userService.delete(id);
     }

@@ -4,8 +4,10 @@ import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.entity.CarEntity;
 import com.basakdm.excartest.entity.NotifyAdmin;
 import com.basakdm.excartest.service.CarService;
+import com.basakdm.excartest.utils.ConvertNotifyAdmin;
 import com.basakdm.excartest.utils.ConverterCars;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,12 +38,13 @@ public class CarController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping(value = "/createCar")
-    public CarDTO createCar(CarEntity carEntity){
-        return ConverterCars.mapCar(carServiceImpl.createCar(carEntity));
+    @PostMapping("/createCar")
+    public ResponseEntity<?> createCar(@RequestBody CarEntity carEntity){
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(ConverterCars.mapCar(carServiceImpl.createCar(carEntity)));
     }
 
-    @GetMapping(value = "/delete/{carId}")
+    @DeleteMapping("/delete/{carId}")
     public void delete(@PathVariable @Positive Long carId){
         carServiceImpl.delete(carId);
     }
