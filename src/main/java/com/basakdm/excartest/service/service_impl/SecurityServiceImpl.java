@@ -34,7 +34,7 @@ public class SecurityServiceImpl implements SecurityService {
         return authentication -> {
             String email = authentication.getName();
             String password = authentication.getCredentials().toString();
-            UserEntity user = userRepositoryDAO.findByMail(email)
+            UserEntity user = userRepositoryDAO.findByMailEquals(email)
                     .orElseThrow(() -> new RuntimeException("User with such a mail doesn't exist"));
 
             Set<GrantedAuthority> grantedAuthorities = new HashSet<>();

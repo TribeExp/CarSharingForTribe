@@ -36,12 +36,12 @@ public class UserController {
                 .map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping(value = "/createUser")
+    /*@GetMapping(value = "/createUser")
     public UserEntity createUser(UserEntity userEntity){
         return userService.createUser(userEntity);
-    }
+    }*/
 
-    @PostMapping("/registration")
+    /*@PostMapping("/registration")
     public ResponseEntity<?> registration(UserEntity userEntity) {
 
         //if user already exist
@@ -53,5 +53,5 @@ public class UserController {
        // securityService.autoLogin(userEntity.getMail(), userEntity.getPassword());
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ConverterUsers.mapUser(userService.createUser(userEntity)));
-    }
+    }*/
 }

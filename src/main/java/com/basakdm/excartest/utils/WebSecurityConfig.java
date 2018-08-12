@@ -3,8 +3,10 @@ package com.basakdm.excartest.utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -30,7 +32,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/registration", "/", "/login", "/logout").permitAll()
+                    .antMatchers(HttpMethod.POST,"/auth/**", "/tests/**").permitAll()
+                    .antMatchers(HttpMethod.GET, "/auth/**", "/tests/**").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
@@ -40,6 +43,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .logout()
                     .logoutUrl("/logout")
                     .permitAll();
+                //.and().httpBasic();
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers(HttpMethod.POST, "/auth/**")
+                .and().ignoring().antMatchers(HttpMethod.GET, "/auth/**", "/tests/**");
     }
 
     /*@Autowired
@@ -53,7 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource)
                 .passwordEncoder(bCryptPasswordEncoder())
                 .usersByUsernameQuery("select mail, password, active from user where mail=?")
-                .authoritiesByUsernameQuery("select u.mail, ur.roles from user u inner join user_role ur on u.id = ur.user_id where u.mail=?");
+                .authoritiesByUsernameQuery("select u.mail, ur.role from user u inner join user_role ur on u.id = ur.user_id where u.mail=?");
     }
 }
 

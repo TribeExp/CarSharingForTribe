@@ -30,17 +30,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Optional<UserEntity> findByMail(String email) {
-        return userRepositoryDAO.findByMail(email);
+        return userRepositoryDAO.findByMailEquals(email);
     }
 
     @Override
-    public UserEntity createUser(UserEntity userEntity) {
+    public UserEntity createUser(String email, String password) {
         //userEntity.setPassword(bCryptPasswordEncoder.encode(userEntity.getPassword()));
+        UserEntity newUser = new UserEntity();
+        newUser.setPassword(password);
+        newUser.setMail(email);
+        newUser.setActive(true);
+        //newUser.setRole(Collections.singleton(Roles.USER));
 
-        userEntity.setActive(true);
-        userEntity.setRole(Collections.singleton(Roles.USER));
-
-        return userRepositoryDAO.saveAndFlush(userEntity);
+        return userRepositoryDAO.saveAndFlush(newUser);
     }
 
 }

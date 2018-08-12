@@ -4,6 +4,7 @@ import com.basakdm.excartest.enum_ent.Roles;
 import com.basakdm.excartest.enum_ent.TypeOfNotify;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -11,6 +12,7 @@ import java.util.Set;
 
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name = "user")
 public class UserEntity {
@@ -107,6 +109,10 @@ public class UserEntity {
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
 

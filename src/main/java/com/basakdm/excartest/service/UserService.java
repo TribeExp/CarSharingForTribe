@@ -29,8 +29,8 @@ public interface UserService {
 
     /**
      * Create user.
-     * @param userEntity user params for create a new user
-     * @return Created user with id.
+     * @param email email for sending user password
+     * @return Created user.
      */
-    UserEntity createUser(UserEntity userEntity);
+    UserEntity createUser(String email, String password);
 }
