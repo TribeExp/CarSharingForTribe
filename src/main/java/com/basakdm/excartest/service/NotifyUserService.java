@@ -1,7 +1,7 @@
 package com.basakdm.excartest.service;
 
-import com.basakdm.excartest.entity.NotifyBoss;
 import com.basakdm.excartest.entity.NotifyUser;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;

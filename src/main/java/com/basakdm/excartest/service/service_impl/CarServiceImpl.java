@@ -35,11 +35,6 @@ public class CarServiceImpl implements CarService {
         carRepositoryDAO.deleteById(id);
     }
 
-    /*@Override
-    public CarEntity editCar(Long id) {
-        Optional<CarEntity> carEntity = carRepositoryDAO.findById(id);
-        return carRepositoryDAO.save(carEntity);
-    }*/
 
 
 

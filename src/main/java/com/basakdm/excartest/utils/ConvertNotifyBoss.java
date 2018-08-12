@@ -14,6 +14,9 @@ public class ConvertNotifyBoss {
 
     public static NotifyBossDTO mapNotifyBoss(NotifyBoss notifyBoss) {
         NotifyBossDTO notifyBossDTO = new NotifyBossDTO();
+        notifyBossDTO.setText_notify(notifyBoss.getText_notify());
+        notifyBossDTO.setId(notifyBoss.getId());
+        notifyBossDTO.setType_of_notify(notifyBoss.getType_of_notify());
         return notifyBossDTO;
     }
 
@@ -23,6 +26,11 @@ public class ConvertNotifyBoss {
 
         if (optionalNotifyBoss.isPresent()) notifyBoss = optionalNotifyBoss.get();
         else throw new RuntimeException("Incorrect ID of car");
+
+        notifyBoss.setText_notify(notifyBossDTO.getText_notify());
+        notifyBoss.setId(notifyBossDTO.getId());
+        notifyBoss.setType_of_notify(notifyBossDTO.getType_of_notify());
+
         return notifyBoss;
     }
 }

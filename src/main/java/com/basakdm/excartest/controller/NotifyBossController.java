@@ -5,11 +5,9 @@ import com.basakdm.excartest.entity.NotifyBoss;
 import com.basakdm.excartest.service.NotifyBossService;
 import com.basakdm.excartest.utils.ConvertNotifyBoss;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
 import java.util.Collection;
@@ -34,12 +32,13 @@ public class NotifyBossController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping(value = "/create")
-    public NotifyBossDTO create(NotifyBoss notifyBoss){
-        return ConvertNotifyBoss.mapNotifyBoss(notifyBossService.create(notifyBoss));
+    @PostMapping("/create")
+    public ResponseEntity<?> create(@RequestBody NotifyBoss notifyBoss){
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(ConvertNotifyBoss.mapNotifyBoss(notifyBossService.create(notifyBoss)));
     }
 
-    @GetMapping(value = "/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable @Positive Long id){
         notifyBossService.delete(id);
     }

@@ -4,12 +4,11 @@ import com.basakdm.excartest.dto.NotifyAdminDTO;
 import com.basakdm.excartest.entity.NotifyAdmin;
 import com.basakdm.excartest.service.NotifyAdminService;
 import com.basakdm.excartest.utils.ConvertNotifyAdmin;
+import com.basakdm.excartest.utils.ConvertNotifyBoss;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
 import java.util.Collection;
@@ -34,9 +33,10 @@ public class NotifyAdminController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping(value = "/create")
-    public NotifyAdminDTO create(NotifyAdmin notifyAdmin){
-        return ConvertNotifyAdmin.mapNotifyAdmin(notifyAdminService.create(notifyAdmin));
+    @PostMapping("/create")
+    public ResponseEntity<?> create(@RequestBody NotifyAdmin notifyAdmin){
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(ConvertNotifyAdmin.mapNotifyAdmin(notifyAdminService.create(notifyAdmin)));
     }
 
     @GetMapping(value = "/delete/{id}")

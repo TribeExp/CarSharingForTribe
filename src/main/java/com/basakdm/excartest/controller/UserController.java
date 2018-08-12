@@ -3,7 +3,6 @@ package com.basakdm.excartest.controller;
 import com.basakdm.excartest.dto.UserDTO;
 import com.basakdm.excartest.entity.UserEntity;
 import com.basakdm.excartest.service.UserService;
-import com.basakdm.excartest.utils.ConverterCars;
 import com.basakdm.excartest.utils.ConverterUsers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
