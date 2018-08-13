@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,6 +48,16 @@ public class CarServiceImpl implements CarService {
         Long id = carEntity.getId();
         Optional<CarEntity> carOld = findById(id);
         if(carOld.isPresent()) carRepositoryDAO.save(carEntity);
+    }
+
+    @Override
+    public Collection<CarEntity> findAllByIsActivatedFalse() {
+        return carRepositoryDAO.findAllByIsActivatedFalse();
+    }
+
+    @Override
+    public Collection<CarEntity> findAllByIsActivatedTrue() {
+        return carRepositoryDAO.findAllByIsActivatedTrue();
     }
 
 

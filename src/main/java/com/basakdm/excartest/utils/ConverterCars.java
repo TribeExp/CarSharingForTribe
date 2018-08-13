@@ -35,7 +35,9 @@ public class ConverterCars {
         carDto.setOptionalAccessories(carEntity.getOptionalAccessories());
         carDto.setAdText(carEntity.getAdText());
         carDto.setPriceLease(carEntity.getPriceLease());
-        carDto.setCauseOfRejected(carEntity.getCauseOfRejected());
+        carDto.setIsActivated(carEntity.getIsActivated());
+        carDto.setIsFree(carEntity.getIsFree());
+        carDto.setStateNum(carEntity.getStateNum());
         return carDto;
     }
 
@@ -66,7 +68,9 @@ public class ConverterCars {
         carEntity.setOptionalAccessories(carDto.getOptionalAccessories());
         carEntity.setAdText(carDto.getAdText());
         carEntity.setPriceLease(carDto.getPriceLease());
-        carEntity.setCauseOfRejected(carDto.getCauseOfRejected());
+        carEntity.setIsFree(carDto.getIsFree());
+        carEntity.setIsActivated(carDto.getIsActivated());
+        carEntity.setStateNum(carDto.getStateNum());
         return carEntity;
     }
 }

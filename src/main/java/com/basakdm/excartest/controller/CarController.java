@@ -51,5 +51,13 @@ public class CarController {
         carServiceImpl.update(car);
     }
 
+    @GetMapping("/isActivated/False")
+    public Collection<CarEntity> findAllByIsActivatedFalse(){
+        return carServiceImpl.findAllByIsActivatedFalse();
+    }
 
+    @GetMapping("/isActivated/True")
+    public Collection<CarEntity> findAllByIsActivatedTrue(){
+        return carServiceImpl.findAllByIsActivatedTrue();
+    }
 }

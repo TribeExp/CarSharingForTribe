@@ -1,6 +1,7 @@
 package com.basakdm.excartest.service;
 
 
+import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.entity.CarEntity;
 import org.springframework.stereotype.Service;
 
@@ -40,4 +41,7 @@ public interface CarService  {
     void delete(long id);
 
     void update(CarEntity carEntity);
+
+    Collection<CarEntity> findAllByIsActivatedFalse();
+    Collection<CarEntity> findAllByIsActivatedTrue();
 }

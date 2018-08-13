@@ -22,15 +22,12 @@ public class CarDTO {
     private Transmission transmissionType;
     private TypeEngine engineType;
     private TypeFuel fuelType;
-    //changed to double
     private Double fuelConsumption;
-    //shortDescription - conditionInformation(данные о состоянии)
     private String conditionInformation;
     private String insurance;
-    //optionalAccessories(доп аксессуары)
     private String optionalAccessories;
-    //text - adText
     private String adText;
     private Long priceLease;
-    private String causeOfRejected;
+    private Boolean isFree;
+    private Boolean isActivated;
 }
