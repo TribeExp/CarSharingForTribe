@@ -1,6 +1,7 @@
 package com.basakdm.excartest.dao;
 
 import com.basakdm.excartest.entity.CarEntity;
+import com.basakdm.excartest.enum_ent.car_enum.Transmission;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -21,6 +22,7 @@ public interface CarRepositoryDAO extends JpaRepository<CarEntity, Long> {
     Collection<CarEntity> findAllByIsFreeTrue();
 
 
-
+    // returns a list with the specified transmission
+    Collection<CarEntity> findAllByTransmissionType(Transmission transmission);
 
 }

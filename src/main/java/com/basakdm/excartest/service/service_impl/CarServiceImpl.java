@@ -3,6 +3,7 @@ package com.basakdm.excartest.service.service_impl;
 import com.basakdm.excartest.dao.CarRepositoryDAO;
 import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.entity.CarEntity;
+import com.basakdm.excartest.enum_ent.car_enum.Transmission;
 import com.basakdm.excartest.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -67,6 +68,11 @@ public class CarServiceImpl implements CarService {
     @Override
     public Collection<CarEntity> findAllByIsFreeTrue() {
         return carRepositoryDAO.findAllByIsFreeTrue();
+    }
+
+    @Override
+    public Collection<CarEntity> findAllByTransmissionType(Transmission transmission) {
+        return carRepositoryDAO.findAllByTransmissionType(transmission);
     }
 
 

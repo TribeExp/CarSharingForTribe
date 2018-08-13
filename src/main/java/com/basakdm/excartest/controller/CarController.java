@@ -2,6 +2,7 @@ package com.basakdm.excartest.controller;
 
 import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.entity.CarEntity;
+import com.basakdm.excartest.enum_ent.car_enum.Transmission;
 import com.basakdm.excartest.service.CarService;
 import com.basakdm.excartest.utils.ConverterCars;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,6 +84,15 @@ public class CarController {
         String coordinates = carServiceImpl.findById(carId).get().getLocation();
         return coordinates;
     }
+
+    @GetMapping(value = "/transmissionType/{transmission}")
+    public Collection<CarEntity> getAllByTransmissionType(@PathVariable @Positive Transmission transmission){
+        Collection<CarEntity> cars = carServiceImpl.findAllByTransmissionType(transmission);
+        return cars;
+    }
+
+
+
 
 
 
