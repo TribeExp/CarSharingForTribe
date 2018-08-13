@@ -39,12 +39,5 @@ public interface CarService  {
      */
     void delete(long id);
 
-    /**
-     * Edit car by entity.
-     * @param car params for edit a car.
-     * @return  new edited car.
-     */
-    //CarEntity editCar(CarEntity car);
-
-    //List<CarDTO> findByName(String name);
+    void update(CarEntity carEntity);
 }

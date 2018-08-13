@@ -1,6 +1,7 @@
 package com.basakdm.excartest.controller;
 
 import com.basakdm.excartest.dto.UserDTO;
+import com.basakdm.excartest.entity.CarEntity;
 import com.basakdm.excartest.entity.UserEntity;
 import com.basakdm.excartest.service.UserService;
 import com.basakdm.excartest.utils.ConverterCars;
@@ -44,5 +45,10 @@ public class UserController {
     @DeleteMapping ("/delete/{id}")
     public void delete(@PathVariable @Positive Long id){
         userService.delete(id);
+    }
+
+    @PostMapping ("/update")
+    public void update(@RequestBody UserEntity userEntity){
+        userService.update(userEntity);
     }
 }

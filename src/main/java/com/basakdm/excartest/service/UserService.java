@@ -1,6 +1,7 @@
 package com.basakdm.excartest.service;
 
 import com.basakdm.excartest.dto.UserDTO;
+import com.basakdm.excartest.entity.CarEntity;
 import com.basakdm.excartest.entity.UserEntity;
 import org.springframework.stereotype.Service;
 
@@ -33,4 +34,6 @@ public interface UserService {
     UserEntity createUser(UserEntity userEntity);
 
     void delete(long id);
+
+    void update(UserEntity userEntity);
 }

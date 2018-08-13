@@ -2,6 +2,7 @@ package com.basakdm.excartest.service.service_impl;
 
 import com.basakdm.excartest.dao.UserRepositoryDAO;
 import com.basakdm.excartest.dto.UserDTO;
+import com.basakdm.excartest.entity.CarEntity;
 import com.basakdm.excartest.entity.UserEntity;
 import com.basakdm.excartest.service.UserService;
 import com.basakdm.excartest.utils.ConverterUsers;
@@ -35,8 +36,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void delete(long id) {
-        userRepositoryDAO.deleteById(id);
+        Optional<UserEntity> userOld = findById(id);
+        if(userOld.isPresent()) userRepositoryDAO.deleteById(id);
     }
+
+    @Override
+    public void update(UserEntity userEntity) {
+        Long id = userEntity.getId();
+        Optional<UserEntity> userOld = findById(id);
+        if(userOld.isPresent()) userRepositoryDAO.save(userEntity);
+    }
+
+
+
 
 
 

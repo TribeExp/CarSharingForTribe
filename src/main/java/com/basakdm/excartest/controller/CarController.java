@@ -49,9 +49,10 @@ public class CarController {
         carServiceImpl.delete(carId);
     }
 
-    /*@GetMapping(value = "/editCar")
-    public CarEntity editCar(CarEntity carEntity){
-        return carServiceImpl.editCar(carEntity);
-    }*/
+    @PostMapping ("/update")
+    public void update(@RequestBody CarEntity car){
+        carServiceImpl.update(car);
+    }
+
 
 }
