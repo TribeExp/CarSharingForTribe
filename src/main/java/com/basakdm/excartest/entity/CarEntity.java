@@ -23,6 +23,8 @@ public class CarEntity {
     @Column
     private Long year;
     @Column
+    private Long id_owner;
+    @Column
     private String stateNum;
     @Column
     private Long mileage;

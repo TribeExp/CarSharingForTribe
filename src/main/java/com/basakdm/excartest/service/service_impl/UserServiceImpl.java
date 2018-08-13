@@ -47,12 +47,4 @@ public class UserServiceImpl implements UserService {
         if(userOld.isPresent()) userRepositoryDAO.save(userEntity);
     }
 
-
-
-
-
-
-    /*@Modifying(clearAutomatically = true)
-    @Query("UPDATE user u SET .address = :address WHERE c.id = :companyId")
-    int updateAddress(@Param("companyId") int companyId, @Param("address") String address);*/
 }

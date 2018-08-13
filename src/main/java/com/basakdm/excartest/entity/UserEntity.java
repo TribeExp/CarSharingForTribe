@@ -20,8 +20,6 @@ public class UserEntity {
     @Column
     private String firstName;
     @Column
-    private String middleName;
-    @Column
     private String password;
     @Column
     private String mail;
@@ -59,12 +57,6 @@ public class UserEntity {
     private Long idCar;
     @Column
     private Long price;
-    @Column
-    private Long priceAdd;
-    @Column
-    private Long finPrice;
-    @Column
-    private Date timeForDrive;
     @Column
     private String causeAddPrice;
     @Column
