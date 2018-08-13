@@ -16,4 +16,10 @@ public interface CarRepositoryDAO extends JpaRepository<CarEntity, Long> {
     // returns a list of activated car
     Collection<CarEntity> findAllByIsActivatedTrue();
 
+
+    // returns a list of unfree car
+    Collection<CarEntity> findAllByIsFreeFalse();
+    // returns a list of free car
+    Collection<CarEntity> findAllByIsFreeTrue();
+
 }

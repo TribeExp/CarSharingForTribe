@@ -44,4 +44,7 @@ public interface CarService  {
 
     Collection<CarEntity> findAllByIsActivatedFalse();
     Collection<CarEntity> findAllByIsActivatedTrue();
+
+    Collection<CarEntity> findAllByIsFreeFalse();
+    Collection<CarEntity> findAllByIsFreeTrue();
 }
