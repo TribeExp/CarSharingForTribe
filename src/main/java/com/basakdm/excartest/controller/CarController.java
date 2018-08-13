@@ -74,8 +74,14 @@ public class CarController {
 
     @GetMapping(value = "/getPhoto/{carId}")
     public String getPhotoById(@PathVariable @Positive Long carId){
-        String s = carServiceImpl.findById(carId).get().getPhoto();
-        return s;
+        String photoReference = carServiceImpl.findById(carId).get().getPhoto();
+        return photoReference;
+    }
+
+    @GetMapping(value = "/getLocation/{carId}")
+    public String getLocationById(@PathVariable @Positive Long carId){
+        String coordinates = carServiceImpl.findById(carId).get().getLocation();
+        return coordinates;
     }
 
 
