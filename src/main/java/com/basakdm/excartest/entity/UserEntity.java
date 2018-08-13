@@ -1,6 +1,5 @@
 package com.basakdm.excartest.entity;
 
-import com.basakdm.excartest.enum_ent.TypeOfNotify;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -70,18 +69,6 @@ public class UserEntity {
     private String causeAddPrice;
     @Column
     private String typeUser;
-    @Column
-    @Enumerated(EnumType.STRING)
-    private TypeOfNotify typeOfNotify;
 
-
-    // TODO: Enums for ALLLLLLLLLLLLLLL
 }
-
-
-
-
-   /* @Column(name = "transmission")
-    @Enumerated(EnumType.STRING)
-    private Transmission transmissionType;*/
 

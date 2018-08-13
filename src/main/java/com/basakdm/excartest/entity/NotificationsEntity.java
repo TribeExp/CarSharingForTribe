@@ -8,14 +8,18 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "notify_admin")
-public class NotifyAdmin {
+@Table(name = "notifications")
+public class NotificationsEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column
-    private Long id_user_plea;
+    private long id;
     @Column
     private String text_notify;
+    @Column
+    private Long from_whom_id;
+    @Column
+    private Long to_whom_id;
+    @Column
+    private Long order_id;
 }

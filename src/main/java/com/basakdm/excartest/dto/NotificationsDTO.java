@@ -5,8 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class NotifyBossDTO {
+public class NotificationsDTO {
+
     private long id;
     private String text_notify;
-    private int type_of_notify;
 }
