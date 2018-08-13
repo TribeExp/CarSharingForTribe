@@ -8,8 +8,6 @@ import java.util.Collection;
 
 @Repository
 public interface CarRepositoryDAO extends JpaRepository<CarEntity, Long> {
-    //update where id equels(entity entity)
-    //void findByName(String name);
 
     // returns a list of unactivated car
     Collection<CarEntity> findAllByIsActivatedFalse();
@@ -21,5 +19,8 @@ public interface CarRepositoryDAO extends JpaRepository<CarEntity, Long> {
     Collection<CarEntity> findAllByIsFreeFalse();
     // returns a list of free car
     Collection<CarEntity> findAllByIsFreeTrue();
+
+
+
 
 }

@@ -72,4 +72,12 @@ public class CarController {
     }
 
 
+    @GetMapping(value = "/getPhoto/{carId}")
+    public String getPhotoById(@PathVariable @Positive Long carId){
+        String s = carServiceImpl.findById(carId).get().getPhoto();
+        return s;
+    }
+
+
+
 }
