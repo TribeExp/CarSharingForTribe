@@ -3,7 +3,7 @@ package com.basakdm.excartest.service;
 
 import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.entity.CarEntity;
-import com.basakdm.excartest.enum_ent.car_enum.Transmission;
+import com.basakdm.excartest.enum_ent.car_enum.*;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -50,4 +50,8 @@ public interface CarService  {
     Collection<CarEntity> findAllByIsFreeTrue();
 
     Collection<CarEntity> findAllByTransmissionType(Transmission transmission);
+    Collection<CarEntity> findAllByCarBody(CarBody carBody);
+    Collection<CarEntity> findAllByDriveGear(DriveGear driveGear);
+    Collection<CarEntity> findAllByEngineType(TypeEngine typeEngine);
+    Collection<CarEntity> findAllByFuelType(TypeFuel typeFuel);
 }

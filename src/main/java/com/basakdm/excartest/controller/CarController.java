@@ -2,7 +2,7 @@ package com.basakdm.excartest.controller;
 
 import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.entity.CarEntity;
-import com.basakdm.excartest.enum_ent.car_enum.Transmission;
+import com.basakdm.excartest.enum_ent.car_enum.*;
 import com.basakdm.excartest.service.CarService;
 import com.basakdm.excartest.utils.ConverterCars;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,21 +78,38 @@ public class CarController {
         String photoReference = carServiceImpl.findById(carId).get().getPhoto();
         return photoReference;
     }
-
     @GetMapping(value = "/getLocation/{carId}")
     public String getLocationById(@PathVariable @Positive Long carId){
         String coordinates = carServiceImpl.findById(carId).get().getLocation();
         return coordinates;
     }
 
+
     @GetMapping(value = "/transmissionType/{transmission}")
     public Collection<CarEntity> getAllByTransmissionType(@PathVariable @Positive Transmission transmission){
         Collection<CarEntity> cars = carServiceImpl.findAllByTransmissionType(transmission);
         return cars;
     }
-
-
-
+    @GetMapping(value = "/carBody/{carBody}")
+    public Collection<CarEntity> getAllByCarBody(@PathVariable @Positive CarBody carBody){
+        Collection<CarEntity> cars = carServiceImpl.findAllByCarBody(carBody);
+        return cars;
+    }
+    @GetMapping(value = "/driveGear/{driveGear}")
+    public Collection<CarEntity> getAllByDriveGear(@PathVariable @Positive DriveGear driveGear){
+        Collection<CarEntity> cars = carServiceImpl.findAllByDriveGear(driveGear);
+        return cars;
+    }
+    @GetMapping(value = "/typeEngine/{typeEngine}")
+    public Collection<CarEntity> getAllByEngineType(@PathVariable @Positive TypeEngine typeEngine){
+        Collection<CarEntity> cars = carServiceImpl.findAllByEngineType(typeEngine);
+        return cars;
+    }
+    @GetMapping(value = "/typeFuel/{typeFuel}")
+    public Collection<CarEntity> getAllByTypeFuel(@PathVariable @Positive TypeFuel typeFuel){
+        Collection<CarEntity> cars = carServiceImpl.findAllByFuelType(typeFuel);
+        return cars;
+    }
 
 
 
