@@ -13,9 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
@@ -24,7 +22,11 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserRepositoryDAO userRepositoryDAO;
 
+
+    // при вызове этого метода не выводится набор из ячейки setCarId, поэтому используем getSetCarById, для получения этой ячейки
     @GetMapping("/all")
     public Collection<UserDTO> findAll(){
         return userService.findAll().stream()
@@ -73,31 +75,21 @@ public class UserController {
         return userService.findById(userId).get().getPhoneNum();
     }
     @GetMapping(value = "/getterSetCar/{userId}")
-    public ArrayList<Long> getSetCarById(@PathVariable @Positive Long userId){
+    public HashSet<Long> getSetCarById(@PathVariable @Positive Long userId){
         return userService.findById(userId).get().getSetIdCar();
     }
-
-    /*@PostMapping(value = "/setterSetCar/{userId}/{idNewCar}")
-    public void getSetCarById(@RequestBody @PathVariable @Positive Long userId, @PathVariable @Positive Long idNewCar){
-        Optional<UserEntity> userEntity = userService.findById(userId);
-        ArrayList<Long> car = userEntity.get().getSetIdCar();
-        car.add(idNewCar);
-        userEntity.get().setSetIdCar(car);
-        userRepositoryDAO.save(userEntity);
-    }*/
-
-
+    @PostMapping(value = "/setterSetCar/{userId}/{idNewCar}")
+    public void setSetCarById(@RequestBody @PathVariable @Positive Long userId, @PathVariable @Positive Long idNewCar){
+        Optional<UserEntity> optionalFoundUser = userService.findById(userId);
+        UserEntity foundUser = optionalFoundUser.get();
+        HashSet<Long> set = foundUser.getSetIdCar();
+        set.add(idNewCar);
+        foundUser.setSetIdCar(set);
+        userRepositoryDAO.saveAndFlush(foundUser);
+    }
 
 
 
-    /*@GetMapping(value = "/setterSetCar/{userId}")
-    public int[] setSetCarById(@PathVariable @Positive Long userId){
-
-
-        int[] oldCar = userService.findById(userId).get().getSetIdCar();
-
-        return
-    }*/
 
 
 }

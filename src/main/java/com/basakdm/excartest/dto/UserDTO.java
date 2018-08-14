@@ -6,6 +6,9 @@ import lombok.Setter;
 import javax.persistence.Column;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -35,6 +38,6 @@ public class UserDTO {
     private Long idCar;
     private Long price;
     private Date timeForDrive;
-    private ArrayList<Long> setIdCar;
+    private Set<Long> setIdCar;
 
 }
