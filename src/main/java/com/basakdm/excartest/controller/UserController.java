@@ -51,4 +51,14 @@ public class UserController {
     public void update(@RequestBody UserEntity userEntity){
         userService.update(userEntity);
     }
+
+
+    @GetMapping(value = "/getPasswordById/{userId}")
+    public String getPasswordById(@PathVariable @Positive Long userId){
+        return userService.findById(userId).get().getPassword();
+    }
+    @GetMapping(value = "/getEmailById/{userId}")
+    public String getEmailById(@PathVariable @Positive Long userId){
+        return userService.findById(userId).get().getMail();
+    }
 }
