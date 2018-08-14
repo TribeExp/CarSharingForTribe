@@ -25,8 +25,6 @@ public class UserController {
     @Autowired
     private UserRepositoryDAO userRepositoryDAO;
 
-
-    // при вызове этого метода не выводится набор из ячейки setCarId, поэтому используем getSetCarById, для получения этой ячейки
     @GetMapping("/all")
     public Collection<UserDTO> findAll(){
         return userService.findAll().stream()
@@ -86,6 +84,10 @@ public class UserController {
         set.add(idNewCar);
         foundUser.setSetIdCar(set);
         userRepositoryDAO.saveAndFlush(foundUser);
+    }
+    @GetMapping(value = "/getNotifyById/{userId}")
+    public Boolean getNotifyById(@PathVariable @Positive Long userId){
+        return userService.findById(userId).get().getNotify();
     }
 
 
