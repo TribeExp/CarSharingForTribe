@@ -18,6 +18,7 @@ public class ConvertOrders {
         orderDTO.setId(orderEntity.getId());
         orderDTO.setAmount_of_days(orderEntity.getAmount_of_days());
         orderDTO.setFrom_what_date(orderEntity.getFrom_what_date());
+        orderDTO.setPriceAdd(orderEntity.getPriceAdd());
         return orderDTO;
     }
 
@@ -32,6 +33,7 @@ public class ConvertOrders {
         orderEntity.setId(orderDTO.getId());
         orderEntity.setAmount_of_days(orderDTO.getAmount_of_days());
         orderEntity.setFrom_what_date(orderDTO.getFrom_what_date());
+        orderEntity.setPriceAdd(orderDTO.getPriceAdd());
         return orderEntity;
     }
 }

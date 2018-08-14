@@ -59,9 +59,9 @@ public class OrderController {
     }
 
     // number of days by car
-    @GetMapping(value = "/getAmountOfDaysById/{userId}")
-    public Integer getAmountOfDaysById(@PathVariable @Positive Long userId){
-        return orderService.findById(userId).get().getAmount_of_days();
+    @GetMapping(value = "/getAmountOfDaysById/{orderId}")
+    public Integer getAmountOfDaysById(@PathVariable @Positive Long orderId){
+        return orderService.findById(orderId).get().getAmount_of_days();
     }
     // calculate last day driving
     @GetMapping(value = "/calcDateFromMomentOfTakingCar/{orderId}")
@@ -81,5 +81,20 @@ public class OrderController {
 
         lastDay = (Date) calendar.getTime();
         return lastDay;
+    }
+
+
+    @GetMapping(value = "/getPriceAdd/{orderId}")
+    public Long getPriceAdd(@PathVariable @Positive Long orderId){
+        return orderService.findById(orderId).get().getPriceAdd();
+    }
+    @PostMapping ("/setPriceAdd/{orderId}/{priceAdd}")
+    public void setPriceAdd(@RequestBody @PathVariable @Positive Long orderId, @PathVariable @Positive Long priceAdd){
+
+        Optional<OrderEntity> optionalOrderEntity = orderService.findById(orderId);
+        OrderEntity orderEntity = optionalOrderEntity.get();
+        orderEntity.setPriceAdd(priceAdd);
+
+        orderRepositoryDAO.saveAndFlush(orderEntity);
     }
 }
