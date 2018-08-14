@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
 
 @Getter
 @Setter
@@ -50,7 +51,7 @@ public class UserEntity {
     @Column
     private String photo;
     @Column
-    private Long phoneNum;
+    private String phoneNum;
     @Column
     private Boolean notify;
     @Column
@@ -61,6 +62,8 @@ public class UserEntity {
     private String causeAddPrice;
     @Column
     private String typeUser;
+    @Column
+    private ArrayList<Long> setIdCar;
 
 }
 

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d97f3e0-5412-44d8-8f5b-a5cc0a0c5754" name="Default Changelist" comment="Created 4 queries for Car (findBy: CarBody, DriveGear, TypeEngine, TypeFuel)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2d97f3e0-5412-44d8-8f5b-a5cc0a0c5754" name="Default Changelist" comment="Created 2 queries for users (getPassword, getEmail)">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/CarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/controller/CarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/controller/CarController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/CarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/CarServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/controller/UserController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -68,13 +72,96 @@
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="60" column="39" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="39" />
+            <state relative-caret-position="762">
+              <caret line="79" column="77" selection-start-line="79" selection-start-column="77" selection-end-line="79" selection-end-column="77" />
               <folding>
                 <element signature="method#findAll#0;class#UserController#0" />
-                <element signature="method#findUserById#0;class#UserController#0" />
                 <element signature="method#createUser#0;class#UserController#0" />
+                <element signature="e#1751#1752#0" expanded="true" />
+                <element signature="e#1797#1798#0" expanded="true" />
+                <element signature="method#getPhotoById#0;class#UserController#0" />
+                <element signature="method#getPasswordById#1;class#UserController#0" />
+                <element signature="method#getPhotoById#0;class#UserController#0" />
+                <element signature="method#getPhotoById#1;class#UserController#0" />
+                <element signature="method#getSetCarById#0;class#UserController#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/UserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserRepositoryDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dao/UserRepositoryDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="7" column="76" lean-forward="true" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="524">
+              <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CarDTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/CarDTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/UserDTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="541">
+              <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CarServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/CarServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+              <folding>
+                <element signature="e#1066#1067#0" expanded="true" />
+                <element signature="e#1118#1119#0" expanded="true" />
+                <element signature="method#delete#0;class#CarServiceImpl#0" />
+                <element signature="method#update#0;class#CarServiceImpl#0" />
+                <element signature="method#findAllByTransmissionType#0;class#CarServiceImpl#0" />
+                <element signature="method#findAllByCarBody#0;class#CarServiceImpl#0" />
+                <element signature="method#findAllByDriveGear#0;class#CarServiceImpl#0" />
+                <element signature="method#findAllByEngineType#0;class#CarServiceImpl#0" />
+                <element signature="method#findAllByFuelType#0;class#CarServiceImpl#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CarService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/CarService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -100,7 +187,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/connect_db/RequestControl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/NotifyAdmin.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dao/NotifyBossRepositoryDAO.java" />
@@ -116,7 +202,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/NotifyBossController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/NotifyUserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/NotifyUserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/NotifyBoss.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/Notify.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/NotifyUserController.java" />
@@ -130,7 +215,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/NotificationsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/NotificationsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/NotificationsServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/OrderDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dao/OrderRepositoryDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/OrderService.java" />
@@ -147,9 +231,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/CarDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/CarEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dao/CarRepositoryDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/CarService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/CarServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/CarController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/UserDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/CarServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/CarService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/UserController.java" />
       </list>
     </option>
@@ -389,7 +476,7 @@
       <workItem from="1534093880168" duration="4483000" />
       <workItem from="1534144112876" duration="1043000" />
       <workItem from="1534146731362" duration="34476000" />
-      <workItem from="1534223326577" duration="679000" />
+      <workItem from="1534223326577" duration="4867000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1533749667033</created>
@@ -538,11 +625,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534188574251</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Created 2 queries for users (getPassword, getEmail)">
+      <created>1534224126100</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1534224126100</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75421000" />
+    <option name="totallyTimeSpent" value="79609000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -560,7 +654,7 @@
       <window_info id="UI Designer" order="0" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.50269544" />
       <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info anchor="bottom" id="Messages" order="0" weight="0.32425067" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32345015" />
       <window_info anchor="right" id="Palette&#9;" order="0" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="8" />
@@ -569,7 +663,7 @@
       <window_info anchor="bottom" id="Run" order="6" weight="0.48787063" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.3289689" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.24161074" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.24161074" />
       <window_info anchor="right" id="Bean Validation" order="7" />
       <window_info id="Web" order="5" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="6" />
@@ -671,15 +765,15 @@
     <MESSAGE value="Created 1 query for Car (getLocationById)" />
     <MESSAGE value="Created 1 query for Car (findAllByTransmissionType)" />
     <MESSAGE value="Created 4 queries for Car (findBy: CarBody, DriveGear, TypeEngine, TypeFuel)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created 4 queries for Car (findBy: CarBody, DriveGear, TypeEngine, TypeFuel)" />
+    <MESSAGE value="Created 2 queries for users (getPassword, getEmail)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created 2 queries for users (getPassword, getEmail)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="30" />
+      <option name="time" value="32" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dao/TESTRepository.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.0.5.RELEASE/spring-data-jpa-2.0.5.RELEASE.jar!/org/springframework/data/jpa/repository/JpaRepository.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -710,13 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/NotificationsService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -742,6 +829,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#722#723#0" expanded="true" />
+            <element signature="e#772#773#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
+            <element signature="e#892#893#0" expanded="true" />
+            <element signature="e#965#966#0" expanded="true" />
+            <element signature="e#1030#1031#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -783,13 +878,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/UserDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dao/NotificationsRepositoryDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -801,13 +889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dao/UserRepositoryDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="76" lean-forward="true" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
         </state>
       </provider>
     </entry>
@@ -839,13 +920,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/CarDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/OrderEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -857,20 +931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="887">
-          <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/CarEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -916,29 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/CarServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="92" column="5" selection-start-line="78" selection-start-column="4" selection-end-line="92" selection-end-column="5" />
-          <folding>
-            <element signature="method#delete#0;class#CarServiceImpl#0" />
-            <element signature="method#update#0;class#CarServiceImpl#0" />
-            <element signature="method#findAllByTransmissionType#0;class#CarServiceImpl#0" />
-            <element signature="method#findAllByCarBody#0;class#CarServiceImpl#0" />
-            <element signature="method#findAllByDriveGear#0;class#CarServiceImpl#0" />
-            <element signature="method#findAllByEngineType#0;class#CarServiceImpl#0" />
-            <element signature="method#findAllByFuelType#0;class#CarServiceImpl#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/CarService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="55" column="63" selection-start-line="55" selection-start-column="63" selection-end-line="55" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConverterCars.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -958,26 +995,116 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/CarController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+        <state relative-caret-position="439">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
           <folding>
             <element signature="method#findAll#0;class#CarController#0" />
             <element signature="method#findCarById#0;class#CarController#0" />
             <element signature="method#createCar#0;class#CarController#0" />
             <element signature="method#getPhotoById#0;class#CarController#0" />
+            <element signature="method#getLocationById#0;class#CarController#0" />
             <element signature="method#getAllByTransmissionType#0;class#CarController#0" />
+            <element signature="method#getAllByCarBody#0;class#CarController#0" />
+            <element signature="method#getAllByDriveGear#0;class#CarController#0" />
+            <element signature="method#getAllByTypeFuel#0;class#CarController#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/CarEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/CarDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dao/UserRepositoryDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="76" lean-forward="true" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.0.5.RELEASE/spring-data-commons-2.0.5.RELEASE.jar!/org/springframework/data/repository/CrudRepository.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/UserDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/CarServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+          <folding>
+            <element signature="e#1066#1067#0" expanded="true" />
+            <element signature="e#1118#1119#0" expanded="true" />
+            <element signature="method#delete#0;class#CarServiceImpl#0" />
+            <element signature="method#update#0;class#CarServiceImpl#0" />
+            <element signature="method#findAllByTransmissionType#0;class#CarServiceImpl#0" />
+            <element signature="method#findAllByCarBody#0;class#CarServiceImpl#0" />
+            <element signature="method#findAllByDriveGear#0;class#CarServiceImpl#0" />
+            <element signature="method#findAllByEngineType#0;class#CarServiceImpl#0" />
+            <element signature="method#findAllByFuelType#0;class#CarServiceImpl#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/CarService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="60" column="39" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="39" />
+        <state relative-caret-position="762">
+          <caret line="79" column="77" selection-start-line="79" selection-start-column="77" selection-end-line="79" selection-end-column="77" />
           <folding>
             <element signature="method#findAll#0;class#UserController#0" />
-            <element signature="method#findUserById#0;class#UserController#0" />
             <element signature="method#createUser#0;class#UserController#0" />
+            <element signature="e#1751#1752#0" expanded="true" />
+            <element signature="e#1797#1798#0" expanded="true" />
+            <element signature="method#getPhotoById#0;class#UserController#0" />
+            <element signature="method#getPasswordById#1;class#UserController#0" />
+            <element signature="method#getPhotoById#0;class#UserController#0" />
+            <element signature="method#getPhotoById#1;class#UserController#0" />
+            <element signature="method#getSetCarById#0;class#UserController#0" />
           </folding>
         </state>
       </provider>

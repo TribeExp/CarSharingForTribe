@@ -80,8 +80,7 @@ public class CarController {
     }
     @GetMapping(value = "/getLocation/{carId}")
     public String getLocationById(@PathVariable @Positive Long carId){
-        String coordinates = carServiceImpl.findById(carId).get().getLocation();
-        return coordinates;
+        return carServiceImpl.findById(carId).get().getLocation();
     }
 
 
@@ -92,23 +91,19 @@ public class CarController {
     }
     @GetMapping(value = "/carBody/{carBody}")
     public Collection<CarEntity> getAllByCarBody(@PathVariable @Positive CarBody carBody){
-        Collection<CarEntity> cars = carServiceImpl.findAllByCarBody(carBody);
-        return cars;
+        return carServiceImpl.findAllByCarBody(carBody);
     }
     @GetMapping(value = "/driveGear/{driveGear}")
     public Collection<CarEntity> getAllByDriveGear(@PathVariable @Positive DriveGear driveGear){
-        Collection<CarEntity> cars = carServiceImpl.findAllByDriveGear(driveGear);
-        return cars;
+        return carServiceImpl.findAllByDriveGear(driveGear);
     }
     @GetMapping(value = "/typeEngine/{typeEngine}")
     public Collection<CarEntity> getAllByEngineType(@PathVariable @Positive TypeEngine typeEngine){
-        Collection<CarEntity> cars = carServiceImpl.findAllByEngineType(typeEngine);
-        return cars;
+        return carServiceImpl.findAllByEngineType(typeEngine);
     }
     @GetMapping(value = "/typeFuel/{typeFuel}")
     public Collection<CarEntity> getAllByTypeFuel(@PathVariable @Positive TypeFuel typeFuel){
-        Collection<CarEntity> cars = carServiceImpl.findAllByFuelType(typeFuel);
-        return cars;
+        return carServiceImpl.findAllByFuelType(typeFuel);
     }
 
 

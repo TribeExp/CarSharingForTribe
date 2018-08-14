@@ -3,7 +3,9 @@ package com.basakdm.excartest.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import java.sql.Date;
+import java.util.ArrayList;
 
 @Getter
 @Setter
@@ -28,10 +30,11 @@ public class UserDTO {
     private Date expirtyDate;
     private String categoryDriveDoc;
     private String photo;
-    private Long phoneNum;
+    private String phoneNum;
     private Boolean notify;
     private Long idCar;
     private Long price;
     private Date timeForDrive;
+    private ArrayList<Long> setIdCar;
 
 }
