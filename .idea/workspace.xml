@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d97f3e0-5412-44d8-8f5b-a5cc0a0c5754" name="Default Changelist" comment="Created 2 queries for users (getPhone, gettterSetCarById)">
+    <list default="true" id="2d97f3e0-5412-44d8-8f5b-a5cc0a0c5754" name="Default Changelist" comment="Created 1 query for users (getNotifyById)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/OrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/OrderDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/CarEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/CarEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/OrderEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConvertOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConvertOrders.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/dto/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/dto/UserDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/entity/CarEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/entity/CarEntity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/entity/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/entity/UserEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/utils/ConverterUsers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/utils/ConverterUsers.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -69,12 +76,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
+            <state relative-caret-position="745">
+              <caret line="91" selection-start-line="91" selection-end-line="91" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#findAll#0;class#UserController#0" />
                 <element signature="method#findUserById#0;class#UserController#0" />
                 <element signature="method#createUser#0;class#UserController#0" />
@@ -84,16 +92,66 @@
                 <element signature="method#getPhoneById#0;class#UserController#0" />
                 <element signature="method#getSetCarById#0;class#UserController#0" />
                 <element signature="method#setSetCarById#0;class#UserController#0" />
+                <element signature="method#getPasswordById#1;class#UserController#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserEntity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OrderController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/OrderController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+              <folding>
+                <element signature="method#findAll#0;class#OrderController#0" />
+                <element signature="method#findUserById#0;class#OrderController#0" />
+                <element signature="method#create#0;class#OrderController#0" />
+                <element signature="method#getNotifyById#0;class#OrderController#0" />
+                <element signature="method#calcDateFromMomentOfTakingcar#0;class#OrderController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvertOrders.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConvertOrders.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="34" column="27" lean-forward="true" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserEntity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
+            <state relative-caret-position="221">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/OrderEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CarEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/CarEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-173">
+              <caret line="34" column="11" lean-forward="true" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,26 +162,41 @@
       <file leaf-file-name="UserDTO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/UserDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="36" column="27" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+            <state relative-caret-position="102">
+              <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConverterNotifications.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConverterNotifications.java">
+      <file leaf-file-name="CarDTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/CarDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            <state relative-caret-position="34">
+              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConverterUsers.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConverterUsers.java">
+      <file leaf-file-name="OrderDTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/OrderDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="29" column="70" lean-forward="true" selection-start-line="29" selection-start-column="70" selection-end-line="29" selection-end-column="70" />
+            <state relative-caret-position="85">
+              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NotificationsDTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/NotificationsDTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -177,29 +250,29 @@
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/NotificationsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/NotificationsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/NotificationsServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/OrderDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dao/OrderRepositoryDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/OrderService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/OrderServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConvertOrders.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/OrderController.java" />
         <option value="$PROJECT_DIR$/../EXPOSIT/sharingCar/src/main/java/com/example/car_shar/neto/OrderController.java" />
         <option value="$PROJECT_DIR$/../EXPOSIT/sharingCar/src/main/java/com/example/car_shar/neto/OrderServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/OrderEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dao/UserRepositoryDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConverterCars.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/CarDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/CarEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dao/CarRepositoryDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/CarServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/CarService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/CarController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/UserDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConverterUsers.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/UserDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/OrderDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/CarEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/OrderEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConvertOrders.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/OrderController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java" />
       </list>
     </option>
   </component>
@@ -308,52 +381,7 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="basakdm" type="462c0819:PsiDirectoryNode" />
               <item name="excartest" type="462c0819:PsiDirectoryNode" />
-              <item name="dto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newFold" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newFold" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="basakdm" type="462c0819:PsiDirectoryNode" />
-              <item name="excartest" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newFold" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newFold" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="basakdm" type="462c0819:PsiDirectoryNode" />
-              <item name="excartest" type="462c0819:PsiDirectoryNode" />
-              <item name="enum_ent" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newFold" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newFold" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="basakdm" type="462c0819:PsiDirectoryNode" />
-              <item name="excartest" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newFold" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newFold" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="basakdm" type="462c0819:PsiDirectoryNode" />
-              <item name="excartest" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="service_impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newFold" type="b2602c69:ProjectViewProjectNode" />
@@ -450,7 +478,7 @@
       <workItem from="1534144112876" duration="1043000" />
       <workItem from="1534146731362" duration="34476000" />
       <workItem from="1534223326577" duration="5758000" />
-      <workItem from="1534262247003" duration="4389000" />
+      <workItem from="1534262247003" duration="14960000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1533749667033</created>
@@ -613,11 +641,25 @@
       <option name="project" value="LOCAL" />
       <updated>1534228478086</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Created 1 queries for users (setterSetCarById)">
+      <created>1534267223253</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1534267223253</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Created 1 query for users (getNotifyById)">
+      <created>1534269211681</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1534269211681</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84889000" />
+    <option name="totallyTimeSpent" value="95460000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -640,11 +682,11 @@
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.9097035" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.49056605" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.7757774" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.3289689" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.19597316" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.23087248" />
       <window_info anchor="right" id="Bean Validation" order="7" />
       <window_info id="Web" order="5" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="6" />
@@ -724,7 +766,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first commit" />
     <MESSAGE value="created 2 query (findAllCar, findAllUsers)" />
     <MESSAGE value="CarServiceImpl added &lt;CarDTO&gt; and return list CarDTO" />
     <MESSAGE value="for heroku" />
@@ -748,7 +789,9 @@
     <MESSAGE value="Created 4 queries for Car (findBy: CarBody, DriveGear, TypeEngine, TypeFuel)" />
     <MESSAGE value="Created 2 queries for users (getPassword, getEmail)" />
     <MESSAGE value="Created 2 queries for users (getPhone, gettterSetCarById)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created 2 queries for users (getPhone, gettterSetCarById)" />
+    <MESSAGE value="Created 1 queries for users (setterSetCarById)" />
+    <MESSAGE value="Created 1 query for users (getNotifyById)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created 1 query for users (getNotifyById)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -756,7 +799,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/NotifyAdmin.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/NotifyBossController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/NotifyUserController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/NotifyUser.java" />
@@ -768,16 +810,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/TESTServiceImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/NotifyAdminController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/enum_ent/TypeOfNotify.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/NotificationsDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/NotificationsService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -792,23 +824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConvertOrders.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/OrderDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/OrderService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -820,13 +835,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/OrderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="29" column="26" lean-forward="true" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -862,20 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/OrderEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/NotificationsEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -921,24 +915,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConverterCars.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="61" column="68" selection-start-line="61" selection-start-column="68" selection-end-line="61" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dao/CarRepositoryDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/CarDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -981,16 +961,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/CarEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-394">
-          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/HashSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1027,30 +997,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConverterNotifications.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConverterUsers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="29" column="70" lean-forward="true" selection-start-line="29" selection-start-column="70" selection-end-line="29" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/CarController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="683">
@@ -1070,18 +1016,110 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConverterUsers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" column="67" selection-start-line="27" selection-start-column="67" selection-end-line="27" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConverterNotifications.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConverterCars.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#mapCar#0;class#ConverterCars#0" />
+            <element signature="method#mapCar#1;class#ConverterCars#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="25" column="47" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/NotificationsEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/UserDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="36" column="27" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+        <state relative-caret-position="102">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/OrderDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/NotificationsDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/CarDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConvertOrders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="34" column="27" lean-forward="true" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="method#findAll#0;class#OrderController#0" />
+            <element signature="method#findUserById#0;class#OrderController#0" />
+            <element signature="method#create#0;class#OrderController#0" />
+            <element signature="method#getNotifyById#0;class#OrderController#0" />
+            <element signature="method#calcDateFromMomentOfTakingcar#0;class#OrderController#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
+        <state relative-caret-position="745">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#findAll#0;class#UserController#0" />
             <element signature="method#findUserById#0;class#UserController#0" />
             <element signature="method#createUser#0;class#UserController#0" />
@@ -1091,6 +1129,37 @@
             <element signature="method#getPhoneById#0;class#UserController#0" />
             <element signature="method#getSetCarById#0;class#UserController#0" />
             <element signature="method#setSetCarById#0;class#UserController#0" />
+            <element signature="method#getPasswordById#1;class#UserController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/CarEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-173">
+          <caret line="34" column="11" lean-forward="true" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/OrderEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
