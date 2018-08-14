@@ -16,6 +16,9 @@ public class ConverterNotifications {
         NotificationsDTO notificationsDTO = new NotificationsDTO();
         notificationsDTO.setText_notify(notificationsEntity.getText_notify());
         notificationsDTO.setId(notificationsEntity.getId());
+        notificationsDTO.setFrom_whom_id(notificationsEntity.getFrom_whom_id());
+        notificationsDTO.setOrder_id(notificationsEntity.getOrder_id());
+        notificationsDTO.setTo_whom_id(notificationsEntity.getTo_whom_id());
         return notificationsDTO;
     }
 
@@ -28,6 +31,9 @@ public class ConverterNotifications {
 
         notificationsEntity.setText_notify(notificationsDTO.getText_notify());
         notificationsEntity.setId(notificationsDTO.getId());
+        notificationsEntity.setFrom_whom_id(notificationsDTO.getFrom_whom_id());
+        notificationsEntity.setOrder_id(notificationsDTO.getOrder_id());
+        notificationsEntity.setTo_whom_id(notificationsDTO.getTo_whom_id());
         return notificationsEntity;
     }
 }
