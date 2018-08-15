@@ -1,7 +1,9 @@
 package com.basakdm.excartest.controller;
 
+import com.basakdm.excartest.dao.CarRepositoryDAO;
 import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.entity.CarEntity;
+import com.basakdm.excartest.entity.OrderEntity;
 import com.basakdm.excartest.enum_ent.car_enum.*;
 import com.basakdm.excartest.service.CarService;
 import com.basakdm.excartest.utils.ConverterCars;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
 import java.util.Collection;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -20,6 +23,8 @@ public class CarController {
 
     @Autowired
     private CarService carServiceImpl;
+    @Autowired
+    private CarRepositoryDAO carRepositoryDAO;
 
     @GetMapping("/all")
     public Collection<CarDTO> findAll(){
@@ -97,5 +102,18 @@ public class CarController {
     }
 
 
+    @GetMapping(value = "/getPrice/{carId}")
+    public Long getPriceById(@PathVariable @Positive Long carId){
+        return carServiceImpl.findById(carId).get().getPrice();
+    }
+    @PostMapping ("/setPrice/{carId}/{price}")
+    public void setPrice(@RequestBody @PathVariable @Positive Long carId, @PathVariable @Positive Long price){
+
+        Optional<CarEntity> optionalCarEntity = carServiceImpl.findById(carId);
+        CarEntity carEntity = optionalCarEntity.get();
+        carEntity.setPrice(price);
+
+        carRepositoryDAO.saveAndFlush(carEntity);
+    }
 
 }
