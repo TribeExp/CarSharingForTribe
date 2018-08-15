@@ -3,6 +3,7 @@ package com.basakdm.excartest.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import java.util.Date;
 
 @Getter
@@ -12,9 +13,9 @@ public class OrderDTO {
     private Long id;
     private Long priceAdd;
     private Long finPrice;
-    private Date from_what_date;
-    private Long id_car;
-    private Long id_user;
-    private Long id_owner;
-    private Integer amount_of_days;
+    private Date fromWhatDate;
+    private Long idCar;
+    private Long idUser;
+    private Long idOwner;
+    private Integer amountOfDays;
 }

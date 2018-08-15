@@ -15,4 +15,7 @@ public interface OrderService {
     void delete(long id);
     void update(OrderEntity orderEntity);
 
+    Optional<OrderEntity> findByIdCar(Long idCar);
+
+
 }

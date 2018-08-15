@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
-import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
@@ -61,7 +60,7 @@ public class OrderController {
     // number of days by car
     @GetMapping(value = "/getAmountOfDaysById/{orderId}")
     public Integer getAmountOfDaysById(@PathVariable @Positive Long orderId){
-        return orderService.findById(orderId).get().getAmount_of_days();
+        return orderService.findById(orderId).get().getAmountOfDays();
     }
     // calculate last day driving
     @GetMapping(value = "/calcDateFromMomentOfTakingCar/{orderId}")
@@ -71,7 +70,7 @@ public class OrderController {
 
         Optional<OrderEntity> optionalOrderEntity = orderService.findById(orderId);
         OrderEntity orderEntity = optionalOrderEntity.get();
-        Date firstDay = orderEntity.getFrom_what_date();
+        Date firstDay = orderEntity.getFromWhatDate();
 
         Date lastDay = firstDay;
 
@@ -96,4 +95,16 @@ public class OrderController {
 
         orderRepositoryDAO.saveAndFlush(orderEntity);
     }
+
+    // ищем price из order, по carId
+    @GetMapping(value = "/getPriceAddByIdCar/{carId}")
+    public Long getPriceAddByIdCar(@PathVariable @Positive Long carId){
+
+        Optional<OrderEntity> orderEntity = orderService.findByIdCar(carId);
+        OrderEntity orderEntity1 = orderEntity.get();
+        Long l = orderEntity1.getPriceAdd();
+        return l;
+    }
+
+
 }

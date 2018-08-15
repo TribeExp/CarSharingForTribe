@@ -20,14 +20,14 @@ public class OrderEntity {
     @Column
     private Long finPrice;
     @Column
-    private Date from_what_date;
+    private Date fromWhatDate;
     @Column
-    private Long id_car;
+    private Long idCar;
     @Column
-    private Long id_user;
+    private Long idUser;
     @Column
-    private Long id_owner;
+    private Long idOwner;
     @Column
-    private Integer amount_of_days;
+    private Integer amountOfDays;
 
 }

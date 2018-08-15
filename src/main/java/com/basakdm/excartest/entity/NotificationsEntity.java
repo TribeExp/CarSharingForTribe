@@ -15,11 +15,11 @@ public class NotificationsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    private String text_notify;
+    private String textNotify;
     @Column
-    private Long from_whom_id;
+    private Long fromWhomId;
     @Column
-    private Long to_whom_id;
+    private Long toWhomId;
     @Column
-    private Long order_id;
+    private Long orderId;
 }

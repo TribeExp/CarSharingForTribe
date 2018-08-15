@@ -45,7 +45,7 @@ public abstract class RequestControl {
                             "mail, series_passport, number_seria, who_get_pasport, when_get_passport, " +
                             "birth_date, birth_place, serial_drive_doc, num_drive_doc, who_get_drive_doc, " +
                             "when_get_drive_doc, expirty_date, category_drive_doc, photo, " +
-                            "phone_num, notify, id_car, price, price_add, fin_price, " +
+                            "phone_num, notify, idCar, price, price_add, fin_price, " +
                             "time_for_drive, cause_add_price, type_user) " +
                             "VALUES (" +
 

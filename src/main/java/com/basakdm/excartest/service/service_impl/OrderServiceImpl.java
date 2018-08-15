@@ -43,4 +43,10 @@ public class OrderServiceImpl implements OrderService {
         Optional<OrderEntity> orderOld = findById(id);
         if(orderOld.isPresent()) orderRepositoryDAO.save(orderEntity);
     }
+
+    @Override
+    public Optional<OrderEntity> findByIdCar(Long idCar) {
+        return orderRepositoryDAO.findByIdCar(idCar);
+    }
+
 }
