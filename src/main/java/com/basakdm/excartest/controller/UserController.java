@@ -39,11 +39,11 @@ public class UserController {
                 .map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/createUser")
+    /*@PostMapping("/createUser")
     public ResponseEntity<?> createUser(@RequestBody UserEntity userEntity){
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(userService.createUser(userEntity));
-    }
+    }*/
 
     @DeleteMapping ("/delete/{id}")
     public void delete(@PathVariable @Positive Long id){
@@ -90,5 +90,21 @@ public class UserController {
         return userService.findById(userId).get().getNotify();
     }
 
+    /*@GetMapping(value = "/createUser")
+    public UserEntity createUser(UserEntity userEntity){
+        return userService.createUser(userEntity);
+    }*/
+
+    /*@PostMapping("/registration")
+    public ResponseEntity<?> registration(UserEntity userEntity) {
+        //if user already exist
+        if (userService.findByMail(userEntity.getMail()).isPresent()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body("This user already exists");
+        }
+       // securityService.autoLogin(userEntity.getMail(), userEntity.getPassword());
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(ConverterUsers.mapUser(userService.createUser(userEntity)));
+    }*/
 
 }

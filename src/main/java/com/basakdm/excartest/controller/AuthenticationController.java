@@ -38,13 +38,15 @@ public class AuthenticationController {
     @PostMapping("/registration")
     public ResponseEntity<?> registration(@RequestBody String email) {
         //if user already exist
+        String correctEmail = email.toLowerCase();
         if (userService.findByMail(email).isPresent()) {
             return ResponseEntity.status(HttpStatus.CONFLICT)
                     .body("This user already exists");
         }
         // password - take a first 3 characters from email and add email hash code
         String password = email.substring(0, 3) + email.hashCode();
-        emailService.sendRegistrationMessage(email, password);
+        String testPasword = "test";
+        emailService.sendRegistrationMessage(email, testPasword);
         // securityService.autoLogin(userEntity.getMail(), userEntity.getPassword());
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ConverterUsers.mapUser(userService.createUser(email, password)));

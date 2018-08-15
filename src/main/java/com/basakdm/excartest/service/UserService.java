@@ -28,12 +28,13 @@ public interface UserService {
 
     /**
      * Create user.
-     * @param userEntity user params for create a new user
      * @return Created user with id.
      */
-    UserEntity createUser(UserEntity userEntity);
+    UserEntity createUser(String email, String password);
 
     void delete(long id);
 
     void update(UserEntity userEntity);
+
+    Optional<UserEntity> findByMail(String email);
 }

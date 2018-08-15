@@ -5,6 +5,7 @@ import com.basakdm.excartest.entity.UserEntity;
 import com.basakdm.excartest.enum_ent.Roles;
 import com.basakdm.excartest.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
@@ -33,9 +34,9 @@ public class SecurityServiceImpl implements SecurityService {
                     .orElseThrow(() -> new RuntimeException("User with such a mail doesn't exist"));
 
             Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-            for (Roles role : user.getRole()){
+            /*for (Roles role : user.getRole()){
                 grantedAuthorities.add(new SimpleGrantedAuthority(role.name()));
-            }
+            }*/
 
             return new UsernamePasswordAuthenticationToken(email, password, grantedAuthorities);
         };

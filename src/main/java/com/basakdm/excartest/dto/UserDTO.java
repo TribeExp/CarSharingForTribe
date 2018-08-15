@@ -1,10 +1,12 @@
 package com.basakdm.excartest.dto;
 
+import com.basakdm.excartest.entity.Role;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -32,6 +34,7 @@ public class UserDTO {
     private HashSet<Long> setIdCar;
     private Boolean notify;
     // под вопросом
-    private String typeUser;
+    private Set<Role> roles;
+    private Boolean active;
 
 }

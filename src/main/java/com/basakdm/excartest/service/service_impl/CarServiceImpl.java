@@ -25,7 +25,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public List<CarEntity> findAll() {
-        return listCar = carRepositoryDAO.findAll();
+        return carRepositoryDAO.findAll();
     }
 
     @Override

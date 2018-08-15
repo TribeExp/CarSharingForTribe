@@ -1,5 +1,9 @@
 package com.basakdm.excartest.utils.connect_db;
 
+import com.basakdm.excartest.dao.RoleRepositoryDAO;
+import com.basakdm.excartest.entity.Role;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.sql.*;
 
 public abstract class RequestControl {
@@ -7,8 +11,8 @@ public abstract class RequestControl {
     protected Connection connection;
     protected Statement statement;
     protected String username = "root";
-    protected String password = "Karpovich9";
-    protected String connectionUrl = "jdbc:mysql://localhost:3306/car_sharing?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
+    protected String password = "22256";
+    protected String connectionUrl = "jdbc:mysql://localhost:3336/car_sharing?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
 
     RequestControl() {
         try {
@@ -26,11 +30,6 @@ public abstract class RequestControl {
 
 
     public void firstQueries() {
-        // Filling the table 'user' with test data
-        //setDataUser(statement);
-
-        // Filling the table 'car' with test data
-        //setDataCars(statement);
     }
 
 

@@ -1,6 +1,7 @@
 package com.basakdm.excartest.service.service_impl;
 
 import com.basakdm.excartest.dao.UserRepositoryDAO;
+import com.basakdm.excartest.entity.Role;
 import com.basakdm.excartest.entity.UserEntity;
 import com.basakdm.excartest.enum_ent.Roles;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .orElseThrow(() -> new RuntimeException("User with such a mail doesn't exist"));
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        for (Roles role : user.getRole()){
-            grantedAuthorities.add(new SimpleGrantedAuthority(role.name()));
+        for (Role role : user.getRoles()){
+            grantedAuthorities.add(new SimpleGrantedAuthority(role.getRole()));
         }
-
 
         return new org.springframework.security.core.userdetails.User(user.getMail(), user.getPassword(), grantedAuthorities);
     }
