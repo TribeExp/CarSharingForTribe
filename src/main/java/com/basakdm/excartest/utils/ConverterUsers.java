@@ -18,7 +18,6 @@ public class ConverterUsers {
             userDTO.setId(userEntity.getId());
             userDTO.setLastName(userEntity.getLastName());
             userDTO.setFirstName(userEntity.getFirstName());
-            userDTO.setMiddleName(userEntity.getMiddleName());
             userDTO.setMail(userEntity.getMail());
             userDTO.setSeriesPassport(userEntity.getSeriesPassport());
             userDTO.setNumberSeria(userEntity.getNumberSeria());
@@ -35,9 +34,6 @@ public class ConverterUsers {
             userDTO.setPhoto(userEntity.getPhoto());
             userDTO.setPhoneNum(userEntity.getPhoneNum());
             userDTO.setNotify(userEntity.getNotify());
-            userDTO.setIdCar(userEntity.getIdCar());
-            userDTO.setPrice(userEntity.getPrice());
-            userDTO.setTimeForDrive(userEntity.getTimeForDrive());
             return userDTO;
         }
 
@@ -51,7 +47,6 @@ public class ConverterUsers {
             userEntity.setId(userDTO.getId());
             userEntity.setLastName(userDTO.getLastName());
             userEntity.setFirstName(userDTO.getFirstName());
-            userEntity.setMiddleName(userDTO.getMiddleName());
             userEntity.setMail(userDTO.getMail());
             userEntity.setSeriesPassport(userDTO.getSeriesPassport());
             userEntity.setNumberSeria(userDTO.getNumberSeria());
@@ -68,9 +63,6 @@ public class ConverterUsers {
             userEntity.setPhoto(userDTO.getPhoto());
             userEntity.setPhoneNum(userDTO.getPhoneNum());
             userEntity.setNotify(userDTO.getNotify());
-            userEntity.setIdCar(userDTO.getIdCar());
-            userEntity.setPrice(userDTO.getPrice());
-            userEntity.setTimeForDrive(userDTO.getTimeForDrive());
             return userEntity;
         }
 

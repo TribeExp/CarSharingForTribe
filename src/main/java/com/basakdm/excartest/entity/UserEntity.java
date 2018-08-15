@@ -24,8 +24,8 @@ public class UserEntity {
     private String lastName;
     @Column
     private String firstName;
-    @Column
-    private String middleName;
+   /* @Column
+    private String middleName;*/
     @Column
     private String password;
     @Column
@@ -60,7 +60,7 @@ public class UserEntity {
     private Long phoneNum;
     @Column
     private Boolean notify;
-    @Column
+    /*@Column
     private Long idCar;
     @Column
     private Long price;
@@ -71,16 +71,16 @@ public class UserEntity {
     @Column
     private Date timeForDrive;
     @Column
-    private String causeAddPrice;
+    private String causeAddPrice;*/
     @ElementCollection(targetClass = Roles.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Roles> role;
     @Column
-    private Boolean active; //add!!!!!!!!!!!!!!!!!!!!!!!!
+    private Boolean active;
     @Column
     @Enumerated(EnumType.STRING)
-    private TypeOfNotify typeOfNotify;
+    private TypeOfNotify typeOfNotify; //??????
 
     public String getPassword() {
         return password;

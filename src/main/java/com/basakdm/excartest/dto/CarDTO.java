@@ -4,6 +4,8 @@ import com.basakdm.excartest.enum_ent.car_enum.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Date;
+
 @Getter
 @Setter
 public class CarDTO {
@@ -33,4 +35,6 @@ public class CarDTO {
     private String adText;
     private Long priceLease;
     private String causeOfRejected;
+    private Date freeFrom;
+    private Date freeTo;
 }

@@ -60,18 +60,20 @@ public class CarEntity {
     @Column
     private Long priceLease;
     @Column
-    private Date calendarOfFree;
+    private Date freeFrom;
+    @Column
+    private Date freeTo;
     @ManyToOne
-    @JoinColumn(name = "user_id_boss")
-    private UserEntity user_id_boss;
-    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity owner_id;
+    /*@ManyToOne
     @JoinColumn(name = "user_id_user")
-    private UserEntity user_id_user;
+    private UserEntity user_id_user;*/
     @Column
-    private String isFree;
+    private Boolean isFree;
     @Column
-    private String isActivated;
+    private Boolean isActivated;
     @Column
-    private String causeOfRejected;
+    private String causeOfRejected;//??????????
 
 }
