@@ -13,6 +13,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -25,6 +26,8 @@ public class SecurityServiceImpl implements SecurityService {
     private UserRepositoryDAO userRepositoryDAO;
     @Autowired
     private UserDetailsService userDetailsService;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     private AuthenticationManager getAuthenticationManager(){
         return authentication -> {
@@ -53,9 +56,10 @@ public class SecurityServiceImpl implements SecurityService {
 
     @Override
     public boolean autoLogin(String email, String password) {
+        String encodedPasword = bCryptPasswordEncoder.encode(password);
         UserDetails userDetails = userDetailsService.loadUserByUsername(email);
         UsernamePasswordAuthenticationToken authenticationToken =
-                new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
+                new UsernamePasswordAuthenticationToken(userDetails, encodedPasword, userDetails.getAuthorities());
 
         getAuthenticationManager().authenticate(authenticationToken);
 

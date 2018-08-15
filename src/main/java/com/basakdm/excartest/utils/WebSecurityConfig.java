@@ -84,8 +84,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                    .antMatchers(HttpMethod.POST,"/car/**").permitAll()
-                    .antMatchers(HttpMethod.GET, "/car/**").permitAll()
+                    .antMatchers(HttpMethod.POST,"/auth/**").permitAll()
+                    .antMatchers(HttpMethod.GET, "/auth/**").permitAll()
                     //.antMatchers("/cars/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
                 .and().csrf().disable()
@@ -102,8 +102,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers(HttpMethod.POST, "/car/**")
-                .and().ignoring().antMatchers(HttpMethod.GET, "/car/**");
+        web.ignoring().antMatchers(HttpMethod.POST, "/auth/**")
+                .and().ignoring().antMatchers(HttpMethod.GET, "/auth/**");
     }
 
     /*@Autowired
