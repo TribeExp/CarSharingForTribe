@@ -53,15 +53,20 @@ public class UserEntity {
     @Column
     private String phoneNum;
     @Column
+    private HashSet<Long> setIdCar;
+    @Column
     private Boolean notify;
+    // под вопросом
+    @Column
+    private String typeUser;
+
+    /* Возможно понадобятся
     @Column
     private Long idCar;
     @Column
-    private Long price;
-    @Column
-    private String typeUser;
-    @Column
-    private HashSet<Long> setIdCar;
+    private Long price;*/
+
+
 
 }
 
