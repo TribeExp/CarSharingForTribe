@@ -46,9 +46,6 @@ public interface CarService  {
     Collection<CarEntity> findAllByIsActivatedFalse();
     Collection<CarEntity> findAllByIsActivatedTrue();
 
-    Collection<CarEntity> findAllByIsFreeFalse();
-    Collection<CarEntity> findAllByIsFreeTrue();
-
     Collection<CarEntity> findAllByTransmissionType(Transmission transmission);
     Collection<CarEntity> findAllByCarBody(CarBody carBody);
     Collection<CarEntity> findAllByDriveGear(DriveGear driveGear);

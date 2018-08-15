@@ -63,16 +63,6 @@ public class CarServiceImpl implements CarService {
 
 
     @Override
-    public Collection<CarEntity> findAllByIsFreeFalse() {
-        return carRepositoryDAO.findAllByIsFreeFalse();
-    }
-    @Override
-    public Collection<CarEntity> findAllByIsFreeTrue() {
-        return carRepositoryDAO.findAllByIsFreeTrue();
-    }
-
-
-    @Override
     public Collection<CarEntity> findAllByTransmissionType(Transmission transmission) {
         return carRepositoryDAO.findAllByTransmissionType(transmission);
     }

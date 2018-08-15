@@ -63,16 +63,6 @@ public class CarController {
     }
 
 
-    @GetMapping("/isFree/False")
-    public Collection<CarEntity> findAllByIsFreeFalse(){
-        return carServiceImpl.findAllByIsFreeFalse();
-    }
-    @GetMapping("/isFree/True")
-    public Collection<CarEntity> findAllByIsFreeTrue(){
-        return carServiceImpl.findAllByIsFreeTrue();
-    }
-
-
     @GetMapping(value = "/getPhoto/{carId}")
     public String getPhotoById(@PathVariable @Positive Long carId){
         String photoReference = carServiceImpl.findById(carId).get().getPhoto();
