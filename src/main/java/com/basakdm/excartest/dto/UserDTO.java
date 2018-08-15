@@ -3,7 +3,8 @@ package com.basakdm.excartest.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.HashSet;
 
 @Getter
 @Setter
@@ -13,7 +14,7 @@ public class UserDTO {
     private Long id;
     private String lastName;
     private String firstName;
-    private String middleName;
+    private String password;
     private String mail;
     private String seriesPassport;
     private Long numberSeria;
@@ -27,11 +28,10 @@ public class UserDTO {
     private Date whenGetDriveDoc;
     private Date expirtyDate;
     private String categoryDriveDoc;
-    private String photo;
-    private Long phoneNum;
+    private String phoneNum;
+    private HashSet<Long> setIdCar;
     private Boolean notify;
-    private Long idCar;
-    private Long price;
-    private Date timeForDrive;
+    // под вопросом
+    private String typeUser;
 
 }

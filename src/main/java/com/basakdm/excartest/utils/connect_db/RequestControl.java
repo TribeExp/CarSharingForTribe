@@ -7,8 +7,8 @@ public abstract class RequestControl {
     protected Connection connection;
     protected Statement statement;
     protected String username = "root";
-    protected String password = "22256";
-    protected String connectionUrl = "jdbc:mysql://localhost:3336/car_sharing?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
+    protected String password = "Karpovich9";
+    protected String connectionUrl = "jdbc:mysql://localhost:3306/car_sharing?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
 
     RequestControl() {
         try {

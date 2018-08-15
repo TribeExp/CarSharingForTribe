@@ -1,33 +1,20 @@
-package com.basakdm.excartest.entity;
+package com.basakdm.excartest.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.util.Date;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "orders")
-public class OrderEntity {
+public class OrderDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
     private Long priceAdd;
-    @Column
     private Long finPrice;
-    @Column
     private Date from_what_date;
-    @Column
     private Long id_car;
-    @Column
     private Long id_user;
-    @Column
     private Long id_owner;
-    @Column
     private Integer amount_of_days;
-
 }

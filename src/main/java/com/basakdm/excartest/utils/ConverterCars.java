@@ -5,6 +5,8 @@ import com.basakdm.excartest.entity.CarEntity;
 import com.basakdm.excartest.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Optional;
+
 public class ConverterCars {
 
     @Autowired
@@ -15,8 +17,9 @@ public class ConverterCars {
         carDto.setBrand(carEntity.getBrand());
         carDto.setId(carEntity.getId());
         carDto.setModel(carEntity.getModel());
-        carDto.setStateNum(carEntity.getStateNum());
         carDto.setYear(carEntity.getYear());
+        carDto.setYear(carEntity.getYear());
+        carDto.setMileage(carEntity.getMileage());
         carDto.setMileage(carEntity.getMileage());
         carDto.setSeats(carEntity.getSeats());
         carDto.setLocation(carEntity.getLocation());
@@ -32,20 +35,23 @@ public class ConverterCars {
         carDto.setOptionalAccessories(carEntity.getOptionalAccessories());
         carDto.setAdText(carEntity.getAdText());
         carDto.setPriceLease(carEntity.getPriceLease());
-        carDto.setCauseOfRejected(carEntity.getCauseOfRejected());
-        carDto.setFreeFrom(carEntity.getFreeFrom());
-        carDto.setFreeTo(carEntity.getFreeTo());
+        carDto.setIsActivated(carEntity.getIsActivated());
+        carDto.setStateNum(carEntity.getStateNum());
         return carDto;
     }
 
     public static CarEntity mapCar(CarDTO carDto) {
-        CarEntity carEntity = carService.findById(carDto.getId())
-                .orElseGet(() ->{ throw new RuntimeException("Incorrect ID of car");});
+        CarEntity carEntity;
+        Optional<CarEntity> carEntityOptional = carService.findById(carDto.getId());
+
+        if (carEntityOptional.isPresent()) carEntity = carEntityOptional.get();
+        else throw new RuntimeException("Incorrect ID of car");
 
         carEntity.setBrand(carDto.getBrand());
         carEntity.setModel(carDto.getModel());
         carEntity.setYear(carDto.getYear());
-        carEntity.setStateNum(carDto.getStateNum());
+        carEntity.setYear(carDto.getYear());
+        carEntity.setMileage(carDto.getMileage());
         carEntity.setMileage(carDto.getMileage());
         carEntity.setSeats(carDto.getSeats());
         carEntity.setLocation(carDto.getLocation());
@@ -61,9 +67,8 @@ public class ConverterCars {
         carEntity.setOptionalAccessories(carDto.getOptionalAccessories());
         carEntity.setAdText(carDto.getAdText());
         carEntity.setPriceLease(carDto.getPriceLease());
-        carEntity.setCauseOfRejected(carDto.getCauseOfRejected());
-        carEntity.setFreeFrom(carDto.getFreeFrom());
-        carEntity.setFreeTo(carDto.getFreeTo());
+        carEntity.setIsActivated(carDto.getIsActivated());
+        carEntity.setStateNum(carDto.getStateNum());
         return carEntity;
     }
 }

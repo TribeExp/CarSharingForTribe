@@ -1,18 +1,14 @@
 package com.basakdm.excartest.entity;
 
-import com.basakdm.excartest.enum_ent.Roles;
-import com.basakdm.excartest.enum_ent.TypeOfNotify;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.util.Set;
+import java.util.Date;
+import java.util.HashSet;
 
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "user")
 public class UserEntity {
@@ -24,8 +20,6 @@ public class UserEntity {
     private String lastName;
     @Column
     private String firstName;
-   /* @Column
-    private String middleName;*/
     @Column
     private String password;
     @Column
@@ -57,62 +51,22 @@ public class UserEntity {
     @Column
     private String photo;
     @Column
-    private Long phoneNum;
+    private String phoneNum;
+    @Column
+    private HashSet<Long> setIdCar;
     @Column
     private Boolean notify;
-    /*@Column
+    // под вопросом
+    @Column
+    private String typeUser;
+
+    /* Возможно понадобятся
+    @Column
     private Long idCar;
     @Column
-    private Long price;
-    @Column
-    private Long priceAdd;
-    @Column
-    private Long finPrice;
-    @Column
-    private Date timeForDrive;
-    @Column
-    private String causeAddPrice;*/
-    @ElementCollection(targetClass = Roles.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
-    @Enumerated(EnumType.STRING)
-    private Set<Roles> role;
-    @Column
-    private Boolean active;
-    @Column
-    @Enumerated(EnumType.STRING)
-    private TypeOfNotify typeOfNotify; //??????
-
-    public String getPassword() {
-        return password;
-    }
+    private Long price;*/
 
 
-    public String getMail() {
-        return mail;
-    }
 
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public Set<Roles> getRole() {
-        return role;
-    }
-
-    public void setRole(Set<Roles> role) {
-        this.role = role;
-    }
-
-    public Boolean getActive() {
-        return active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
 

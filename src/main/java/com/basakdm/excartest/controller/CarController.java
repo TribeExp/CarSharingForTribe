@@ -1,18 +1,17 @@
 package com.basakdm.excartest.controller;
 
-import com.basakdm.excartest.dao.NotifyAdminRepositoryDAO;
 import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.entity.CarEntity;
-import com.basakdm.excartest.entity.NotifyAdmin;
+import com.basakdm.excartest.enum_ent.car_enum.*;
 import com.basakdm.excartest.service.CarService;
 import com.basakdm.excartest.utils.ConverterCars;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -21,8 +20,6 @@ public class CarController {
 
     @Autowired
     private CarService carServiceImpl;
-    @Autowired
-    private NotifyAdminRepositoryDAO notifyAdminController;
 
     @GetMapping("/all")
     public Collection<CarDTO> findAll(){
@@ -39,13 +36,66 @@ public class CarController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping(value = "/createCar")
-    public CarDTO createCar(CarEntity carEntity){
-        return ConverterCars.mapCar(carServiceImpl.createCar(carEntity));
+    @PostMapping("/createCar")
+    public ResponseEntity<?> createCar(@RequestBody CarEntity carEntity){
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(ConverterCars.mapCar(carServiceImpl.createCar(carEntity)));
     }
 
-    @GetMapping(name = "not")
-    List<NotifyAdmin> not(){
-        return notifyAdminController.findAll();
+    @DeleteMapping("/delete/{carId}")
+    public void delete(@PathVariable @Positive Long carId){
+        carServiceImpl.delete(carId);
     }
+
+    @PostMapping ("/update")
+    public void update(@RequestBody CarEntity car){
+        carServiceImpl.update(car);
+    }
+
+
+    @GetMapping("/isActivated/False")
+    public Collection<CarEntity> findAllByIsActivatedFalse(){
+        return carServiceImpl.findAllByIsActivatedFalse();
+    }
+    @GetMapping("/isActivated/True")
+    public Collection<CarEntity> findAllByIsActivatedTrue(){
+        return carServiceImpl.findAllByIsActivatedTrue();
+    }
+
+
+    @GetMapping(value = "/getPhoto/{carId}")
+    public String getPhotoById(@PathVariable @Positive Long carId){
+        String photoReference = carServiceImpl.findById(carId).get().getPhoto();
+        return photoReference;
+    }
+    @GetMapping(value = "/getLocation/{carId}")
+    public String getLocationById(@PathVariable @Positive Long carId){
+        return carServiceImpl.findById(carId).get().getLocation();
+    }
+
+
+    @GetMapping(value = "/transmissionType/{transmission}")
+    public Collection<CarEntity> getAllByTransmissionType(@PathVariable @Positive Transmission transmission){
+        Collection<CarEntity> cars = carServiceImpl.findAllByTransmissionType(transmission);
+        return cars;
+    }
+    @GetMapping(value = "/carBody/{carBody}")
+    public Collection<CarEntity> getAllByCarBody(@PathVariable @Positive CarBody carBody){
+        return carServiceImpl.findAllByCarBody(carBody);
+    }
+    @GetMapping(value = "/driveGear/{driveGear}")
+    public Collection<CarEntity> getAllByDriveGear(@PathVariable @Positive DriveGear driveGear){
+        return carServiceImpl.findAllByDriveGear(driveGear);
+    }
+    @GetMapping(value = "/typeEngine/{typeEngine}")
+    public Collection<CarEntity> getAllByEngineType(@PathVariable @Positive TypeEngine typeEngine){
+        return carServiceImpl.findAllByEngineType(typeEngine);
+    }
+    @GetMapping(value = "/typeFuel/{typeFuel}")
+    public Collection<CarEntity> getAllByTypeFuel(@PathVariable @Positive TypeFuel typeFuel){
+        return carServiceImpl.findAllByFuelType(typeFuel);
+    }
+
+
+
 }

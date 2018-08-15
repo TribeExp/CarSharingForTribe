@@ -4,8 +4,6 @@ import com.basakdm.excartest.enum_ent.car_enum.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Date;
-
 @Getter
 @Setter
 public class CarDTO {
@@ -15,26 +13,33 @@ public class CarDTO {
     private String model;
     private Long year;
     private String stateNum;
+
+
     private Long mileage;
     private Integer seats;
     private String location;
     private String photo;
+    private Transmission transmissionType;
+
+
     private CarBody carBody;
     private DriveGear driveGear;
-    private Transmission transmissionType;
     private TypeEngine engineType;
     private TypeFuel fuelType;
-    //changed to double
     private Double fuelConsumption;
-    //shortDescription - conditionInformation(данные о состоянии)
+
+
     private String conditionInformation;
     private String insurance;
-    //optionalAccessories(доп аксессуары)
-    private String optionalAccessories;
-    //text - adText
-    private String adText;
     private Long priceLease;
-    private String causeOfRejected;
-    private Date freeFrom;
-    private Date freeTo;
+    private String adText;
+    private Boolean isActivated;
+
+
+    private Long price;
+    // под вопросом
+    private String typeUser;
+    private Long id_owner;
+    private String optionalAccessories;
+
 }

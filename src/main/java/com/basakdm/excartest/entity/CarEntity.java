@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Date;
 
 @Getter
 @Setter
@@ -24,6 +23,8 @@ public class CarEntity {
     private Long year;
     @Column
     private String stateNum;
+
+
     @Column
     private Long mileage;
     @Column
@@ -32,15 +33,17 @@ public class CarEntity {
     private String location;
     @Column
     private String photo;
+    @Column(name = "transmission")
+    @Enumerated(EnumType.STRING)
+    private Transmission transmissionType;
+
+
     @Column
     @Enumerated(EnumType.STRING)
     private CarBody carBody;
     @Column
     @Enumerated(EnumType.STRING)
     private DriveGear driveGear;
-    @Column(name = "transmission")
-    @Enumerated(EnumType.STRING)
-    private Transmission transmissionType;
     @Enumerated(EnumType.STRING)
     @Column(name = "type_engine")
     private TypeEngine engineType;
@@ -49,31 +52,44 @@ public class CarEntity {
     private TypeFuel fuelType;
     @Column
     private Double fuelConsumption;
-    @Column(name = "short_description")
+
+
+    @Column(name = "condition_Information")
     private String conditionInformation;
     @Column
     private String insurance;
     @Column
-    private String optionalAccessories;
-    @Column(name = "text")
+    private Long priceLease;
+    @Column(name = "ad_text")
     private String adText;
     @Column
-    private Long priceLease;
+    private Boolean isActivated;
+
+
     @Column
-    private Date freeFrom;
+    private Long price;
+    // под вопросом
     @Column
-    private Date freeTo;
+    private String typeUser;
+    @Column
+    private Long id_owner;
+    @Column
+    private String optionalAccessories;
+
+    /* Возможно понадобятся
+    @Column
+    private Date calendarOfFree;
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity owner_id;
-    /*@ManyToOne
+    @JoinColumn(name = "user_id_boss")
+    private UserEntity user_id_boss;
+    @ManyToOne
     @JoinColumn(name = "user_id_user")
-    private UserEntity user_id_user;*/
+    private UserEntity user_id_user;
     @Column
     private Boolean isFree;
     @Column
-    private Boolean isActivated;
-    @Column
-    private String causeOfRejected;//??????????
+    private String causeOfRejected;*/
+
+
 
 }

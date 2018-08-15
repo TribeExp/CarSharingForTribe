@@ -1,6 +1,7 @@
 package com.basakdm.excartest.service;
 
 import com.basakdm.excartest.dto.UserDTO;
+import com.basakdm.excartest.entity.CarEntity;
 import com.basakdm.excartest.entity.UserEntity;
 import org.springframework.stereotype.Service;
 
@@ -18,19 +19,21 @@ public interface UserService {
     Collection<UserEntity> findAll();
 
     /**
-     * Find user by id
+     * Find car by id
      *
      * @param id user unique identifier
      * @return Optional with user, if user was founded. Empty optional in opposite case
      */
     Optional<UserEntity> findById(Long id);
 
-    Optional<UserEntity> findByMail(String email);
-
     /**
      * Create user.
-     * @param email email for sending user password
-     * @return Created user.
+     * @param userEntity user params for create a new user
+     * @return Created user with id.
      */
-    UserEntity createUser(String email, String password);
+    UserEntity createUser(UserEntity userEntity);
+
+    void delete(long id);
+
+    void update(UserEntity userEntity);
 }

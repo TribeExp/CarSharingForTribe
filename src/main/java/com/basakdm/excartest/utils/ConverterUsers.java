@@ -31,9 +31,9 @@ public class ConverterUsers {
             userDTO.setWhenGetDriveDoc(userEntity.getWhenGetDriveDoc());
             userDTO.setExpirtyDate(userEntity.getExpirtyDate());
             userDTO.setCategoryDriveDoc(userEntity.getCategoryDriveDoc());
-            userDTO.setPhoto(userEntity.getPhoto());
             userDTO.setPhoneNum(userEntity.getPhoneNum());
             userDTO.setNotify(userEntity.getNotify());
+            userDTO.setSetIdCar((userEntity.getSetIdCar()));
             return userDTO;
         }
 
@@ -60,9 +60,9 @@ public class ConverterUsers {
             userEntity.setWhenGetDriveDoc(userDTO.getWhenGetDriveDoc());
             userEntity.setExpirtyDate(userDTO.getExpirtyDate());
             userEntity.setCategoryDriveDoc(userDTO.getCategoryDriveDoc());
-            userEntity.setPhoto(userDTO.getPhoto());
             userEntity.setPhoneNum(userDTO.getPhoneNum());
             userEntity.setNotify(userDTO.getNotify());
+            userEntity.setSetIdCar(userDTO.getSetIdCar());
             return userEntity;
         }
 
