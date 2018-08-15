@@ -12,10 +12,9 @@ public class OrderDTO {
     private Long id;
     private Long priceAdd;
     private Long finPrice;
-    private Date timeForDrive;
+    private Date from_what_date;
     private Long id_car;
     private Long id_user;
     private Long id_owner;
     private Integer amount_of_days;
-    private Date from_what_date;
 }

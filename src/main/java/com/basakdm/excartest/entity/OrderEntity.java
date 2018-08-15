@@ -20,6 +20,8 @@ public class OrderEntity {
     @Column
     private Long finPrice;
     @Column
+    private Date from_what_date;
+    @Column
     private Long id_car;
     @Column
     private Long id_user;
@@ -27,6 +29,5 @@ public class OrderEntity {
     private Long id_owner;
     @Column
     private Integer amount_of_days;
-    @Column
-    private Date from_what_date;
+
 }
