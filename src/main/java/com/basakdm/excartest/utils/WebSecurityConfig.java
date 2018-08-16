@@ -70,17 +70,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        Role user = new Role();
-        if (roleRepositoryDAO.findByRole("USER") == null){
-            user.setRole("USER");
-            user.setId(2);
-            roleRepositoryDAO.save(user);
-        }
-        if (roleRepositoryDAO.findByRole("ADMIN") == null){
-            user.setRole("ADMIN");
-            user.setId(1);
-            roleRepositoryDAO.saveAndFlush(user);
-        }
+
 
         http.csrf().disable()
                 .authorizeRequests()
