@@ -76,6 +76,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers(HttpMethod.POST,"/**").permitAll()
                     .antMatchers(HttpMethod.GET, "/**").permitAll()
+                    .antMatchers(HttpMethod.DELETE, "/**").permitAll()
                     //.antMatchers("/cars/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
                 /*.and()

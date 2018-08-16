@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="95c1c47d-eace-4ddb-bf6d-6461f577088b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/WebSecurityConfig.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,13 +27,13 @@
         <counts>
           <entry key="java" value="1266" />
           <entry key="properties" value="33" />
-          <entry key="txt" value="83" />
+          <entry key="txt" value="141" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="1266" />
-          <entry key="PLAIN_TEXT" value="83" />
+          <entry key="PLAIN_TEXT" value="141" />
           <entry key="Properties" value="33" />
         </counts>
       </usages-collector>
@@ -106,7 +104,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
+            <state relative-caret-position="20">
               <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
               <folding>
                 <element signature="e#2332#2333#0" expanded="true" />
@@ -446,12 +444,12 @@
       <option name="project" value="LOCAL" />
       <updated>1534410970928</updated>
     </task>
-    <task id="LOCAL-00007" summary="it's alive!!!">
-      <created>1534064668874</created>
+    <task id="LOCAL-00007" summary="added creating roles in db if don't exist">
+      <created>1534411876544</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1534064668874</updated>
+      <updated>1534411876544</updated>
     </task>
     <task id="LOCAL-00008" summary="added the mail services">
       <created>1534087073146</created>
@@ -474,7 +472,7 @@
       <option name="project" value="LOCAL" />
       <updated>1534321249469</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -569,7 +567,8 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/TribeExp/tests into auth&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/basakdm/excartest/controller/TESTController.java&#10;#&#9;src/main/java/com/basakdm/excartest/controller/UserController.java&#10;#&#9;src/main/java/com/basakdm/excartest/dto/CarDTO.java&#10;#&#9;src/main/java/com/basakdm/excartest/entity/CarEntity.java&#10;#&#9;src/main/java/com/basakdm/excartest/entity/OrderEntity.java&#10;#&#9;src/main/java/com/basakdm/excartest/entity/UserEntity.java&#10;#&#9;src/main/java/com/basakdm/excartest/service/UserService.java&#10;#&#9;src/main/java/com/basakdm/excartest/service/service_impl/UserServiceImpl.java&#10;#&#9;src/main/java/com/basakdm/excartest/utils/ConverterCars.java&#10;#&#9;src/main/java/com/basakdm/excartest/utils/ConverterUsers.java&#10;#&#9;target/classes/com/basakdm/excartest/controller/UserController.class&#10;#&#9;target/classes/com/basakdm/excartest/dao/UserRepositoryDAO.class&#10;#&#9;target/classes/com/basakdm/excartest/dto/CarDTO.class&#10;#&#9;target/classes/com/basakdm/excartest/dto/UserDTO.class&#10;#&#9;target/classes/com/basakdm/excartest/entity/CarEntity.class&#10;#&#9;target/classes/com/basakdm/excartest/entity/UserEntity.class&#10;#&#9;target/classes/com/basakdm/excartest/service/UserService.class&#10;#&#9;target/classes/com/basakdm/excartest/service/service_impl/CarServiceImpl.class&#10;#&#9;target/classes/com/basakdm/excartest/service/service_impl/UserServiceImpl.class&#10;#&#9;target/classes/com/basakdm/excartest/utils/ConverterCars.class&#10;#&#9;target/classes/com/basakdm/excartest/utils/ConverterUsers.class&#10;#&#9;target/classes/com/basakdm/excartest/utils/connect_db/RequestControl.class" />
     <MESSAGE value="for dk" />
     <MESSAGE value="for deploy on heroku" />
-    <option name="LAST_COMMIT_MESSAGE" value="for deploy on heroku" />
+    <MESSAGE value="added creating roles in db if don't exist" />
+    <option name="LAST_COMMIT_MESSAGE" value="added creating roles in db if don't exist" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/UserDTO.java">
@@ -819,7 +818,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
+        <state relative-caret-position="20">
           <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
           <folding>
             <element signature="e#2332#2333#0" expanded="true" />
