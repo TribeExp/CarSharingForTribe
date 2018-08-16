@@ -1,10 +1,13 @@
 package com.basakdm.excartest.service;
 
+import com.basakdm.excartest.entity.Role;
 import com.basakdm.excartest.entity.UserEntity;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public interface UserService {
@@ -45,4 +48,9 @@ public interface UserService {
     void update(UserEntity userEntity);
     String getPasswordById(Long userId);
     Optional<UserEntity> findByMail(String email);
+    long getCurrentUserId() throws Exception;
+    Optional<UserEntity> getCurrentUser() throws Exception;
+    Set<Role> getCurrentUserRoles() throws Exception;
+    UserEntity createAdmin(String email, String password);
+    Set<SimpleGrantedAuthority> getAuthority(UserEntity user);
 }

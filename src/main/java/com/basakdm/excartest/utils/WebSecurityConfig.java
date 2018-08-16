@@ -7,12 +7,17 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -20,11 +25,13 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -37,6 +44,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("${spring.queries.roles-query}")
     private String rolesQuery;
+    //////////////////////////////////
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    @Autowired
+    private JwtAuthenticationEntryPoint unauthorizedHandler;
+
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
+    @Autowired
+    public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService)
+                .passwordEncoder(bCryptPasswordEncoder());
+    }
+
+    @Bean
+    public JwtAuthenticationFilter authenticationTokenFilterBean() {
+        return new JwtAuthenticationFilter();
+    }
 
     @Bean
     BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -69,15 +99,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-
-
-        http.csrf().disable()
+        http
+                .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers(HttpMethod.POST,"/**").permitAll()
-                    .antMatchers(HttpMethod.GET, "/**").permitAll()
-                    .antMatchers(HttpMethod.DELETE, "/**").permitAll()
-                    //.antMatchers("/cars/**").hasRole("ADMIN")
+                    .antMatchers(HttpMethod.POST,"/auth/**").permitAll()
                     .anyRequest().authenticated()
                 /*.and()
                     .formLogin()
@@ -87,15 +112,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .logout()
                     .logoutUrl("/logout")
                     .permitAll()
-                .and().cors();
-                //.and().httpBasic();
+                .and().cors()
+                .and()
+                    .httpBasic()
+                .and()
+                    .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
+                .and()
+                    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http
+                .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
     }
 
-    @Override
+   /* @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers(HttpMethod.POST, "/**")
                 .and().ignoring().antMatchers(HttpMethod.GET, "/**");
-    }
+    }*/
 
     /*@Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

@@ -43,6 +43,7 @@ public class CarController {
 
     @PostMapping("/createCar")
     public ResponseEntity<?> createCar(@RequestBody CarEntity carEntity){
+        carEntity.setIsActivated(false);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ConverterCars.mapCar(carServiceImpl.createCar(carEntity)));
     }

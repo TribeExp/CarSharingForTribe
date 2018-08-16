@@ -1,4 +1,4 @@
-package com.basakdm.excartest.request_model.order_model;
+package com.basakdm.excartest.request_models.order_models;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
