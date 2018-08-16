@@ -1,6 +1,7 @@
 package com.basakdm.excartest.models;
 
 public class EmailAndPassword {
+    
     private String email;
     private String password;
 

@@ -90,21 +90,4 @@ public class UserController {
         return userService.findById(userId).get().getNotify();
     }
 
-    /*@GetMapping(value = "/createUser")
-    public UserEntity createUser(UserEntity userEntity){
-        return userService.createUser(userEntity);
-    }*/
-
-    /*@PostMapping("/registration")
-    public ResponseEntity<?> registration(UserEntity userEntity) {
-        //if user already exist
-        if (userService.findByMail(userEntity.getMail()).isPresent()) {
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body("This user already exists");
-        }
-       // securityService.autoLogin(userEntity.getMail(), userEntity.getPassword());
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(ConverterUsers.mapUser(userService.createUser(userEntity)));
-    }*/
-
 }
