@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.management.Notification;
 import javax.validation.constraints.Positive;
 import java.util.Collection;
 import java.util.Optional;
@@ -59,28 +58,28 @@ public class NotificationsController {
 
     @GetMapping(value = "/getTextNotifyById/{notifyId}")
     public String getTextNotifyById(@PathVariable @Positive Long notifyId){
-        return notificationsService.findById(notifyId).get().getText_notify();
+        return notificationsService.findById(notifyId).get().getTextNotify();
     }
 
     @GetMapping(value = "/getFromWhomIdById/{notifyId}")
     public Long getFromWhomIdById(@PathVariable @Positive Long notifyId){
-        return notificationsService.findById(notifyId).get().getFrom_whom_id();
+        return notificationsService.findById(notifyId).get().getFromWhomId();
     }
     @GetMapping(value = "/getToWhomIdById/{notifyId}")
     public Long getToWhomIdById(@PathVariable @Positive Long notifyId){
-        return notificationsService.findById(notifyId).get().getTo_whom_id();
+        return notificationsService.findById(notifyId).get().getToWhomId();
     }
 
     @GetMapping(value = "/getOrderIdById/{notifyId}")
     public Long getOrderIdById(@PathVariable @Positive Long notifyId){
-        return notificationsService.findById(notifyId).get().getOrder_id();
+        return notificationsService.findById(notifyId).get().getOrderId();
     }
     @PostMapping(value = "/setOrderIdById/{notifyId}/{orderId}")
     public void setOrderIdById(@RequestBody @PathVariable @Positive Long notifyId, @PathVariable @Positive Long orderId){
 
         Optional<NotificationsEntity> optionalNotificationsEntity = notificationsService.findById(notifyId);
         NotificationsEntity notificationsEntity = optionalNotificationsEntity.get();
-        notificationsEntity.setOrder_id(orderId);
+        notificationsEntity.setOrderId(orderId);
 
         notificationsRepositoryDAO.saveAndFlush(notificationsEntity);
     }

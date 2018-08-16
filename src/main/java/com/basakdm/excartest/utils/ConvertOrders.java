@@ -14,11 +14,16 @@ public class ConvertOrders {
 
     public static OrderDTO mapOrder(OrderEntity orderEntity) {
         OrderDTO orderDTO = new OrderDTO();
-        orderDTO.setFinPrice(orderEntity.getFinPrice());
+
         orderDTO.setId(orderEntity.getId());
-        orderDTO.setAmount_of_days(orderEntity.getAmount_of_days());
-        orderDTO.setFrom_what_date(orderEntity.getFrom_what_date());
         orderDTO.setPriceAdd(orderEntity.getPriceAdd());
+        orderDTO.setFinPrice(orderEntity.getFinPrice());
+        orderDTO.setFromWhatDate(orderEntity.getFromWhatDate());
+        orderDTO.setIdCar(orderEntity.getIdCar());
+        orderDTO.setIdUser(orderEntity.getIdUser());
+        orderDTO.setIdOwner(orderEntity.getIdOwner());
+        orderDTO.setAmountOfDays(orderEntity.getAmountOfDays());
+
         return orderDTO;
     }
 
@@ -29,11 +34,15 @@ public class ConvertOrders {
         if (optionalOrderEntity.isPresent()) orderEntity = optionalOrderEntity.get();
         else throw new RuntimeException("Incorrect ID of car");
 
-        orderEntity.setFinPrice(orderDTO.getFinPrice());
         orderEntity.setId(orderDTO.getId());
-        orderEntity.setAmount_of_days(orderDTO.getAmount_of_days());
-        orderEntity.setFrom_what_date(orderDTO.getFrom_what_date());
         orderEntity.setPriceAdd(orderDTO.getPriceAdd());
+        orderEntity.setFinPrice(orderDTO.getFinPrice());
+        orderEntity.setFromWhatDate(orderDTO.getFromWhatDate());
+        orderEntity.setIdCar(orderDTO.getIdCar());
+        orderEntity.setIdUser(orderDTO.getIdUser());
+        orderEntity.setIdOwner(orderDTO.getIdOwner());
+        orderEntity.setAmountOfDays(orderDTO.getAmountOfDays());
+
         return orderEntity;
     }
 }
