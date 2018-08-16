@@ -6,6 +6,8 @@ import com.basakdm.excartest.entity.UserEntity;
 import com.basakdm.excartest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Date;
+import java.util.HashSet;
 import java.util.Optional;
 
 public class ConverterUsers {
@@ -18,6 +20,7 @@ public class ConverterUsers {
             userDTO.setId(userEntity.getId());
             userDTO.setLastName(userEntity.getLastName());
             userDTO.setFirstName(userEntity.getFirstName());
+            userDTO.setPassword(userEntity.getPassword());
             userDTO.setMail(userEntity.getMail());
             userDTO.setSeriesPassport(userEntity.getSeriesPassport());
             userDTO.setNumberSeria(userEntity.getNumberSeria());
@@ -32,8 +35,10 @@ public class ConverterUsers {
             userDTO.setExpirtyDate(userEntity.getExpirtyDate());
             userDTO.setCategoryDriveDoc(userEntity.getCategoryDriveDoc());
             userDTO.setPhoneNum(userEntity.getPhoneNum());
-            userDTO.setNotify(userEntity.getNotify());
             userDTO.setSetIdCar((userEntity.getSetIdCar()));
+            userDTO.setNotify(userEntity.getNotify());
+            userDTO.setTypeUser(userEntity.getTypeUser());
+
             return userDTO;
         }
 
@@ -47,6 +52,7 @@ public class ConverterUsers {
             userEntity.setId(userDTO.getId());
             userEntity.setLastName(userDTO.getLastName());
             userEntity.setFirstName(userDTO.getFirstName());
+            userEntity.setPassword(userDTO.getPassword());
             userEntity.setMail(userDTO.getMail());
             userEntity.setSeriesPassport(userDTO.getSeriesPassport());
             userEntity.setNumberSeria(userDTO.getNumberSeria());
@@ -61,8 +67,9 @@ public class ConverterUsers {
             userEntity.setExpirtyDate(userDTO.getExpirtyDate());
             userEntity.setCategoryDriveDoc(userDTO.getCategoryDriveDoc());
             userEntity.setPhoneNum(userDTO.getPhoneNum());
-            userEntity.setNotify(userDTO.getNotify());
             userEntity.setSetIdCar(userDTO.getSetIdCar());
+            userEntity.setTypeUser(userDTO.getTypeUser());
+
             return userEntity;
         }
 
