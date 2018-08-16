@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -20,11 +23,13 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -37,6 +42,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("${spring.queries.roles-query}")
     private String rolesQuery;
+    //////////////////////////////////
+    @Resource(name = "userService")
+    private UserDetailsService userDetailsService;
+
+    @Autowired
+    private JwtAuthenticationEntryPoint unauthorizedHandler;
+
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
+    @Autowired
+    public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService)
+                .passwordEncoder(bCryptPasswordEncoder());
+    }
+
+    @Bean
+    public JwtAuthenticationFilter authenticationTokenFilterBean() {
+        return new JwtAuthenticationFilter();
+    }
 
     @Bean
     BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -61,7 +89,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 registry
                         .addMapping("/**")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
-                        .allowedOrigins("https://carsharing-d2e1c.firebaseapp.com/**")
+                        .allowedOrigins("*")
                         .allowedHeaders("*");
             }
         };
@@ -69,26 +97,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-
-
-        http.csrf().disable()
+        http
+                .csrf().disable()
                 .authorizeRequests()
                     .antMatchers(HttpMethod.POST,"/**").permitAll()
                     .antMatchers(HttpMethod.GET, "/**").permitAll()
                     .antMatchers(HttpMethod.DELETE, "/**").permitAll()
                     //.antMatchers("/cars/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
-                /*.and()
+                .and()
                     .formLogin()
                     .loginProcessingUrl("/auth/login")
-                    .permitAll()*/
+                    .permitAll()
                 .and()
                     .logout()
                     .logoutUrl("/logout")
                     .permitAll()
-                .and().cors();
-                //.and().httpBasic();
+                .and().cors()
+                .and().httpBasic();
     }
 
     @Override

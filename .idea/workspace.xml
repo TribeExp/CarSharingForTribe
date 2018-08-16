@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95c1c47d-eace-4ddb-bf6d-6461f577088b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/TokenProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/connect_db/RequestControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/connect_db/RequestControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/service/service_impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/service/service_impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/utils/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/basakdm/excartest/utils/WebSecurityConfig.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,42 +25,52 @@
     <session id="859222461">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.120" value="1" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.73" value="1" />
           <entry key="project.open.time.77" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1266" />
+          <entry key="dummy" value="1" />
+          <entry key="java" value="1351" />
           <entry key="properties" value="33" />
-          <entry key="txt" value="141" />
+          <entry key="txt" value="167" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1266" />
-          <entry key="PLAIN_TEXT" value="141" />
+          <entry key="JAVA" value="1351" />
+          <entry key="PLAIN_TEXT" value="168" />
           <entry key="Properties" value="33" />
+          <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
-          <entry key="java" value="96" />
-          <entry key="properties" value="8" />
-          <entry key="xml" value="2" />
+          <entry key="java" value="108" />
+          <entry key="properties" value="10" />
+          <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="96" />
-          <entry key="Properties" value="8" />
-          <entry key="XML" value="2" />
+          <entry key="JAVA" value="108" />
+          <entry key="Properties" value="10" />
+          <entry key="XML" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.checkout.local" value="1" />
+          <entry key="git.branch.create.new" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -63,102 +83,50 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/WebSecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
+            <state relative-caret-position="291">
+              <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2461#2880#0" expanded="true" />
-                <element signature="e#2879#2880#0" expanded="true" />
+                <element signature="e#2486#2487#0" expanded="true" />
+                <element signature="e#2538#2539#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="77" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="47" column="26" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/AuthenticationController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/UserServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/JwtAuthenticationFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+            <state relative-caret-position="204">
+              <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
               <folding>
-                <element signature="e#2332#2333#0" expanded="true" />
-                <element signature="e#2396#2397#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/UserEntity.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/TokenProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="56" column="16" lean-forward="true" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/CarController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
+            <state relative-caret-position="1105">
+              <caret line="65" column="104" selection-start-line="65" selection-start-column="104" selection-end-line="65" selection-end-column="104" />
               <folding>
-                <element signature="e#2067#2068#0" expanded="true" />
-                <element signature="e#2132#2133#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#787#788#0" expanded="true" />
+                <element signature="e#854#855#0" expanded="true" />
+                <element signature="e#914#915#0" expanded="true" />
+                <element signature="e#984#985#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/CarEntity.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-31">
-              <caret line="72" column="30" selection-start-line="71" selection-start-column="4" selection-end-line="72" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConverterCars.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="73" column="10" selection-start-line="73" selection-start-column="10" selection-end-line="73" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="46" column="50" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
+            <state relative-caret-position="34">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -176,6 +144,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="auth" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -203,15 +176,24 @@
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/request_model/user_model/UserIdAndCarId.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/entity/CarEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/ConverterCars.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/connect_db/RequestControl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/CORSFilter.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/JwtAuthenticationEntryPoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/WebSecurityConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/connect_db/Constant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/Constant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/Constants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/JwtAuthenticationFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/TokenProvider.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="683" />
+    <option name="x" value="462" />
+    <option name="y" value="-14" />
     <option name="width" value="683" />
     <option name="height" value="728" />
   </component>
@@ -221,7 +203,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -272,45 +253,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="excartest" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exTestCar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exTestCar" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="excartest" type="462c0819:PsiDirectoryNode" />
               <item name="request_model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exTestCar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exTestCar" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="excartest" type="462c0819:PsiDirectoryNode" />
-              <item name="request_model" type="462c0819:PsiDirectoryNode" />
-              <item name="user_model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exTestCar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exTestCar" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="excartest" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exTestCar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exTestCar" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="excartest" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="service_impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="exTestCar" type="b2602c69:ProjectViewProjectNode" />
@@ -342,11 +285,17 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../tests-auth" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.basakdm.excartest.utils" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -451,12 +400,12 @@
       <option name="project" value="LOCAL" />
       <updated>1534411876544</updated>
     </task>
-    <task id="LOCAL-00008" summary="added the mail services">
-      <created>1534087073146</created>
+    <task id="LOCAL-00008" summary="added permit for DELETE">
+      <created>1534412028700</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1534087073146</updated>
+      <updated>1534412028700</updated>
     </task>
     <task id="LOCAL-00009" summary="before merge with masters">
       <created>1534320695130</created>
@@ -472,7 +421,7 @@
       <option name="project" value="LOCAL" />
       <updated>1534321249469</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -485,7 +434,7 @@
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Web" order="5" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.4987013" visible="true" weight="0.22012103" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.4987013" visible="true" weight="0.19440243" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32569557" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.3289689" />
@@ -493,7 +442,7 @@
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.7757774" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.37061995" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49924356" visible="true" weight="0.16530278" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49924356" weight="0.3371522" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Java Enterprise" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
@@ -568,7 +517,8 @@
     <MESSAGE value="for dk" />
     <MESSAGE value="for deploy on heroku" />
     <MESSAGE value="added creating roles in db if don't exist" />
-    <option name="LAST_COMMIT_MESSAGE" value="added creating roles in db if don't exist" />
+    <MESSAGE value="added permit for DELETE" />
+    <option name="LAST_COMMIT_MESSAGE" value="added permit for DELETE" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/dto/UserDTO.java">
@@ -627,13 +577,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/request_model/EmailAndPassword.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -669,26 +612,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/request_model/order_model/OrderIdAndPriceAdd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/OrderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1757">
-          <caret line="134" column="35" selection-start-line="134" selection-start-column="35" selection-end-line="134" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -699,20 +622,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/request_model/notification_model/CreatedNotification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="34" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/NotificationsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="84" column="7" selection-start-line="76" selection-start-column="4" selection-end-line="84" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/request_model/notification_model/CreatedNotification.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/NotificationsServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -724,27 +634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/request_model/user_model/UserIdAndCarId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/CarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
-          <folding>
-            <element signature="e#2067#2068#0" expanded="true" />
-            <element signature="e#2132#2133#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -776,10 +665,96 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/AuthenticationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/request_model/user_model/UserIdAndCarId.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="71" column="40" lean-forward="true" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/CarController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="54" column="28" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="94" column="33" lean-forward="true" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/request_model/order_model/OrderIdAndPriceAdd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/CORSFilter.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/NotificationsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/connect_db/RequestControl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+        <state relative-caret-position="187">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/JwtAuthenticationEntryPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2486#2487#0" expanded="true" />
+            <element signature="e#2538#2539#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -790,39 +765,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/WebSecurityConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/TokenProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="65" column="104" selection-start-line="65" selection-start-column="104" selection-end-line="65" selection-end-column="104" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2461#2880#0" expanded="true" />
-            <element signature="e#2879#2880#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#854#855#0" expanded="true" />
+            <element signature="e#914#915#0" expanded="true" />
+            <element signature="e#984#985#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/utils/JwtAuthenticationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="47" column="26" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/controller/AuthenticationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/basakdm/excartest/service/service_impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        <state relative-caret-position="204">
+          <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
           <folding>
-            <element signature="e#2332#2333#0" expanded="true" />
-            <element signature="e#2396#2397#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
