@@ -106,7 +106,7 @@ public class CarController {
     public Long getPriceById(@PathVariable @Positive Long carId){
         return carServiceImpl.findById(carId).get().getPrice();
     }
-    @PostMapping ("/setPrice/{carId}/{price}")
+    /*@PostMapping ("/setPrice/{carId}/{price}")
     public void setPrice(@RequestBody @PathVariable @Positive Long carId, @PathVariable @Positive Long price){
 
         Optional<CarEntity> optionalCarEntity = carServiceImpl.findById(carId);
@@ -114,6 +114,6 @@ public class CarController {
         carEntity.setPrice(price);
 
         carRepositoryDAO.saveAndFlush(carEntity);
-    }
+    }*/
 
 }

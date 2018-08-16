@@ -1,15 +1,12 @@
 package com.basakdm.excartest.controller;
 
 import com.basakdm.excartest.dao.UserRepositoryDAO;
-import com.basakdm.excartest.entity.UserEntity;
-import com.basakdm.excartest.models.EmailAndPassword;
+import com.basakdm.excartest.request_model.EmailAndPassword;
 import com.basakdm.excartest.service.EmailService;
 import com.basakdm.excartest.service.SecurityService;
 import com.basakdm.excartest.service.UserService;
 import com.basakdm.excartest.utils.ConverterUsers;
-import jdk.nashorn.internal.runtime.JSONFunctions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,8 +26,6 @@ public class AuthenticationController {
 
     @GetMapping()
     public ResponseEntity<?> main() {
-        System.out.println("Basakdmitry@yandex.ru".hashCode());
-
         return ResponseEntity.status(HttpStatus.OK)
                 .body("Main page");
     }
@@ -45,8 +40,8 @@ public class AuthenticationController {
         }
         // password - take a first 3 characters from email and add email hash code
         String password = email.substring(0, 3) + email.hashCode();
-        String testPasword = "test";
-        emailService.sendRegistrationMessage(email, testPasword);
+        String testPassword = "test";
+        emailService.sendRegistrationMessage(email, testPassword);
         // securityService.autoLogin(userEntity.getMail(), userEntity.getPassword());
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ConverterUsers.mapUser(userService.createUser(email, password)));

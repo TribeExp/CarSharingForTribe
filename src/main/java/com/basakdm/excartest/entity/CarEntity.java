@@ -69,8 +69,8 @@ public class CarEntity {
     @Column
     private Long price;
     // под вопросом
-    @Column
-    private String typeUser;
+    /*@Column
+    private String typeUser;*/
     @Column
     private Long id_owner;
     @Column

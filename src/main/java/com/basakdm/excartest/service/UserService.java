@@ -43,6 +43,6 @@ public interface UserService {
      * @return  Void.
      */
     void update(UserEntity userEntity);
-
+    String getPasswordById(Long userId);
     Optional<UserEntity> findByMail(String email);
 }

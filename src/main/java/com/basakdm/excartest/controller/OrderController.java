@@ -4,6 +4,7 @@ import com.basakdm.excartest.dao.OrderRepositoryDAO;
 import com.basakdm.excartest.dto.OrderDTO;
 import com.basakdm.excartest.entity.CarEntity;
 import com.basakdm.excartest.entity.OrderEntity;
+import com.basakdm.excartest.request_model.order_model.OrderIdAndPriceAdd;
 import com.basakdm.excartest.service.CarService;
 import com.basakdm.excartest.service.OrderService;
 import com.basakdm.excartest.utils.ConvertOrders;
@@ -91,12 +92,12 @@ public class OrderController {
     public Long getPriceAdd(@PathVariable @Positive Long orderId){
         return orderService.findById(orderId).get().getPriceAdd();
     }
-    @PostMapping ("/setPriceAdd/{orderId}/{priceAdd}")
-    public void setPriceAdd(@RequestBody @PathVariable @Positive Long orderId, @PathVariable @Positive Long priceAdd){
+    @PostMapping ("/setPriceAdd")
+    public void setPriceAdd(@RequestBody OrderIdAndPriceAdd idAndPrice){
 
-        Optional<OrderEntity> optionalOrderEntity = orderService.findById(orderId);
+        Optional<OrderEntity> optionalOrderEntity = orderService.findById(idAndPrice.getOrderId());
         OrderEntity orderEntity = optionalOrderEntity.get();
-        orderEntity.setPriceAdd(priceAdd);
+        orderEntity.setPriceAdd(idAndPrice.getPriceAdd());
 
         orderRepositoryDAO.saveAndFlush(orderEntity);
     }
@@ -131,7 +132,7 @@ public class OrderController {
         return orderService.findByIdCar(carId).get().getFinPrice();
     }
     @PostMapping ("/setFinPriceByIdCar/{carId}")
-    public void setFinPriceByIdCar(@RequestBody @PathVariable @Positive Long carId){
+    public void setFinPriceByIdCar(@PathVariable @Positive Long carId){
         Long finPrice;
         if (getPriceAddByIdCar(carId) == null) {
             finPrice = getCarEntityById(carId).getPrice() * getOrderEntityByIdCar(carId).getAmountOfDays();

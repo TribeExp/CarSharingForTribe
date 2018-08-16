@@ -37,7 +37,8 @@ public class ConverterUsers {
             userDTO.setPhoneNum(userEntity.getPhoneNum());
             userDTO.setSetIdCar((userEntity.getSetIdCar()));
             userDTO.setNotify(userEntity.getNotify());
-            userDTO.setTypeUser(userEntity.getTypeUser());
+            userDTO.setActive((userEntity.getActive()));
+            userDTO.setRoles((userEntity.getRoles()));
 
             return userDTO;
         }
@@ -68,7 +69,8 @@ public class ConverterUsers {
             userEntity.setCategoryDriveDoc(userDTO.getCategoryDriveDoc());
             userEntity.setPhoneNum(userDTO.getPhoneNum());
             userEntity.setSetIdCar(userDTO.getSetIdCar());
-            userEntity.setTypeUser(userDTO.getTypeUser());
+            userEntity.setActive((userDTO.getActive()));
+            userEntity.setRoles((userDTO.getRoles()));
 
             return userEntity;
         }

@@ -74,7 +74,7 @@ public class NotificationsController {
     public Long getOrderIdById(@PathVariable @Positive Long notifyId){
         return notificationsService.findById(notifyId).get().getOrderId();
     }
-    @PostMapping(value = "/setOrderIdById/{notifyId}/{orderId}")
+    /*@PostMapping(value = "/setOrderIdById/{notifyId}/{orderId}")
     public void setOrderIdById(@RequestBody @PathVariable @Positive Long notifyId, @PathVariable @Positive Long orderId){
 
         Optional<NotificationsEntity> optionalNotificationsEntity = notificationsService.findById(notifyId);
@@ -82,6 +82,6 @@ public class NotificationsController {
         notificationsEntity.setOrderId(orderId);
 
         notificationsRepositoryDAO.saveAndFlush(notificationsEntity);
-    }
+    }*/
 
 }

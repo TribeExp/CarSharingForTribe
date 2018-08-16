@@ -53,19 +53,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return source;
     }*/
 
-    /*@Bean
+    @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry
-                        .addMapping("/api/**")
+                        .addMapping("/**")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .allowedOrigins("https://carsharing-d2e1c.firebaseapp.com/**")
                         .allowedHeaders("*");
             }
         };
-    }*/
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -82,28 +82,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             roleRepositoryDAO.saveAndFlush(user);
         }
 
-        http
+        http.csrf().disable()
                 .authorizeRequests()
-                    .antMatchers(HttpMethod.POST,"/auth/**").permitAll()
-                    .antMatchers(HttpMethod.GET, "/auth/**").permitAll()
+                    .antMatchers(HttpMethod.POST,"/**").permitAll()
+                    .antMatchers(HttpMethod.GET, "/**").permitAll()
                     //.antMatchers("/cars/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
-                .and().csrf().disable()
+                /*.and()
                     .formLogin()
                     .loginProcessingUrl("/auth/login")
-                    .permitAll()
+                    .permitAll()*/
                 .and()
                     .logout()
                     .logoutUrl("/logout")
-                    .permitAll();
-                //.and().cors();
+                    .permitAll()
+                .and().cors();
                 //.and().httpBasic();
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers(HttpMethod.POST, "/auth/**")
-                .and().ignoring().antMatchers(HttpMethod.GET, "/auth/**");
+        web.ignoring().antMatchers(HttpMethod.POST, "/**")
+                .and().ignoring().antMatchers(HttpMethod.GET, "/**");
     }
 
     /*@Autowired

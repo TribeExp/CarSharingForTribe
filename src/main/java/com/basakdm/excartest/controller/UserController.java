@@ -3,6 +3,8 @@ package com.basakdm.excartest.controller;
 import com.basakdm.excartest.dao.UserRepositoryDAO;
 import com.basakdm.excartest.dto.UserDTO;
 import com.basakdm.excartest.entity.UserEntity;
+import com.basakdm.excartest.request_model.user_model.UserId;
+import com.basakdm.excartest.request_model.user_model.UserIdAndCarId;
 import com.basakdm.excartest.service.UserService;
 import com.basakdm.excartest.utils.ConverterUsers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,26 +41,17 @@ public class UserController {
                 .map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    /*@PostMapping("/createUser")
-    public ResponseEntity<?> createUser(@RequestBody UserEntity userEntity){
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(userService.createUser(userEntity));
-    }*/
-
     @DeleteMapping ("/delete/{id}")
     public void delete(@PathVariable @Positive Long id){
         userService.delete(id);
     }
-
     @PostMapping ("/update")
     public void update(@RequestBody UserEntity userEntity){
         userService.update(userEntity);
     }
-
-
     @GetMapping(value = "/getPasswordById/{userId}")
     public String getPasswordById(@PathVariable @Positive Long userId){
-        return userService.findById(userId).get().getPassword();
+        return userService.getPasswordById(userId);
     }
     @GetMapping(value = "/getEmailById/{userId}")
     public String getEmailById(@PathVariable @Positive Long userId){
@@ -76,18 +69,16 @@ public class UserController {
     public HashSet<Long> getSetCarById(@PathVariable @Positive Long userId){
         return userService.findById(userId).get().getSetIdCar();
     }
-    @PostMapping(value = "/setterSetCar/{userId}/{idNewCar}")
-    public void setSetCarById(@RequestBody @PathVariable @Positive Long userId, @PathVariable @Positive Long idNewCar){
-        Optional<UserEntity> optionalFoundUser = userService.findById(userId);
-        UserEntity foundUser = optionalFoundUser.get();
+    @PostMapping(value = "/setNewIdCar")
+    public Boolean setSetCarById(@RequestBody UserIdAndCarId userIdAndCarId){
+        UserEntity foundUser = userService.findById(userIdAndCarId.getUserId()).get();
         HashSet<Long> set = foundUser.getSetIdCar();
-        set.add(idNewCar);
+        set.add(userIdAndCarId.getCarId());
         foundUser.setSetIdCar(set);
-        userRepositoryDAO.saveAndFlush(foundUser);
+        return userRepositoryDAO.saveAndFlush(foundUser) != null;
     }
     @GetMapping(value = "/getNotifyById/{userId}")
     public Boolean getNotifyById(@PathVariable @Positive Long userId){
         return userService.findById(userId).get().getNotify();
     }
-
 }

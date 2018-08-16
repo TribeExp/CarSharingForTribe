@@ -29,6 +29,18 @@ public class UserServiceImpl implements UserService {
     private RoleRepositoryDAO roleRepositoryDAO;
 
     @Override
+    public UserEntity createUser(String email, String password) {
+        UserEntity newUser = new UserEntity();
+        Role userRole = roleRepositoryDAO.findByRole("USER");
+        newUser.setPassword(bCryptPasswordEncoder.encode(password));
+        newUser.setMail(email);
+        newUser.setActive(true);
+        newUser.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+
+        return userRepositoryDAO.saveAndFlush(newUser);
+    }
+
+    @Override
     public List<UserEntity> findAll() {
         return userRepositoryDAO.findAll();
     }
@@ -36,18 +48,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<UserEntity> findById(Long id) {
         return userRepositoryDAO.findById(id);
-    }
-
-    @Override
-    public UserEntity createUser(String email, String password) {
-        UserEntity newUser = new UserEntity();
-        Role userRole = roleRepositoryDAO.findByRole("ADMIN");
-        newUser.setPassword(bCryptPasswordEncoder.encode(password));
-        newUser.setMail(email);
-        newUser.setActive(true);
-        newUser.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-
-        return userRepositoryDAO.saveAndFlush(newUser);
     }
 
     @Override
@@ -61,6 +61,11 @@ public class UserServiceImpl implements UserService {
         Long id = userEntity.getId();
         Optional<UserEntity> userOld = findById(id);
         if(userOld.isPresent()) userRepositoryDAO.save(userEntity);
+    }
+
+    @Override
+    public String getPasswordById(Long userId) {
+        return bCryptPasswordEncoder.encode(findById(userId).get().getPassword());
     }
 
     @Override

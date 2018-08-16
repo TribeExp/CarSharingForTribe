@@ -10,9 +10,9 @@ public abstract class RequestControl {
 
     protected Connection connection;
     protected Statement statement;
-    protected String username = "root";
-    protected String password = "22256";
-    protected String connectionUrl = "jdbc:mysql://localhost:3336/car_sharing?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
+    protected String username = "pdhyozs0rhqutiam";
+    protected String password = "civ6wjr1uwue4jf7";
+    protected String connectionUrl = "mysql://pdhyozs0rhqutiam:civ6wjr1uwue4jf7@uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/czf6r6gtkiv1r8og";
 
     RequestControl() {
         try {
