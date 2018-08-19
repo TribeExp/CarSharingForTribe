@@ -7,7 +7,7 @@ import com.basakdm.excartest.entity.OrderEntity;
 import com.basakdm.excartest.request_models.order_models.OrderIdAndPriceAdd;
 import com.basakdm.excartest.service.CarService;
 import com.basakdm.excartest.service.OrderService;
-import com.basakdm.excartest.utils.ConvertOrders;
+import com.basakdm.excartest.utils.converters.ConvertOrders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +41,7 @@ public class OrderController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<OrderDTO> findUserById(@PathVariable @Positive Long id){
+    public ResponseEntity<OrderDTO> findOrderById(@PathVariable @Positive Long id){
         return orderService.findById(id)
                 .map(ConvertOrders::mapOrder)
                 .map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -49,6 +49,7 @@ public class OrderController {
 
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody OrderEntity orderEntity){
+        orderEntity.setIsActivated(false); //<---------------------------NEW
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(orderService.create(orderEntity));
     }
@@ -61,6 +62,20 @@ public class OrderController {
     @PostMapping ("/update")
     public void update(@RequestBody OrderEntity orderEntity){
         orderService.update(orderEntity);
+    }
+    //-----------------------NEW------------------
+    @PostMapping("/activate/{id}")
+    public ResponseEntity activate(@PathVariable @Positive Long id){
+        OrderEntity orderEntity;
+        try {
+            orderEntity = orderService.findById(id)
+                    .orElseThrow(() -> new Exception("Order not found"));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+        }
+        orderEntity.setIsActivated(true);
+        orderService.update(orderEntity);
+        return ResponseEntity.ok("Order with id: " + orderEntity.getId + " is activate");
     }
 
     // number of days by car

@@ -29,5 +29,7 @@ public class OrderEntity {
     private Long idOwner;
     @Column
     private Integer amountOfDays;
-
+    //----------NEW--------------------------
+    @Column
+    private Boolean isActivated;
 }
