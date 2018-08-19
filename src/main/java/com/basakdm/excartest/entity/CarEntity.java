@@ -1,6 +1,7 @@
 package com.basakdm.excartest.entity;
 
 import com.basakdm.excartest.enum_ent.car_enum.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
+@EqualsAndHashCode
 @Table(name = "cars")
 public class CarEntity {
 
@@ -68,13 +70,14 @@ public class CarEntity {
 
     @Column
     private Long price;
-    // под вопросом
-    /*@Column
-    private String typeUser;*/
     @Column
     private Long id_owner;
     @Column
     private String optionalAccessories;
+    @Column
+    private String calendarOfFree;
+    @Column
+    private Boolean isFree;
 
     /* Возможно понадобятся
     @Column
@@ -85,8 +88,6 @@ public class CarEntity {
     @ManyToOne
     @JoinColumn(name = "user_id_user")
     private UserEntity user_id_user;
-    @Column
-    private Boolean isFree;
     @Column
     private String causeOfRejected;*/
 
