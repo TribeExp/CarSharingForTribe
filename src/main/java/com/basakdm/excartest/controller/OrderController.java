@@ -116,9 +116,8 @@ public class OrderController {
     public OrderEntity getOrderEntityByIdCar(@PathVariable @Positive Long carId){
 
         Optional<OrderEntity> optionalOrderEntity = orderService.findByIdCar(carId);
-        OrderEntity orderEntity = optionalOrderEntity.get();
 
-        return orderEntity;
+        return optionalOrderEntity.get();
     }
 
     // method from car controller for calculate finPrice
