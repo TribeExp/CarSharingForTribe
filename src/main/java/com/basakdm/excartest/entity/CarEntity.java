@@ -78,19 +78,4 @@ public class CarEntity {
     private String calendarOfFree;
     @Column
     private Boolean isFree;
-
-    /* Возможно понадобятся
-    @Column
-    private Date calendarOfFree;
-    @ManyToOne
-    @JoinColumn(name = "user_id_boss")
-    private UserEntity user_id_boss;
-    @ManyToOne
-    @JoinColumn(name = "user_id_user")
-    private UserEntity user_id_user;
-    @Column
-    private String causeOfRejected;*/
-
-
-
 }

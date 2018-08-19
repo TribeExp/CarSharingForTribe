@@ -32,14 +32,12 @@ public interface NotificationsService {
     /**
      * Delete notification by id.
      * @param id notification params for delete a notification.
-     * @return  Void.
      */
     void delete(long id);
 
     /**
      * Update notification by id.
      * @param notificationsEntity notification params for update a notifications.
-     * @return  Void.
      */
     void update(NotificationsEntity notificationsEntity);
 }

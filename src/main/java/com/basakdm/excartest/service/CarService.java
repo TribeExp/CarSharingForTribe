@@ -34,14 +34,12 @@ public interface CarService  {
     /**
      * Delete car by id.
      * @param id car params for delete a car.
-     * @return  Void.
      */
     void delete(long id);
 
     /**
      * Update car by id.
      * @param carEntity car params for update a car.
-     * @return  Void.
      */
     void update(CarEntity carEntity);
 

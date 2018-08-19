@@ -41,5 +41,6 @@ public class CarDTO {
     private String typeUser;
     private Long id_owner;
     private String optionalAccessories;
-
+    private String calendarOfFree;
+    private Boolean isFree;
 }

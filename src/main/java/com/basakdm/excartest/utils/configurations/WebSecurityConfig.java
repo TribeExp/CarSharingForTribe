@@ -1,8 +1,10 @@
 package com.basakdm.excartest.utils.configurations;
 
 import com.basakdm.excartest.dao.RoleRepositoryDAO;
+import com.basakdm.excartest.entity.Role;
 import com.basakdm.excartest.utils.authentification.JwtAuthenticationEntryPoint;
 import com.basakdm.excartest.utils.authentification.JwtAuthenticationFilter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +26,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import javax.sql.DataSource;
 
+@Slf4j
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -32,19 +35,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
     @Autowired
+    private UserDetailsService userDetailsService;
+    @Autowired
+    private JwtAuthenticationEntryPoint unauthorizedHandler;
+    @Autowired
     private RoleRepositoryDAO roleRepositoryDAO;
 
     @Value("${spring.queries.users-query}")
     private String usersQuery;
-
     @Value("${spring.queries.roles-query}")
     private String rolesQuery;
-    //////////////////////////////////
-    @Autowired
-    private UserDetailsService userDetailsService;
-
-    @Autowired
-    private JwtAuthenticationEntryPoint unauthorizedHandler;
 
     @Override
     @Bean
@@ -52,37 +52,33 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
+    @Bean
+    public JwtAuthenticationFilter authenticationTokenFilterBean() {
+        return new JwtAuthenticationFilter();
+    }
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    /**
+     * Set {@link BCryptPasswordEncoder} for {@link UserDetailsService}
+     */
     @Autowired
     public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService)
                 .passwordEncoder(bCryptPasswordEncoder());
     }
 
-    @Bean
-    public JwtAuthenticationFilter authenticationTokenFilterBean() {
-        return new JwtAuthenticationFilter();
-    }
-
-    @Bean
-    BCryptPasswordEncoder bCryptPasswordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    /*@Bean
-    CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("https://carsharing-d2e1c.firebaseapp.com"));
-        configuration.setAllowedMethods(Arrays.asList("GET","POST"));
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }*/
-
+    /**
+     * CORS configuration been
+     */
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
+                log.info("corsConfigurer()");
                 registry
                         .addMapping("/**")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
@@ -92,17 +88,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         };
     }
 
+    /**
+     * {@link HttpSecurity} configuration
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        log.info("configure() HttpSecurity");
         http
                 .csrf().disable()
                 .authorizeRequests()
                     .antMatchers(HttpMethod.POST,"/auth/**").permitAll()
                     .anyRequest().authenticated()
-                /*.and()
-                    .formLogin()
-                    .loginProcessingUrl("/auth/login")
-                    .permitAll()*/
                 .and()
                     .logout()
                     .logoutUrl("/logout")
@@ -118,24 +114,31 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
     }
 
-   /* @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers(HttpMethod.POST, "/**")
-                .and().ignoring().antMatchers(HttpMethod.GET, "/**");
-    }*/
-
-    /*@Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser().password().authorities();
-    }*/
-
+    /**
+     * Authentication configuration for JDBC, adds roles in DB if they exist
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        log.info("configure() AuthenticationManagerBuilder for JDBC");
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(bCryptPasswordEncoder())
                 .usersByUsernameQuery(usersQuery)
                 .authoritiesByUsernameQuery(rolesQuery);
+
+        Role role = new Role();
+        if (roleRepositoryDAO.findByRole("USER") == null){
+            role.setRole("USER");
+            role.setId(2);
+            roleRepositoryDAO.save(role);
+            log.info("configure() create role USER");
+        }
+        if (roleRepositoryDAO.findByRole("ADMIN") == null){
+            role.setRole("ADMIN");
+            role.setId(1);
+            roleRepositoryDAO.saveAndFlush(role);
+            log.info("configure() create role ADMIN");
+        }
     }
 }
 

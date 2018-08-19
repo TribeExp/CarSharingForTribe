@@ -28,18 +28,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserEntity createUser(String email, String password) {
-        Role user = new Role();
-        if (roleRepositoryDAO.findByRole("USER") == null){
-            user.setRole("USER");
-            user.setId(2);
-            roleRepositoryDAO.save(user);
-        }
-        if (roleRepositoryDAO.findByRole("ADMIN") == null){
-            user.setRole("ADMIN");
-            user.setId(1);
-            roleRepositoryDAO.saveAndFlush(user);
-        }
-
         UserEntity newUser = new UserEntity();
         Role userRole = roleRepositoryDAO.findByRole("USER");
         newUser.setPassword(bCryptPasswordEncoder.encode(password));
@@ -52,18 +40,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserEntity createAdmin(String email, String password) {
-        Role user = new Role();
-        if (roleRepositoryDAO.findByRole("USER") == null){
-            user.setRole("USER");
-            user.setId(2);
-            roleRepositoryDAO.save(user);
-        }
-        if (roleRepositoryDAO.findByRole("ADMIN") == null){
-            user.setRole("ADMIN");
-            user.setId(1);
-            roleRepositoryDAO.saveAndFlush(user);
-        }
-
         UserEntity newUser = new UserEntity();
         Role userRole = roleRepositoryDAO.findByRole("ADMIN");
         newUser.setPassword(bCryptPasswordEncoder.encode(password));
@@ -149,7 +125,6 @@ public class UserServiceImpl implements UserService {
             authorities.add(new SimpleGrantedAuthority(role.getRole()));
         });
         return authorities;
-        //return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
     }
 
 }

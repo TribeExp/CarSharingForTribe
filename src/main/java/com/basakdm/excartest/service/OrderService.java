@@ -32,14 +32,12 @@ public interface OrderService {
     /**
      * Delete order by id.
      * @param id order params for delete a order.
-     * @return  Void.
      */
     void delete(long id);
 
     /**
      * Update order by id.
      * @param orderEntity order params for update a order.
-     * @return  Void.
      */
     void update(OrderEntity orderEntity);
 

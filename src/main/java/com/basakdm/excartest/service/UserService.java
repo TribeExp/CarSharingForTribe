@@ -36,21 +36,51 @@ public interface UserService {
     /**
      * Delete user by id.
      * @param id user params for delete a user.
-     * @return  Void.
      */
     void delete(long id);
 
     /**
      * Update users by id.
      * @param userEntity user params for update a users.
-     * @return  Void.
      */
     void update(UserEntity userEntity);
+
+    /**
+     * Get user password by id
+     * @param userId user id
+     * @return password
+     */
     String getPasswordById(Long userId);
+
+    /**
+     * Find user by email
+     * @param email user email
+     * @return {@link Optional<UserEntity>}
+     */
     Optional<UserEntity> findByMail(String email);
+
+    /**
+     * Get id current user
+     * @return id current user
+     * @throws Exception if user not found
+     */
     long getCurrentUserId() throws Exception;
+
+    /**
+     * Get current user
+     * @return {@link Optional<UserEntity>}
+     * @throws Exception if user not found
+     */
     Optional<UserEntity> getCurrentUser() throws Exception;
+
+    /**
+     * Get {@link Set<Role>} of current user
+     * @return {@link Set<Role>} of current user
+     * @throws Exception if user not found
+     */
     Set<Role> getCurrentUserRoles() throws Exception;
+    //delete before release
     UserEntity createAdmin(String email, String password);
+    //delete before release
     Set<SimpleGrantedAuthority> getAuthority(UserEntity user);
 }
