@@ -20,9 +20,9 @@ public abstract class RequestControl {
     private Connection connection;
     private Statement statement;
 
-    private String username = "pdhyozs0rhqutiam";
-    private String password = "civ6wjr1uwue4jf7";
-    private String connectionUrl = "mysql://pdhyozs0rhqutiam:civ6wjr1uwue4jf7@uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/czf6r6gtkiv1r8og";
+    private String username = "root";
+    private String password = "22256";
+    private String connectionUrl = "jdbc:mysql://localhost:3336/car_sharing?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
 
 
 

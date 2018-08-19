@@ -1,6 +1,5 @@
 package com.basakdm.excartest.controller;
 
-import com.basakdm.excartest.dao.OrderRepositoryDAO;
 import com.basakdm.excartest.dto.OrderDTO;
 import com.basakdm.excartest.entity.CarEntity;
 import com.basakdm.excartest.entity.OrderEntity;
@@ -28,23 +27,19 @@ public class OrderController {
 
     @Autowired
     private OrderService orderService;
-
-    @Autowired
-    private OrderRepositoryDAO orderRepositoryDAO;
-
     @Autowired
     private CarService carServiceImpl;
 
     /**
      * Get all Orders.
-     * @return collection of OrderEntity.
+     * @return {@link ResponseEntity<Collection<OrderDTO>>}.
      */
     @GetMapping("/all")
-    public Collection<OrderDTO> findAll(){
+    public ResponseEntity<Collection<OrderDTO>> findAll(){
         log.info("(/order/all), findAll()");
-        return orderService.findAll().stream()
+        return ResponseEntity.ok(orderService.findAll().stream()
                 .map(ConvertOrders::mapOrder)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()));
     }
 
     /**
@@ -97,46 +92,58 @@ public class OrderController {
     /**
      * Delete order by id.
      * @param id order params for delete a order.
+     * @return {@link ResponseEntity}
      */
-    @DeleteMapping ("/delete/{id}")
-    public void delete(@PathVariable @Positive Long id){
+    @PostMapping ("/delete/{id}")
+    public ResponseEntity delete(@PathVariable @Positive Long id){
         log.info("(/order/delete/{id}), delete()");
         orderService.delete(id);
+        return ResponseEntity.ok().build();
     }
 
     /**
      * Update order by id.
      * @param orderEntity order params for update a order.
+     * @return {@link ResponseEntity}
      */
     @PostMapping ("/update")
-    public void update(@RequestBody OrderEntity orderEntity){
+    public ResponseEntity update(@RequestBody OrderEntity orderEntity){
         log.info("(/order/update), update()");
         orderService.update(orderEntity);
+        return ResponseEntity.ok().build();
     }
 
     /**
      * Get the number of days how many user use the machine
      * @param orderId order params for update a order.
-     * @return  Integer - amount of days.
+     * @return {@link ResponseEntity}  amount of days.
      */
     @GetMapping(value = "/getAmountOfDaysById/{orderId}")
-    public Integer getAmountOfDaysById(@PathVariable @Positive Long orderId){
+    public ResponseEntity getAmountOfDaysById(@PathVariable @Positive Long orderId){
         log.info("(/order/getAmountOfDaysById/{orderId}), getAmountOfDaysById()");
-        return orderService.findById(orderId).get().getAmountOfDays();
+        return orderService.findById(orderId)
+                .map(o -> ResponseEntity.ok(o.getAmountOfDays()))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     /**
      * Calculate and get the last day when the user will ride by car
      * @param orderId order params for find a order, in which we will do the calculation.
-     * @return  Date.
+     * @return {@link ResponseEntity} date of taking car.
      */
     @GetMapping(value = "/calcDateFromMomentOfTakingCar/{orderId}")
-    public Date calcDateFromMomentOfTakingCar(@PathVariable @Positive Long orderId){
+    public ResponseEntity calcDateFromMomentOfTakingCar(@PathVariable @Positive Long orderId){
         log.info("(/order/calcDateFromMomentOfTakingCar/{orderId}), calcDateFromMomentOfTakingCar()");
-        Integer amountOfDays = getAmountOfDaysById(orderId);
+        Integer amountOfDays = (Integer) getAmountOfDaysById(orderId).getBody();
         log.info("amountOfDays = " + amountOfDays);
         Optional<OrderEntity> optionalOrderEntity = orderService.findById(orderId);
-        OrderEntity orderEntity = optionalOrderEntity.get();
+        OrderEntity orderEntity = null;
+        try {
+            orderEntity = optionalOrderEntity.orElseThrow(() -> new Exception("Order not found"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.notFound().build();
+        }
         Date firstDay = orderEntity.getFromWhatDate();
         log.info("firstDay = " + firstDay);
 
@@ -150,108 +157,133 @@ public class OrderController {
 
         lastDay = (Date) calendar.getTime();
         log.info("lastDay = " + lastDay);
-        return lastDay;
+        return ResponseEntity.ok(lastDay);
     }
 
     /**
      * Calculate and get the last day when the user will ride by car
      * @param orderId order params for find a order, in which we will do the calculation.
-     * @return  Date.
+     * @return  {@link ResponseEntity}.
      */
     @GetMapping(value = "/getPriceAdd/{orderId}")
-    public Long getPriceAdd(@PathVariable @Positive Long orderId){
+    public ResponseEntity getPriceAdd(@PathVariable @Positive Long orderId){
         log.info("order/getPriceAdd/{orderId}, getPriceAdd()");
-        return orderService.findById(orderId).get().getPriceAdd();
+        return orderService.findById(orderId)
+                .map(o -> ResponseEntity.ok(o.getPriceAdd()))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     /**
      * Set cell with value-added order.
      * @param idAndPrice an object that contains an identifier and a price, to search the table.
+     * @return  {@link ResponseEntity}.
      */
     @PostMapping ("/setPriceAdd")
-    public void setPriceAdd(@RequestBody OrderIdAndPriceAdd idAndPrice){
+    public ResponseEntity setPriceAdd(@RequestBody OrderIdAndPriceAdd idAndPrice){
         log.info("order/setPriceAdd, setPriceAdd()");
         Optional<OrderEntity> optionalOrderEntity = orderService.findById(idAndPrice.getOrderId());
         OrderEntity orderEntity = optionalOrderEntity.get();
         orderEntity.setPriceAdd(idAndPrice.getPriceAdd());
         log.info("orderEntity.setPriceAdd");
 
-        orderRepositoryDAO.saveAndFlush(orderEntity);
+        orderService.saveOrder(orderEntity);
         log.info("orderRepositoryDAO.saveAndFlush(orderEntity);");
+        return ResponseEntity.ok().build();
     }
 
     /**
      * Getting for a priceAdd from the order, by carId
      * @param carId params for get addPrice.
-     * @return  Long.
+     * @return  {@link ResponseEntity}.
      */
     @GetMapping(value = "/getPriceAddByIdCar/{carId}")
-    public Long getPriceAddByIdCar(@PathVariable @Positive Long carId){
+    public ResponseEntity getPriceAddByIdCar(@PathVariable @Positive Long carId){
         log.info("(order/getPriceAddByIdCar/{carId}), getPriceAddByIdCar()");
-        Optional<OrderEntity> optionalOrderEntity = orderService.findByIdCar(carId);
-        OrderEntity orderEntity = optionalOrderEntity.get();
-        return orderEntity.getPriceAdd();
+        return orderService.findByIdCar(carId)
+                .map(o -> ResponseEntity.ok(o.getPriceAdd()))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     /**
      * Obtaining an Order object, by identifier tsar, with which you can access any cell.
      * @param carId the identifier of the machine by which we will search for the order.
-     * @return Optional with order, if order was founded. Empty optional in opposite case.
+     * @return {@link ResponseEntity}
      */
     //
     @GetMapping(value = "/getOrderByIdCar/{carId}")
-    public OrderEntity getOrderEntityByIdCar(@PathVariable @Positive Long carId){
+    public ResponseEntity getOrderEntityByIdCar(@PathVariable @Positive Long carId){
         log.info("(order/getOrderByIdCar/{carId}), getOrderEntityByIdCar()");
-        Optional<OrderEntity> optionalOrderEntity = orderService.findByIdCar(carId);
-
-        return optionalOrderEntity.get();
+        return orderService.findByIdCar(carId)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     /**
      * Get carEntity to access any field in the table car.
      * @param carId params for get finPrice.
-     * @return  Long.
+     * @return  {@link ResponseEntity}.
      */
     @GetMapping(value = "/getCarEntityByIdCar/{carId}")
-    public CarEntity getCarEntityById(@PathVariable @Positive Long carId){
+    public ResponseEntity<CarEntity> getCarEntityById(@PathVariable @Positive Long carId){
         log.info("(order/getCarEntityByIdCar/{carId}), getCarEntityById()");
-        return carServiceImpl.findById(carId).get();
+        return carServiceImpl.findById(carId)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     /**
      * Get calculated finPrice(final price)
      * @param carId params for get finPrice.
-     * @return  Long.
+     * @return  {@link ResponseEntity}.
      */
     @GetMapping(value = "/getFinPriceByIdCar/{carId}")
-    public Long getFinPriceByIdCar(@PathVariable @Positive Long carId){
+    public ResponseEntity getFinPriceByIdCar(@PathVariable @Positive Long carId){
         log.info("(order/getFinPriceByIdCar/{carId}), getFinPriceByIdCar()");
-        return orderService.findByIdCar(carId).get().getFinPrice();
+        return orderService.findByIdCar(carId)
+                .map(o -> ResponseEntity.ok(o.getFinPrice()))
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    /**
+     * Find orders by (isActivated = true).
+     * @return  {@link ResponseEntity<Collection<OrderEntity>>}.
+     */
+    @GetMapping("/isActivated/True")
+    public ResponseEntity<Collection<OrderEntity>> findAllByIsActivatedTrue(){
+        log.info("(/order/isActivated/true), findAllByIsActivatedTrue()");
+        return ResponseEntity.ok(orderService.findAllByIsActivatedTrue());
     }
 
     /**
      * Set final price(calculate)
      * @param carId params for set finPrice.
+     * @return {@link ResponseEntity}
      */
     @PostMapping ("/setFinPriceByIdCar/{carId}")
-    public void setFinPriceByIdCar(@PathVariable @Positive Long carId){
+    public ResponseEntity setFinPriceByIdCar(@PathVariable @Positive Long carId){
         log.info("(order/setFinPriceByIdCar/{carId}), setFinPriceByIdCar()");
         Long finPrice;
         if (getPriceAddByIdCar(carId) == null) {
-            finPrice = getCarEntityById(carId).getPrice() * getOrderEntityByIdCar(carId).getAmountOfDays();
+            finPrice = ((CarEntity)getCarEntityById(carId).getBody()).getPrice() * ((OrderEntity)getOrderEntityByIdCar(carId).getBody()).getAmountOfDays();
             log.info("(getPriceAddByIdCar = null, finPrice = " + finPrice);
         } else {
-            finPrice = getCarEntityById(carId).getPrice() * getOrderEntityByIdCar(carId).getAmountOfDays() + getPriceAddByIdCar(carId);
+            finPrice = ((CarEntity)getCarEntityById(carId).getBody()).getPrice() * ((OrderEntity)getOrderEntityByIdCar(carId).getBody()).getAmountOfDays() + ((Long)getPriceAddByIdCar(carId).getBody());
             log.info("(getPriceAddByIdCar = null, finPrice = " + finPrice);
         }
 
-        Optional<OrderEntity> optionalOrderEntity = orderService.findByIdCar(carId);
-        OrderEntity orderEntity = optionalOrderEntity.get();
+        OrderEntity orderEntity = null;
+        try {
+            orderEntity = orderService.findByIdCar(carId).orElseThrow(() -> new Exception("Order not found"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.notFound().build();
+        }
 
         orderEntity.setFinPrice(finPrice);
 
-        orderRepositoryDAO.saveAndFlush(orderEntity);
+        orderService.saveOrder(orderEntity);
         log.info("orderRepositoryDAO.saveAndFlush(orderEntity)");
+        return ResponseEntity.ok().build();
     }
 
 }

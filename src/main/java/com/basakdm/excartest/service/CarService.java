@@ -3,6 +3,7 @@ package com.basakdm.excartest.service;
 
 import com.basakdm.excartest.entity.CarEntity;
 import com.basakdm.excartest.enum_ent.car_enum.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -89,4 +90,27 @@ public interface CarService  {
      * @return  Collection<CarEntity>.
      */
     Collection<CarEntity> findAllByFuelType(TypeFuel typeFuel);
+
+    /**
+     * Set availability of car
+     * @param isFree true if car free
+     * @param carId car id
+     * @throws Exception if car not found
+     */
+    void setIsFree(Boolean isFree, Long carId) throws Exception;
+
+    /**
+     * Activate car by id
+     * @param isActivated true for activation
+     * @param carId car id
+     * @throws Exception if car not found
+     */
+    void activateCar(Boolean isActivated, Long carId) throws Exception;
+
+    /**
+     * Looking for cars with specified parameters
+     * @param spec {@link Specification<CarEntity>}
+     * @return {@link Collection<CarEntity>}
+     */
+    Collection<CarEntity> findAllBySpecification(Specification<CarEntity> spec);
 }

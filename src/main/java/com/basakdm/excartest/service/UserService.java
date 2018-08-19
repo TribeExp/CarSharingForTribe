@@ -2,7 +2,6 @@ package com.basakdm.excartest.service;
 
 import com.basakdm.excartest.entity.Role;
 import com.basakdm.excartest.entity.UserEntity;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -79,8 +78,14 @@ public interface UserService {
      * @throws Exception if user not found
      */
     Set<Role> getCurrentUserRoles() throws Exception;
+
+    /**
+     * Save user inDB
+     * @param userEntity {@link UserEntity}
+     * @return saved {@link UserEntity}
+     */
+    UserEntity saveUser(UserEntity userEntity);
+
     //delete before release
     UserEntity createAdmin(String email, String password);
-    //delete before release
-    Set<SimpleGrantedAuthority> getAuthority(UserEntity user);
 }

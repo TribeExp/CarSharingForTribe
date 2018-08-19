@@ -22,8 +22,6 @@ public class NotificationsController {
 
     @Autowired
     private NotificationsService notificationsService;
-    @Autowired
-    private NotificationsRepositoryDAO notificationsRepositoryDAO;
 
     /**
      * Get all Notifications.
@@ -66,64 +64,76 @@ public class NotificationsController {
     /**
      * Delete notification by id.
      * @param id notification params for delete a notification.
+     * @return {@link ResponseEntity}.
      */
     @PostMapping("/delete/{id}")
-    public void delete(@PathVariable @Positive Long id){
+    public ResponseEntity delete(@PathVariable @Positive Long id){
         log.info("(/notifications/delete), delete()");
         notificationsService.delete(id);
+        return ResponseEntity.ok().build();
     }
 
     /**
      * Update notification by id.
      * @param notificationsEntity notification params for update a notifications.
+     * @return {@link ResponseEntity}.
      */
     @PostMapping ("/update")
-    public void update(@RequestBody NotificationsEntity notificationsEntity){
+    public ResponseEntity update(@RequestBody NotificationsEntity notificationsEntity){
         log.info("(/notifications/update), update()");
         notificationsService.update(notificationsEntity);
+        return ResponseEntity.ok().build();
     }
 
     /**
      * Get text notify by id.
      * @param notifyId notification params for find a text.
-     * @return  String.
+     * @return {@link ResponseEntity}.
      */
     @GetMapping(value = "/getTextNotifyById/{notifyId}")
-    public String getTextNotifyById(@PathVariable @Positive Long notifyId){
+    public ResponseEntity getTextNotifyById(@PathVariable @Positive Long notifyId){
         log.info("(/notifications/getTextNotifyById/{notifyId}), getTextNotifyById()");
-        return notificationsService.findById(notifyId).get().getTextNotify();
+        return notificationsService.findById(notifyId).
+                map(n -> ResponseEntity.ok(n.getTextNotify()))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     /**
      * Get the ID of the person who sent this message.
      * @param notifyId notification params for find a FromWhomId.
-     * @return  Long.
+     * @return {@link ResponseEntity}.
      */
     @GetMapping(value = "/getFromWhomIdById/{notifyId}")
-    public Long getFromWhomIdById(@PathVariable @Positive Long notifyId){
+    public ResponseEntity getFromWhomIdById(@PathVariable @Positive Long notifyId){
         log.info("(/notifications/getFromWhomIdById/{notifyId}), getFromWhomIdById()");
-        return notificationsService.findById(notifyId).get().getFromWhomId();
+        return notificationsService.findById(notifyId).
+                map(n -> ResponseEntity.ok(n.getFromWhomId()))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     /**
      * Get the id of the person who received the message.
      * @param notifyId notification params for find a toWhomId.
-     * @return  Long.
+     * @return {@link ResponseEntity}.
      */
     @GetMapping(value = "/getToWhomIdById/{notifyId}")
-    public Long getToWhomIdById(@PathVariable @Positive Long notifyId){
+    public ResponseEntity getToWhomIdById(@PathVariable @Positive Long notifyId){
         log.info("(/notifications/getToWhomIdById/{notifyId}), getToWhomIdById()");
-        return notificationsService.findById(notifyId).get().getToWhomId();
+        return notificationsService.findById(notifyId).
+                map(n -> ResponseEntity.ok(n.getToWhomId()))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     /**
      * Get an order object by ID, from which you can then take any field.
      * @param notifyId notification params for find a order.
-     * @return  Long.
+     * @return {@link ResponseEntity}.
      */
     @GetMapping(value = "/getOrderIdById/{notifyId}")
-    public Long getOrderIdById(@PathVariable @Positive Long notifyId){
+    public ResponseEntity getOrderIdById(@PathVariable @Positive Long notifyId){
         log.info("(/notifications/getOrderIdById/{notifyId}), getOrderIdById()");
-        return notificationsService.findById(notifyId).get().getOrderId();
+        return notificationsService.findById(notifyId).
+                map(n -> ResponseEntity.ok(n.getOrderId()))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 }

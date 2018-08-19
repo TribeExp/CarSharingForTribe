@@ -10,4 +10,5 @@ import java.util.Optional;
 @Repository
 public interface OrderRepositoryDAO extends JpaRepository<OrderEntity, Long> {
    Optional<OrderEntity> findByIdCar(Long idCar);
+   Collection<OrderEntity> findAllByIsActivatedTrue();
 }

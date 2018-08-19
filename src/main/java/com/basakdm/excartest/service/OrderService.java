@@ -1,5 +1,6 @@
 package com.basakdm.excartest.service;
 
+import com.basakdm.excartest.entity.CarEntity;
 import com.basakdm.excartest.entity.OrderEntity;
 import org.springframework.stereotype.Service;
 
@@ -48,5 +49,23 @@ public interface OrderService {
      */
     Optional<OrderEntity> findByIdCar(Long idCar);
 
+    /**
+     * Activate order by id
+     * @param isActivated true for activation
+     * @param carId car id
+     * @throws Exception if order not found
+     */
+    void activateOrder(Boolean isActivated, Long orderId) throws Exception;
 
+    /**
+     * Find orders by (isActivated = true)
+     * @return {@link Collection<OrderEntity>}
+     */
+     Collection<OrderEntity> findAllByIsActivatedTrue();
+
+    /**
+     * Save new order inDB
+     * @param orderEntity {@link OrderEntity}
+     */
+    void saveOrder(OrderEntity orderEntity);
 }

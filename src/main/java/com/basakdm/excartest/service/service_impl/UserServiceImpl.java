@@ -7,7 +7,6 @@ import com.basakdm.excartest.entity.UserEntity;
 import com.basakdm.excartest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -118,13 +117,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Set<SimpleGrantedAuthority> getAuthority(UserEntity user) {
-        Set<SimpleGrantedAuthority> authorities = new HashSet<>();
-        user.getRoles().forEach(role -> {
-            //authorities.add(new SimpleGrantedAuthority(role.getName()));
-            authorities.add(new SimpleGrantedAuthority(role.getRole()));
-        });
-        return authorities;
+    public UserEntity saveUser(UserEntity userEntity) {
+        return userRepositoryDAO.saveAndFlush(userEntity);
     }
+
 
 }

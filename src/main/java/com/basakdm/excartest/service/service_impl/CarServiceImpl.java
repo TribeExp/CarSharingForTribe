@@ -6,6 +6,7 @@ import com.basakdm.excartest.entity.CarEntity;
 import com.basakdm.excartest.enum_ent.car_enum.*;
 import com.basakdm.excartest.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -83,14 +84,25 @@ public class CarServiceImpl implements CarService {
         return carRepositoryDAO.findAllByFuelType(typeFuel);
     }
 
+    @Override
+    public void setIsFree(Boolean isFree, Long carId) throws Exception {
+        CarEntity carEntity = findById(carId)
+                .orElseThrow(() -> new Exception("Car with id: " + carId + " not found"));
+        carEntity.setIsFree(isFree);
+        update(carEntity);
+    }
 
+    @Override
+    public void activateCar(Boolean isActivated, Long carId) throws Exception {
+        CarEntity carEntity = findById(carId)
+                .orElseThrow(() -> new Exception("Car with id: " + carId + " not found"));
+        carEntity.setIsActivated(true);
+        update(carEntity);
+    }
 
-
-    /*@Override
-    public void update(long id) {
-        CarEntity carEntity = carRepositoryDAO.getOne(id);
-        carRepositoryDAO.
-    }*/
-
+    @Override
+    public Collection<CarEntity> findAllBySpecification(Specification<CarEntity> spec) {
+        return carRepositoryDAO.findAll(spec);
+    }
 
 }
