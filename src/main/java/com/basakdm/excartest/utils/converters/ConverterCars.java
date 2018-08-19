@@ -1,4 +1,4 @@
-package com.basakdm.excartest.utils;
+package com.basakdm.excartest.utils.converters;
 
 import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.entity.CarEntity;
@@ -37,9 +37,10 @@ public class ConverterCars {
         carDto.setAdText(carEntity.getAdText());
         carDto.setIsActivated(carEntity.getIsActivated());
         carDto.setPrice(carEntity.getPrice());
-       // carDto.setTypeUser(carEntity.getTypeUser());
         carDto.setId_owner(carEntity.getId_owner());
         carDto.setOptionalAccessories(carEntity.getOptionalAccessories());
+        carDto.setCalendarOfFree(carEntity.getCalendarOfFree());
+        carDto.setIsFree(carEntity.getIsFree());
         return carDto;
     }
 
@@ -71,10 +72,10 @@ public class ConverterCars {
         carEntity.setAdText(carDto.getAdText());
         carEntity.setIsActivated(carDto.getIsActivated());
         carEntity.setPrice(carDto.getPrice());
-        //carEntity.setTypeUser(carDto.getTypeUser());
         carEntity.setId_owner(carDto.getId_owner());
         carEntity.setOptionalAccessories(carDto.getOptionalAccessories());
-
+        carEntity.setCalendarOfFree(carDto.getCalendarOfFree());
+        carEntity.setIsFree(carDto.getIsFree());
         return carEntity;
     }
 }

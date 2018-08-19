@@ -1,16 +1,9 @@
 package com.basakdm.excartest.service.service_impl;
 
 import com.basakdm.excartest.dao.UserRepositoryDAO;
-import com.basakdm.excartest.entity.Role;
 import com.basakdm.excartest.entity.UserEntity;
-import com.basakdm.excartest.enum_ent.Roles;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

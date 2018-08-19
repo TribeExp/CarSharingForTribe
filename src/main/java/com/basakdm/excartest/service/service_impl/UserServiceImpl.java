@@ -2,12 +2,9 @@ package com.basakdm.excartest.service.service_impl;
 
 import com.basakdm.excartest.dao.RoleRepositoryDAO;
 import com.basakdm.excartest.dao.UserRepositoryDAO;
-import com.basakdm.excartest.dto.UserDTO;
-import com.basakdm.excartest.entity.CarEntity;
 import com.basakdm.excartest.entity.Role;
 import com.basakdm.excartest.entity.UserEntity;
 import com.basakdm.excartest.service.UserService;
-import com.basakdm.excartest.utils.ConverterUsers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,7 +15,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {

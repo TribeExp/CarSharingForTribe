@@ -4,7 +4,7 @@ import com.basakdm.excartest.dao.NotificationsRepositoryDAO;
 import com.basakdm.excartest.dto.NotificationsDTO;
 import com.basakdm.excartest.entity.NotificationsEntity;
 import com.basakdm.excartest.service.NotificationsService;
-import com.basakdm.excartest.utils.ConverterNotifications;
+import com.basakdm.excartest.utils.converters.ConverterNotifications;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
 import java.util.Collection;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController

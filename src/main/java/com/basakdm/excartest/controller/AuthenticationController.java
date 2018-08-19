@@ -1,6 +1,5 @@
 package com.basakdm.excartest.controller;
 
-import com.basakdm.excartest.dao.UserRepositoryDAO;
 import com.basakdm.excartest.entity.Role;
 import com.basakdm.excartest.request_models.EmailAndPassword;
 import com.basakdm.excartest.request_models.auth_models.LoginResponse;
@@ -8,8 +7,8 @@ import com.basakdm.excartest.request_models.auth_models.Email;
 import com.basakdm.excartest.service.EmailService;
 import com.basakdm.excartest.service.SecurityService;
 import com.basakdm.excartest.service.UserService;
-import com.basakdm.excartest.utils.ConverterUsers;
-import com.basakdm.excartest.utils.TokenProvider;
+import com.basakdm.excartest.utils.converters.ConverterUsers;
+import com.basakdm.excartest.utils.authentification.TokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

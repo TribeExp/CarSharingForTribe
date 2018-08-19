@@ -1,4 +1,4 @@
-package com.basakdm.excartest.utils;
+package com.basakdm.excartest.utils.authentification;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

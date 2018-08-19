@@ -1,4 +1,4 @@
-package com.basakdm.excartest.utils;
+package com.basakdm.excartest.utils.converters;
 
 import com.basakdm.excartest.dto.NotificationsDTO;
 import com.basakdm.excartest.entity.NotificationsEntity;
@@ -27,7 +27,7 @@ public class ConverterNotifications {
         Optional<NotificationsEntity> optionalNotifyUser = notificationsService.findById(notificationsDTO.getId());
 
         if (optionalNotifyUser.isPresent()) notificationsEntity = optionalNotifyUser.get();
-        else throw new RuntimeException("Incorrect ID of car");
+        else throw new RuntimeException("Incorrect ID of notification");
 
         notificationsEntity.setTextNotify(notificationsDTO.getTextNotify());
         notificationsEntity.setId(notificationsDTO.getId());

@@ -1,4 +1,4 @@
-package com.basakdm.excartest.utils;
+package com.basakdm.excartest.utils.authentification;
 
 import io.jsonwebtoken.*;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

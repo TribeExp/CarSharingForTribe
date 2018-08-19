@@ -1,4 +1,4 @@
-package com.basakdm.excartest.utils;
+package com.basakdm.excartest.utils.converters;
 
 import com.basakdm.excartest.dto.UserDTO;
 import com.basakdm.excartest.entity.CarEntity;

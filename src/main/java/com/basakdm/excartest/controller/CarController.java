@@ -3,10 +3,9 @@ package com.basakdm.excartest.controller;
 import com.basakdm.excartest.dao.CarRepositoryDAO;
 import com.basakdm.excartest.dto.CarDTO;
 import com.basakdm.excartest.entity.CarEntity;
-import com.basakdm.excartest.entity.OrderEntity;
 import com.basakdm.excartest.enum_ent.car_enum.*;
 import com.basakdm.excartest.service.CarService;
-import com.basakdm.excartest.utils.ConverterCars;
+import com.basakdm.excartest.utils.converters.ConverterCars;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
 import java.util.Collection;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
