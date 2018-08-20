@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
@@ -29,6 +30,14 @@ public class CarController {
 
     @Autowired
     private CarService carServiceImpl;
+    @Autowired
+    private CarRepositoryDAO crd;
+
+    @PostMapping("/dall")
+    ResponseEntity delall(){
+        crd.deleteAll();
+        return ResponseEntity.ok().build();
+    }
 
     /**
      * Get all cars.
@@ -74,6 +83,7 @@ public class CarController {
      * @param carId car params for delete a car.
      * @return {@link ResponseEntity}
      */
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/delete/{carId}")
     public ResponseEntity delete(@PathVariable @Positive Long carId){
         log.info("(/car/delete/{carId}), delete()");
@@ -86,9 +96,10 @@ public class CarController {
      * @param car car params for update a car.
      * @return {@link ResponseEntity}
      */
-    @PostMapping ("/update")
-    public ResponseEntity update(@RequestBody CarEntity car){
+    @PostMapping ("/update/{carId}")
+    public ResponseEntity update(@RequestBody CarEntity car, @PathVariable @Positive Long carId){
         log.info("(/car/update), updating()");
+        car.setId(carId);
         carServiceImpl.update(car);
         return ResponseEntity.ok().build();
     }
@@ -228,6 +239,7 @@ public class CarController {
      * @param carIdAndFlag {@link CarIdAndFlag}
      * @return {@link ResponseEntity}
      */
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/activateCar")
     public ResponseEntity setIsActivated(CarIdAndFlag carIdAndFlag){
         try{

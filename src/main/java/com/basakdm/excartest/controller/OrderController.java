@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
@@ -94,6 +95,7 @@ public class OrderController {
      * @param id order params for delete a order.
      * @return {@link ResponseEntity}
      */
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/delete/{id}")
     public ResponseEntity delete(@PathVariable @Positive Long id){
         log.info("(/order/delete/{id}), delete()");
@@ -106,9 +108,10 @@ public class OrderController {
      * @param orderEntity order params for update a order.
      * @return {@link ResponseEntity}
      */
-    @PostMapping ("/update")
-    public ResponseEntity update(@RequestBody OrderEntity orderEntity){
+    @PostMapping ("/update/{id}")
+    public ResponseEntity update(@RequestBody OrderEntity orderEntity, @PathVariable @Positive Long id){
         log.info("(/order/update), update()");
+        orderEntity.setId(id);
         orderService.update(orderEntity);
         return ResponseEntity.ok().build();
     }

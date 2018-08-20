@@ -31,4 +31,6 @@ public interface CarRepositoryDAO extends JpaRepository<CarEntity, Long> {
 
     List<CarEntity> findAll(Specification<CarEntity> spec);
 
+    void dele
+
 }

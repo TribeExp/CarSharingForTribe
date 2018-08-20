@@ -8,6 +8,7 @@ import com.basakdm.excartest.utils.converters.ConverterUsers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
@@ -53,6 +54,7 @@ public class UserController {
      * @param id user params for delete a user.
      * @return {@link ResponseEntity}
      */
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/delete/{id}")
     public ResponseEntity delete(@PathVariable @Positive Long id){
         log.info("(users/delete/{id}), delete()");
@@ -65,9 +67,10 @@ public class UserController {
      * @param userEntity user params for update a users.
      * @return {@link ResponseEntity}
      */
-    @PostMapping ("/update")
-    public ResponseEntity update(@RequestBody UserEntity userEntity){
+    @PostMapping ("/update/{userId}")
+    public ResponseEntity update(@RequestBody UserEntity userEntity, @PathVariable @Positive Long userId){
         log.info("(users/update), update()");
+        userEntity.setId(userId);
         userService.update(userEntity);
         return ResponseEntity.ok().build();
     }
@@ -77,6 +80,7 @@ public class UserController {
      * @param userId user id
      * @return {@link ResponseEntity} password
      */
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping(value = "/getPasswordById/{userId}")
     public ResponseEntity getPasswordById(@PathVariable @Positive Long userId){
         log.info("(users/getPasswordById/{userId}), getPasswordById()");
