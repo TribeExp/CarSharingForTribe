@@ -7,6 +7,9 @@ import com.basakdm.excartest.request_models.order_models.OrderIdAndPriceAdd;
 import com.basakdm.excartest.service.CarService;
 import com.basakdm.excartest.service.OrderService;
 import com.basakdm.excartest.utils.converters.ConvertOrders;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +24,7 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Api(value = "Controller for interaction with the methods order", description = "The operations that can be performed with the order table are in this controller")
 @RestController
 @RequestMapping("/order")
 @Slf4j
@@ -35,6 +39,7 @@ public class OrderController {
      * Get all Orders.
      * @return {@link ResponseEntity<Collection<OrderDTO>>}.
      */
+    @ApiOperation(value = "Get all Orders.", notes = "")
     @GetMapping("/all")
     public ResponseEntity<Collection<OrderDTO>> findAll(){
         log.info("(/order/all), findAll()");
@@ -48,8 +53,9 @@ public class OrderController {
      * @param id orders unique identifier.
      * @return Optional with order, if order was founded. Empty optional in opposite case.
      */
+    @ApiOperation(value = "Find Orders by id", notes = "")
     @GetMapping(value = "/{id}")
-    public ResponseEntity<OrderDTO> findUserById(@PathVariable @Positive Long id){
+    public ResponseEntity<OrderDTO> findUserById(@PathVariable @Positive @ApiParam("id orders unique identifier") Long id){
         log.info("(/order/{id}), findUserById()");
         return orderService.findById(id)
                 .map(ConvertOrders::mapOrder)
@@ -61,10 +67,12 @@ public class OrderController {
      * @param orderEntity params for create a new order.
      * @return Created order with id.
      */
-    @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody OrderEntity orderEntity){
+    @ApiOperation(value = "Create Order.", notes = "")
+    @PostMapping("/create/{carId}")
+    public ResponseEntity<?> create(@RequestBody OrderEntity orderEntity, Long carId){
         log.info("(/order/create), create()");
         orderEntity.setIsActivated(false);
+        orderEntity.setIdCar(carId);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(orderService.create(orderEntity));
     }

@@ -33,13 +33,6 @@ public class CarController {
     @Autowired
     private CarRepositoryDAO crd;
 
-    @PostMapping("/dall")
-    ResponseEntity delall(){
-        crd.deleteAllInBatch();
-        crd.deleteAll();
-        return ResponseEntity.ok().build();
-    }
-
     /**
      * Get all cars.
      * @return collection of <CarDTO>.

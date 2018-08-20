@@ -5,6 +5,9 @@ import com.basakdm.excartest.entity.UserEntity;
 import com.basakdm.excartest.request_models.user_models.UserIdAndCarId;
 import com.basakdm.excartest.service.UserService;
 import com.basakdm.excartest.utils.converters.ConverterUsers;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +22,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @RestController
 @RequestMapping("/users")
+@Api(value = "Controller for interaction with the methods user", description = "The operations that can be performed with the user table are in this controller")
 public class UserController {
 
     @Autowired
@@ -28,6 +32,7 @@ public class UserController {
      * Get all user
      * @return {@link ResponseEntity<Collection<UserDTO>>}
      */
+    @ApiOperation(value = "Outputting the entire list of user in the user table.", notes = "")
     @GetMapping("/all")
     public  ResponseEntity<Collection<UserDTO>> findAll(){
         log.info("(users/all/), findAll()");
@@ -41,8 +46,9 @@ public class UserController {
      * @param userId user unique identifier
      * @return Optional with user, if user was founded. Empty optional in opposite case
      */
+    @ApiOperation(value = "Find car by id.", notes = "")
     @GetMapping(value = "/{userId}")
-    public ResponseEntity<UserDTO> findUserById(@PathVariable @Positive Long userId){
+    public ResponseEntity<UserDTO> findUserById(@PathVariable @Positive @ApiParam("userId user unique identifier") Long userId){
         log.info("(users/{userId}/), findUserById()");
         return userService.findById(userId)
                 .map(ConverterUsers::mapUser)
@@ -55,8 +61,9 @@ public class UserController {
      * @return {@link ResponseEntity}
      */
     @PreAuthorize("hasRole('ADMIN')")
+    @ApiOperation(value = "Delete user by id.", notes = "")
     @PostMapping ("/delete/{id}")
-    public ResponseEntity delete(@PathVariable @Positive Long id){
+    public ResponseEntity delete(@PathVariable @Positive @ApiParam("id user params for delete a user") Long id){
         log.info("(users/delete/{id}), delete()");
         userService.delete(id);
         return ResponseEntity.ok().build();
@@ -67,8 +74,10 @@ public class UserController {
      * @param userEntity user params for update a users.
      * @return {@link ResponseEntity}
      */
+    @ApiOperation(value = "Update users by id.", notes = "")
     @PostMapping ("/update/{userId}")
-    public ResponseEntity update(@RequestBody UserEntity userEntity, @PathVariable @Positive Long userId){
+    public ResponseEntity update(@RequestBody @ApiParam("userEntity user params for update a users") UserEntity userEntity,
+                                 @PathVariable @Positive @ApiParam("id user params for update a user") Long userId){
         log.info("(users/update), update()");
         userEntity.setId(userId);
         userService.update(userEntity);
@@ -80,9 +89,10 @@ public class UserController {
      * @param userId user id
      * @return {@link ResponseEntity} password
      */
+    @ApiOperation(value = "Get user password by id.", notes = "")
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping(value = "/getPasswordById/{userId}")
-    public ResponseEntity getPasswordById(@PathVariable @Positive Long userId){
+    public ResponseEntity getPasswordById(@PathVariable @Positive @ApiParam("userId user id") Long userId){
         log.info("(users/getPasswordById/{userId}), getPasswordById()");
         return ResponseEntity.ok(userService.getPasswordById(userId));
     }
@@ -92,8 +102,9 @@ public class UserController {
      * @param userId user id for find Email
      * @return {@link ResponseEntity} email
      */
+    @ApiOperation(value = "Get user Email by id.", notes = "")
     @GetMapping(value = "/getEmailById/{userId}")
-    public ResponseEntity getEmailById(@PathVariable @Positive Long userId){
+    public ResponseEntity getEmailById(@PathVariable @Positive @ApiParam("userId user id for find Email") Long userId){
         log.info("(users/getEmailById/{userId}), getEmailById()");
         return userService.findById(userId)
                 .map(u -> ResponseEntity.ok(u.getMail()))
@@ -105,8 +116,9 @@ public class UserController {
      * @param userId user id for find Photo
      * @return {@link ResponseEntity} photo url
      */
+    @ApiOperation(value = "Get user Photo by id.", notes = "")
     @GetMapping(value = "/getPhoto/{userId}")
-    public ResponseEntity getPhotoById(@PathVariable @Positive Long userId){
+    public ResponseEntity getPhotoById(@PathVariable @Positive @ApiParam("userId user id for find Photo") Long userId){
         log.info("(users/getPhoto/{userId}), getPhotoById()");
         return userService.findById(userId)
                 .map(u -> ResponseEntity.ok(u.getPhoto()))
@@ -118,8 +130,9 @@ public class UserController {
      * @param userId user id for find Phone
      * @return {@link ResponseEntity} phone
      */
+    @ApiOperation(value = "Get user Phone by id.", notes = "")
     @GetMapping(value = "/getPhone/{userId}")
-    public ResponseEntity getPhoneById(@PathVariable @Positive Long userId){
+    public ResponseEntity getPhoneById(@PathVariable @Positive @ApiParam("userId user id for find Phone") Long userId){
         log.info("(users/getPhone/{userId}), getPhoneById()");
         return userService.findById(userId)
                 .map(u -> ResponseEntity.ok(u.getPhoneNum()))
@@ -131,8 +144,9 @@ public class UserController {
      * @param userId user id for find set car
      * @return {@link ResponseEntity<HashSet<Long>>}
      */
+    @ApiOperation(value = "Get SetCar by id.", notes = "")
     @GetMapping(value = "/getterSetCar/{userId}")
-    public ResponseEntity<HashSet<Long>> getSetCarById(@PathVariable @Positive Long userId){
+    public ResponseEntity<HashSet<Long>> getSetCarById(@PathVariable @Positive @ApiParam("userId user id for find set car") Long userId){
         log.info("(users/getterSetCar/{userId}), getSetCarById()");
         return userService.findById(userId)
                 .map(u -> ResponseEntity.ok(u.getSetIdCar()))
@@ -145,7 +159,8 @@ public class UserController {
      * @return {@link ResponseEntity}
      */
     @PostMapping(value = "/setNewIdCar")
-    public ResponseEntity setSetCarById(@RequestBody UserIdAndCarId userIdAndCarId){
+    @ApiOperation(value = "Set SetCar by id, add to the set of cars of the landlord, one more car.", notes = "")
+    public ResponseEntity setSetCarById(@RequestBody @ApiParam("userIdAndCarId user id") UserIdAndCarId userIdAndCarId){
         UserEntity foundUser = null;
         try {
             foundUser = userService.findById(userIdAndCarId.getUserId()).orElseThrow(() -> new Exception("User not found"));
@@ -166,8 +181,9 @@ public class UserController {
      * @param userId id of the user of which we look at the field
      * @return {@link ResponseEntity}@return Boolean
      */
+    @ApiOperation(value = "We get a field that shows whether a new notification has arrived or not (True / False).", notes = "")
     @GetMapping(value = "/getNotifyById/{userId}")
-    public ResponseEntity getNotifyById(@PathVariable @Positive Long userId){
+    public ResponseEntity getNotifyById(@PathVariable @Positive  @ApiParam("userId id of the user of which we look at the field") Long userId){
         log.info("(users/getNotifyById/{userId}), getNotifyById()");
         return userService.findById(userId)
                 .map(u -> ResponseEntity.ok(u.getNotify()))
