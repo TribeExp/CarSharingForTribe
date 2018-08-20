@@ -35,6 +35,7 @@ public class CarController {
 
     @PostMapping("/dall")
     ResponseEntity delall(){
+        crd.deleteAllInBatch();
         crd.deleteAll();
         return ResponseEntity.ok().build();
     }
