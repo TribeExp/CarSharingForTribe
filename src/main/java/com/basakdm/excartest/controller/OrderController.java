@@ -69,7 +69,8 @@ public class OrderController {
      */
     @ApiOperation(value = "Create Order.", notes = "")
     @PostMapping("/create/{carId}")
-    public ResponseEntity<?> create(@RequestBody OrderEntity orderEntity, Long carId){
+    public ResponseEntity<?> create(@RequestBody @ApiParam("orderEntity params for create a new order") OrderEntity orderEntity,
+                                    @PathVariable @ApiParam("Id car for order") Long carId){
         log.info("(/order/create), create()");
         orderEntity.setIsActivated(false);
         orderEntity.setIdCar(carId);
@@ -103,9 +104,10 @@ public class OrderController {
      * @param id order params for delete a order.
      * @return {@link ResponseEntity}
      */
+    @ApiOperation(value = "Delete order by id.", notes = "")
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/delete/{id}")
-    public ResponseEntity delete(@PathVariable @Positive Long id){
+    public ResponseEntity delete(@PathVariable @Positive @ApiParam("id order params for delete a order") Long id){
         log.info("(/order/delete/{id}), delete()");
         orderService.delete(id);
         return ResponseEntity.ok().build();
@@ -116,8 +118,10 @@ public class OrderController {
      * @param orderEntity order params for update a order.
      * @return {@link ResponseEntity}
      */
+    @ApiOperation(value = "Update order by id.", notes = "")
     @PostMapping ("/update/{id}")
-    public ResponseEntity update(@RequestBody OrderEntity orderEntity, @PathVariable @Positive Long id){
+    public ResponseEntity update(@RequestBody @ApiParam("orderEntity order params for update a order") OrderEntity orderEntity,
+                                 @ApiParam("Id order") @PathVariable @Positive Long id){
         log.info("(/order/update), update()");
         orderEntity.setId(id);
         orderService.update(orderEntity);
@@ -129,8 +133,9 @@ public class OrderController {
      * @param orderId order params for update a order.
      * @return {@link ResponseEntity}  amount of days.
      */
+    @ApiOperation(value = "Update order by id.", notes = "")
     @GetMapping(value = "/getAmountOfDaysById/{orderId}")
-    public ResponseEntity getAmountOfDaysById(@PathVariable @Positive Long orderId){
+    public ResponseEntity getAmountOfDaysById(@PathVariable @Positive @ApiParam("orderEntity order params for update a order") Long orderId){
         log.info("(/order/getAmountOfDaysById/{orderId}), getAmountOfDaysById()");
         return orderService.findById(orderId)
                 .map(o -> ResponseEntity.ok(o.getAmountOfDays()))
@@ -142,8 +147,9 @@ public class OrderController {
      * @param orderId order params for find a order, in which we will do the calculation.
      * @return {@link ResponseEntity} date of taking car.
      */
+    @ApiOperation(value = "Calculate and get the last day when the user will ride by car.", notes = "")
     @GetMapping(value = "/calcDateFromMomentOfTakingCar/{orderId}")
-    public ResponseEntity calcDateFromMomentOfTakingCar(@PathVariable @Positive Long orderId){
+    public ResponseEntity calcDateFromMomentOfTakingCar(@PathVariable @Positive @ApiParam("orderId order params for find a order, in which we will do the calculation") Long orderId){
         log.info("(/order/calcDateFromMomentOfTakingCar/{orderId}), calcDateFromMomentOfTakingCar()");
         Integer amountOfDays = (Integer) getAmountOfDaysById(orderId).getBody();
         log.info("amountOfDays = " + amountOfDays);
@@ -176,8 +182,9 @@ public class OrderController {
      * @param orderId order params for find a order, in which we will do the calculation.
      * @return  {@link ResponseEntity}.
      */
+    @ApiOperation(value = "Calculate and get the last day when the user will ride by car.", notes = "")
     @GetMapping(value = "/getPriceAdd/{orderId}")
-    public ResponseEntity getPriceAdd(@PathVariable @Positive Long orderId){
+    public ResponseEntity getPriceAdd(@PathVariable @Positive @ApiParam("orderId order params for find a order, in which we will do the calculation") Long orderId){
         log.info("order/getPriceAdd/{orderId}, getPriceAdd()");
         return orderService.findById(orderId)
                 .map(o -> ResponseEntity.ok(o.getPriceAdd()))
@@ -189,8 +196,9 @@ public class OrderController {
      * @param idAndPrice an object that contains an identifier and a price, to search the table.
      * @return  {@link ResponseEntity}.
      */
+    @ApiOperation(value = "Set cell with value-added order.", notes = "")
     @PostMapping ("/setPriceAdd")
-    public ResponseEntity setPriceAdd(@RequestBody OrderIdAndPriceAdd idAndPrice){
+    public ResponseEntity setPriceAdd(@RequestBody @ApiParam("idAndPrice an object that contains an identifier and a price, to search the table") OrderIdAndPriceAdd idAndPrice){
         log.info("order/setPriceAdd, setPriceAdd()");
         Optional<OrderEntity> optionalOrderEntity = orderService.findById(idAndPrice.getOrderId());
         OrderEntity orderEntity = optionalOrderEntity.get();
@@ -207,8 +215,9 @@ public class OrderController {
      * @param carId params for get addPrice.
      * @return  {@link ResponseEntity}.
      */
+    @ApiOperation(value = "Getting for a priceAdd from the order, by carId.", notes = "")
     @GetMapping(value = "/getPriceAddByIdCar/{carId}")
-    public ResponseEntity getPriceAddByIdCar(@PathVariable @Positive Long carId){
+    public ResponseEntity getPriceAddByIdCar(@PathVariable @Positive  @ApiParam("carId params for get addPrice") Long carId){
         log.info("(order/getPriceAddByIdCar/{carId}), getPriceAddByIdCar()");
         return orderService.findByIdCar(carId)
                 .map(o -> ResponseEntity.ok(o.getPriceAdd()))
@@ -220,9 +229,9 @@ public class OrderController {
      * @param carId the identifier of the machine by which we will search for the order.
      * @return {@link ResponseEntity}
      */
-    //
+    @ApiOperation(value = "Obtaining an Order object, by identifier tsar, with which you can access any cell.", notes = "")
     @GetMapping(value = "/getOrderByIdCar/{carId}")
-    public ResponseEntity getOrderEntityByIdCar(@PathVariable @Positive Long carId){
+    public ResponseEntity getOrderEntityByIdCar(@PathVariable @Positive @ApiParam("carId the identifier of the machine by which we will search for the order") Long carId){
         log.info("(order/getOrderByIdCar/{carId}), getOrderEntityByIdCar()");
         return orderService.findByIdCar(carId)
                 .map(ResponseEntity::ok)
@@ -234,8 +243,9 @@ public class OrderController {
      * @param carId params for get finPrice.
      * @return  {@link ResponseEntity}.
      */
+    @ApiOperation(value = "Get carEntity to access any field in the table car.", notes = "")
     @GetMapping(value = "/getCarEntityByIdCar/{carId}")
-    public ResponseEntity<CarEntity> getCarEntityById(@PathVariable @Positive Long carId){
+    public ResponseEntity<CarEntity> getCarEntityById(@PathVariable @Positive @ApiParam("carId params for get finPrice") Long carId){
         log.info("(order/getCarEntityByIdCar/{carId}), getCarEntityById()");
         return carServiceImpl.findById(carId)
                 .map(ResponseEntity::ok)
@@ -247,8 +257,9 @@ public class OrderController {
      * @param carId params for get finPrice.
      * @return  {@link ResponseEntity}.
      */
+    @ApiOperation(value = "Get calculated finPrice(final price).", notes = "")
     @GetMapping(value = "/getFinPriceByIdCar/{carId}")
-    public ResponseEntity getFinPriceByIdCar(@PathVariable @Positive Long carId){
+    public ResponseEntity getFinPriceByIdCar(@PathVariable @Positive @ApiParam("carId params for get finPrice") Long carId){
         log.info("(order/getFinPriceByIdCar/{carId}), getFinPriceByIdCar()");
         return orderService.findByIdCar(carId)
                 .map(o -> ResponseEntity.ok(o.getFinPrice()))
@@ -259,6 +270,7 @@ public class OrderController {
      * Find orders by (isActivated = true).
      * @return  {@link ResponseEntity<Collection<OrderEntity>>}.
      */
+    @ApiOperation(value = "Return all unactivated orders", notes = "")
     @GetMapping("/isActivated/True")
     public ResponseEntity<Collection<OrderEntity>> findAllByIsActivatedTrue(){
         log.info("(/order/isActivated/true), findAllByIsActivatedTrue()");
@@ -270,8 +282,9 @@ public class OrderController {
      * @param carId params for set finPrice.
      * @return {@link ResponseEntity}
      */
+    @ApiOperation(value = "Set final price(calculate).", notes = "")
     @PostMapping ("/setFinPriceByIdCar/{carId}")
-    public ResponseEntity setFinPriceByIdCar(@PathVariable @Positive Long carId){
+    public ResponseEntity setFinPriceByIdCar(@PathVariable @Positive @ApiParam("carId params for set finPrice") Long carId){
         log.info("(order/setFinPriceByIdCar/{carId}), setFinPriceByIdCar()");
         Long finPrice;
         if (getPriceAddByIdCar(carId) == null) {

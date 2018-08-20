@@ -5,6 +5,9 @@ import com.basakdm.excartest.dto.NotificationsDTO;
 import com.basakdm.excartest.entity.NotificationsEntity;
 import com.basakdm.excartest.service.NotificationsService;
 import com.basakdm.excartest.utils.converters.ConverterNotifications;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +20,7 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 @RestController
+@Api(value = "Controller for interaction with the methods notifications", description = "The operations that can be performed with the notification table are in this controller")
 @RequestMapping("/notifications")
 @Slf4j
 public class NotificationsController {
@@ -28,6 +32,7 @@ public class NotificationsController {
      * Get all Notifications.
      * @return collection of NotificationsEntity.
      */
+    @ApiOperation(value = "Get all Notifications.", notes = "")
     @GetMapping("/all")
     public Collection<NotificationsDTO> findAll(){
         log.info("(/notifications/all), findAll()");
@@ -41,8 +46,9 @@ public class NotificationsController {
      * @param id notification unique identifier.
      * @return Optional with notifications, if notifications was founded. Empty optional in opposite case.
      */
+    @ApiOperation(value = "Find notifications by id.", notes = "")
     @GetMapping(value = "/{id}")
-    public ResponseEntity<NotificationsDTO> findCarById(@PathVariable @Positive Long id){
+    public ResponseEntity<NotificationsDTO> findCarById(@PathVariable @Positive @ApiParam("id notification unique identifier") Long id){
         log.info("(/notifications/{id}), findCarById()");
         return notificationsService.findById(id)
                 .map(ConverterNotifications::mapNotifyUser)
@@ -55,8 +61,9 @@ public class NotificationsController {
      * @param notificationsEntity params for create a new notification.
      * @return Created notification with id.
      */
+    @ApiOperation(value = "Create notification.", notes = "")
     @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody NotificationsEntity notificationsEntity){
+    public ResponseEntity<?> create(@RequestBody  @ApiParam("notificationsEntity params for create a new notification") NotificationsEntity notificationsEntity){
         log.info("(/notifications/create), create()");
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ConverterNotifications.mapNotifyUser(notificationsService.create(notificationsEntity)));
@@ -67,9 +74,10 @@ public class NotificationsController {
      * @param id notification params for delete a notification.
      * @return {@link ResponseEntity}.
      */
+    @ApiOperation(value = "Delete notification by id.", notes = "")
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/delete/{id}")
-    public ResponseEntity delete(@PathVariable @Positive Long id){
+    public ResponseEntity delete(@PathVariable @Positive @ApiParam("id notification params for delete a notification") Long id){
         log.info("(/notifications/delete), delete()");
         notificationsService.delete(id);
         return ResponseEntity.ok().build();
@@ -80,8 +88,9 @@ public class NotificationsController {
      * @param notificationsEntity notification params for update a notifications.
      * @return {@link ResponseEntity}.
      */
+    @ApiOperation(value = "Update notification by id.", notes = "")
     @PostMapping ("/update")
-    public ResponseEntity update(@RequestBody NotificationsEntity notificationsEntity){
+    public ResponseEntity update(@RequestBody @ApiParam("notificationsEntity notification params for update a notifications") NotificationsEntity notificationsEntity){
         log.info("(/notifications/update), update()");
         notificationsService.update(notificationsEntity);
         return ResponseEntity.ok().build();
@@ -92,8 +101,9 @@ public class NotificationsController {
      * @param notifyId notification params for find a text.
      * @return {@link ResponseEntity}.
      */
+    @ApiOperation(value = "Get text notify by id.", notes = "")
     @GetMapping(value = "/getTextNotifyById/{notifyId}")
-    public ResponseEntity getTextNotifyById(@PathVariable @Positive Long notifyId){
+    public ResponseEntity getTextNotifyById(@PathVariable @Positive @ApiParam("notifyId notification params for find a text") Long notifyId){
         log.info("(/notifications/getTextNotifyById/{notifyId}), getTextNotifyById()");
         return notificationsService.findById(notifyId).
                 map(n -> ResponseEntity.ok(n.getTextNotify()))
@@ -118,8 +128,9 @@ public class NotificationsController {
      * @param notifyId notification params for find a toWhomId.
      * @return {@link ResponseEntity}.
      */
+    @ApiOperation(value = "Get the ID of the person who sent this message.", notes = "")
     @GetMapping(value = "/getToWhomIdById/{notifyId}")
-    public ResponseEntity getToWhomIdById(@PathVariable @Positive Long notifyId){
+    public ResponseEntity getToWhomIdById(@PathVariable @Positive @ApiParam("notifyId notification params for find a FromWhomId") Long notifyId){
         log.info("(/notifications/getToWhomIdById/{notifyId}), getToWhomIdById()");
         return notificationsService.findById(notifyId).
                 map(n -> ResponseEntity.ok(n.getToWhomId()))
