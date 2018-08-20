@@ -83,7 +83,7 @@ public class CarController {
      * @param carId car params for delete a car.
      * @return {@link ResponseEntity}
      */
-    @PreAuthorize("hasRole('ADMIN')")
+   // @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/delete/{carId}")
     public ResponseEntity delete(@PathVariable @Positive Long carId){
         log.info("(/car/delete/{carId}), delete()");
