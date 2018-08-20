@@ -1,8 +1,10 @@
 
-Серверная часть проекта находится здесь: https://github.com/TribeExp/CarSharingForTribe
-                                         https://carsheringtest.herokuapp.com              
-Frontend проекта находится здесь: https://github.com/PavelKire/carsharing
-                                  https://carsharing-d2e1c.firebaseapp.com
+Серверная часть проекта находится здесь: 
+https://github.com/TribeExp/CarSharingForTribe
+https://carsheringtest.herokuapp.com              
+Frontend проекта находится здесь:
+https://github.com/PavelKire/carsharing
+https://carsharing-d2e1c.firebaseapp.com
 
 Для запуска проекта на своем компьютере необходимо внести изменения в 2 файла:
 1. utils/RequestControl (name, password, connectionUrl)
